@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+.periodic-table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.periodic-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.non-metal {
+    background-color: lightpink;
+}
+
+.metal {
+    background-color: rgb(172, 248, 172);
+}
+
+.noble-gas {
+    background-color: #ffcc99;
+}
+
+.metalloid {
+    background-color: lightgrey;
+}
+
+.artificial {
+    background-color: #8fbcd4;
+}
+
+.special {
+    background-color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
