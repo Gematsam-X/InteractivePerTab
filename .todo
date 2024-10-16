@@ -1,3 +1,4 @@
 OBBLIGATORI
+
 1. Aggiungere approfondimenti su almeno alcuni elementi
-2. Correggere i nomi degli elementi errati (se ce ne sono)
+2. Rimuovere bordi non necessari (tipo quelli dei td della legenda e quelli dei td di span)
