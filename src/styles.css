@@ -47,6 +47,6 @@ h1 {
     background-color: white;
 }
 
-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+.periodic-table td[colspan="2"], td[colspan="3"], td[colspan="4"], td[colspan="5"], td[colspan="8"], td[colspan="18"] {
+    border: none; /* Rimuove il bordo per i td della legenda */
 }
