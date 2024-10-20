@@ -21,6 +21,7 @@ h1 {
     padding: 10px;
     text-align: center;
     vertical-align: middle;
+    cursor: pointer;
 }
 
 .non-metal {
