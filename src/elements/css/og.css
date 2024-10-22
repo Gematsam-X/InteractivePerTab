@@ -1,1 +1,8 @@
 /* File CSS per Og */
+html {
+    background-color: #ddd;
+}
+
+h1 {
+    text-align: center;
+}
