@@ -1,12 +1,12 @@
 Shemira:
 
-Aurora:
+Aurora: Carbonio
 
-Giorgio:
+Giorgio: Arsenico
 
-Eric:
+Eric: Fosforo
 
-Joshua: Tungsteno
+Joshua: Tungsteno, Tennessine
 
 Fabio:
 
@@ -14,7 +14,7 @@ Narcisa:
 
 Steven:
 
-Michela:
+Michela: Azoto
 
 Allegra:
 
@@ -22,11 +22,11 @@ Luiza:
 
 Rebecca:
 
-Alessio:
+Alessio: Mercurio
 
 Federica:
 
-Elena:
+Elena: Potassio
 
 Andrea:
 
@@ -36,8 +36,12 @@ Christian:
 
 Silvia:
 
-Michele:
+Michele: Piombo
 
-Gionatan: Programma, oganesson
+Gionatan: Programma, Oganesson, Stronzio
 
 Thilina:
+
+Ambrosini:
+
+Banducci:
