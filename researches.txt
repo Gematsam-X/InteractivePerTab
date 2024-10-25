@@ -38,7 +38,7 @@ Silvia: Platino
 
 Michele: Piombo
 
-Gionatan: Programma, Oganesson, Stronzio, Attinio, Americio
+Gionatan: Programma, Oganesson, Stronzio, Attinio, Americio, Argon
 
 Thilina: Neon
 
