@@ -1,1 +1,12 @@
 /* File CSS per Ho */
+html {
+    background-color: #ddd;
+}
+
+h1, h2, h3, p {
+    text-align: center;
+}
+
+.main-img {
+    text-align: center;
+}
