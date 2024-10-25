@@ -1,4 +1,4 @@
-Shemira:
+Shemira: Oro
 
 Aurora: Carbonio
 
@@ -8,39 +8,39 @@ Eric: Fosforo
 
 Joshua: Tungsteno, Tennessine
 
-Fabio:
+Fabio: Cloro
 
-Narcisa:
+Narcisa: N.D.
 
-Steven:
+Steven: Alluminio
 
 Michela: Azoto
 
-Allegra:
+Allegra: Argento
 
-Luiza:
+Luiza: Ossigeno
 
-Rebecca:
+Rebecca: Iodio
 
 Alessio: Mercurio
 
-Federica:
+Federica: Zolfo
 
 Elena: Potassio
 
-Andrea:
+Andrea: Idorgeno
 
-Giona:
+Giona: Calcio
 
-Christian:
+Christian: Elio
 
-Silvia:
+Silvia: Platino
 
 Michele: Piombo
 
 Gionatan: Programma, Oganesson, Stronzio
 
-Thilina:
+Thilina: Neon
 
 Ambrosini:
 
