@@ -6,7 +6,7 @@ Giorgio: Arsenico
 
 Eric: Fosforo
 
-Joshua: Tungsteno, Tennessine, Xenon, Tantalio, Manganese
+Joshua: Tungsteno, Tennessine, Xenon, Tantalio, Manganese, Osmio
 
 Fabio: Cloro
 
@@ -38,7 +38,7 @@ Silvia: Platino
 
 Michele: Piombo
 
-Gionatan: Programma, Oganesson, Stronzio, Attinio, Americio, Argon, Astato, Bario, Boro, Bohrio, Bismuto, Berkelio, Bromo, Cadmio, Cerio, Californio, Protoattinio, Curio
+Gionatan: Programma, Oganesson, Stronzio, Attinio, Americio, Argon, Astato, Bario, Boro, Bohrio, Bismuto, Berkelio, Bromo, Cadmio, Cerio, Californio, Protoattinio, Curio, Copernico, Radio
 
 Thilina: Neon
 
