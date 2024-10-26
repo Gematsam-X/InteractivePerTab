@@ -38,7 +38,7 @@ Silvia: Platino
 
 Michele: Piombo
 
-Gionatan: Programma, Oganesson, Stronzio, Attinio, Americio, Argon, Astato, Bario, Boro, Bohrio, Bismuto, Berkelio, Bromo
+Gionatan: Programma, Oganesson, Stronzio, Attinio, Americio, Argon, Astato, Bario, Boro, Bohrio, Bismuto, Berkelio, Bromo, Cadmio, Cerio
 
 Thilina: Neon
 
