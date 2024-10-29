@@ -75,6 +75,7 @@ body.dark-theme {
 
 .dark-theme .periodic-table td {
     border: 1px solid #444;
+    color: #1c1c1c;
 }
 
 .dark-theme .non-metal {
@@ -108,7 +109,7 @@ body.dark-theme {
 }
 
 .dark-theme .legend {
-    color: #f4f4f9
+    color: #f4f4f9 !important;
 }
 
 .dark-theme .periodic-table td[colspan="2"],
