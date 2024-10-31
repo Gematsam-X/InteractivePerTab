@@ -1,43 +1,40 @@
-// Oggetto che contiene le immagini dei vari gruppi di elementi
-const images = {
-    metals: {
-        dark: "../assets/legend/dark/metals.png",
-        light: "../assets/legend/light/metals.png"
-    },
-    metalloids: {
-        dark: "../assets/legend/dark/metalloids.png",
-        light: "../assets/legend/light/metalloids.png"        
-    },
-    artificials: {
-        dark: "../assets/legend/dark/artificials.png",
-        light: "../assets/legend/light/artificials.png"
-    },
-    nonMetals: {
-        dark: "../assets/legend/dark/non-metals.png",
-        light: "../assets/legend/light/non-metals.png"
-    },
-    nobelGases: {
-        dark: "../assets/legend/dark/nobel-gases.png",
-        light: "../assets/legend/light/nobel-gases.png"
-    },
+// Array di immagini per ogni categoria
+const categories = {
+    metals: ["assets/legend/light/metals.png", "assets/legend/dark/metals.png"],
+    nonMetals: ["assets/legend/light/non-metals.png", "assets/legend/dark/non-metals.png"],
+    nobelGases: ["assets/legend/light/nobel-gases.png", "assets/legend/dark/nobel-gases.png"],
+    metalloids: ["assets/legend/light/metalloids.png", "assets/legend/dark/metalloids.png"],
+    artificials: ["assets/legend/light/artificials.png", "assets/legend/dark/artificials.png"]
 };
 
-// Recupera il tema corrente dal localStorage
-let currentTheme = localStorage.getItem('theme');
+let index = 0; // Imposta l'indice a light di default
 
-// Se il tema non è impostato, usa un tema di default (es. 'light')
-if (!currentTheme) {
-    currentTheme = 'light'; // Imposta il tema di default
+// Controlla se il tema è dark dal localStorage
+if (localStorage.getItem('theme') === 'dark') {
+    index = 1; // Imposta le immagini in dark mode
 }
 
-// Ottieni il bottone per il toggle del tema
-const toggleButton = document.getElementById("theme-toggle");
+// Funzione per cambiare tutte le immagini delle categorie
+function cambiaImmagini() {
+    for (const [category, images] of Object.entries(categories)) {
+        const imgElement = document.getElementById(`${category}_img`);
+        if (imgElement) {
+            imgElement.src = images[index];
+        }
+    }
+}
 
-// Assicurati di usare una stringa per l'ID dell'immagine
-let metalsImg = document.getElementById("metals_img");
+// Funzione che alterna tra le immagini light e dark
+function toggleImages() {
+    index = index === 0 ? 1 : 0; // Cambia indice tra light (0) e dark (1)
+    cambiaImmagini(); // Aggiorna le immagini
+}
 
-// Aggiungi un evento al bottone per cambiare l'immagine in base al tema
-toggleButton.addEventListener('click', () => {
-    // Cambia la sorgente dell'immagine in base al tema corrente
-    metalsImg.src = images.metals[currentTheme];
-});
+// Aggiungi l'evento click al pulsante con classe 'theme-toggle'
+const toggleButton = document.querySelector('.theme-toggle');
+if (toggleButton) {
+    toggleButton.addEventListener('click', toggleImages);
+}
+
+// Imposta le immagini iniziali al caricamento della pagina
+document.addEventListener('DOMContentLoaded', cambiaImmagini);
