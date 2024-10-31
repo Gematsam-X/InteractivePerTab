@@ -6,11 +6,11 @@ Giorgio: Arsenico
 
 Eric: Fosforo
 
-Joshua: Tungsteno, Tennessine, Xenon, Tantalio, Manganese, Osmio
+Joshua: Tungsteno, Tennessine, Xenon, Tantalio, Manganese, Osmio, Cobalto, Cromo, Cesio, Dubnio
 
 Fabio: Cloro
 
-Narcisa: 
+Narcisa: Magnesio
 
 Steven: Alluminio
 
