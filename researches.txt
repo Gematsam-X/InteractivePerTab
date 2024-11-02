@@ -38,7 +38,7 @@ Silvia: Platino
 
 Michele: Piombo
 
-Gionatan: Oganesson, Stronzio, Attinio, Americio, Argon, Astato, Bario, Boro, Bohrio, Bismuto, Berkelio, Bromo, Cadmio, Cerio, Californio, Protoattinio, Curio, Copernico, Radio, Neodimio, Lantanio, Vanadio, Zirconio, Zinco, Itterbio, Ittrio, Tullio, Titanio, Tallio, Antimonio, Torio, Tellurio, Tecnezio
+Gionatan: Oganesson, Stronzio, Attinio, Americio, Argon, Astato, Bario, Boro, Bohrio, Bismuto, Berkelio, Bromo, Cadmio, Cerio, Californio, Protoattinio, Curio, Copernico, Radio, Neodimio, Lantanio, Vanadio, Zirconio, Zinco, Itterbio, Ittrio, Tullio, Titanio, Tallio, Antimonio, Torio, Tellurio, Tecnezio, Rodio, Roentgenio
 
 Thilina: Neon
 
