@@ -6,7 +6,7 @@ Giorgio: Arsenico
 
 Eric: Fosforo
 
-Joshua: Tungsteno, Tennessine, Xenon, Tantalio, Manganese, Osmio, Cobalto, Cromo, Cesio, Dubnio, Darmstazio, Disprosio, Erbio, Einsteinio
+Joshua: Tungsteno, Tennessine, Xenon, Tantalio, Manganese, Osmio, Cobalto, Cromo, Cesio, Dubnio, Darmstazio, Disprosio, Erbio, Einsteinio, Europio, Fluoro, Ferro, Flerovio, Fermio, Francio, Gallio
 
 Fabio: Cloro
 
