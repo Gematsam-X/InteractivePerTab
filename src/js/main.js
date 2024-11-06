@@ -82,12 +82,19 @@ function cercaElemento() {
     }
 }
 
-// Esegui l’estrazione e poi assegna l’event listener
+// Esegui l’estrazione e poi assegna gli event listener
 document.addEventListener("DOMContentLoaded", () => {
     estraiDatiElementi()
         .then(() => {
-            // Aggiungi il listener solo dopo l'estrazione dei dati
+            // Aggiungi il listener per il clic del bottone
             document.getElementById("search-button").addEventListener("click", cercaElemento);
+
+            // Aggiungi il listener per il tasto Invio nella barra di ricerca
+            document.getElementById("search-input").addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    cercaElemento(); // Esegui la ricerca se premi "Enter"
+                }
+            });
         })
         .catch(error => console.error("Errore durante l'estrazione:", error));
 });
