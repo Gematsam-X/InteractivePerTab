@@ -1,10 +1,7 @@
 /* File CSS per C */
-html {
-    background-color: #ddd;
-}
-
-h1, h2, h3, p {
+h1, h2, h3, p, li {
     text-align: center;
+    list-style-position: inside;
 }
 
 .main-img {

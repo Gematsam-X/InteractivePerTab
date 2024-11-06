@@ -6,8 +6,8 @@ let filteredElements = [];
 
 // Itera su ciascun elemento <td>
 for (let i = 0; i < elements.length; i++) {
-    // Controlla se la classe non è vuota e non è "special"
-    if (elements[i].className !== "" && elements[i].className !== "special") {
+    // Controlla se la classe non è vuota e non è "special" o "legend"
+    if (elements[i].className !== "" && elements[i].className !== "special" && elements[i].className !== "legend") {
         // Aggiungi l'elemento all'array filtrato
         filteredElements.push(elements[i]);
         
