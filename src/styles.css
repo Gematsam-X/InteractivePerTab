@@ -64,6 +64,39 @@ button.theme-toggle {
     border-radius: 5px;
 }
 
+.search-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center; /* Allinea verticalmente il bottone con l'input */
+}
+
+#search-input {
+    height: 40px;
+    margin-right: 5px; /* Spazio tra l'input e il bottone */
+    padding: 0 10px;
+    font-size: 16px;
+    width: 19.4rem;
+    background-color: #1c1c1c;
+    color: #f4f4f9;
+    border: none;
+    border-radius: 5px;
+}
+
+#search-button {
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    border-radius: 5px;
+}
+
+#search-input::placeholder {
+    color: #ddd;
+}
+
 /* Stile per il tema scuro */
 body.dark-theme {
     background-color: #1c1c1c;
@@ -77,6 +110,15 @@ body.dark-theme {
 .dark-theme .periodic-table td {
     border: 1px solid #444;
     color: #1c1c1c;
+}
+
+.dark-theme #search-input {
+    background-color: #f4f4f9;
+    color: #1c1c1c;
+}
+
+.dark-theme #search-input::placeholder {
+    color: #4b4b4b;
 }
 
 .dark-theme .non-metal {
