@@ -68,6 +68,12 @@ function cercaElemento() {
     }
 
     const searchInput = document.getElementById("search-input").value.toLowerCase().trim();
+
+    if (searchInput === "") {
+        alert("Digita nel campo di ricerca il nome completo, il simbolo o il numero dell'elemento che vuoi cercare.");
+        return;
+    }
+
     const risultato = datiElementi.find(element => 
         element.symbol.toLowerCase() === searchInput || 
         element.elementName.toLowerCase() === searchInput || 
