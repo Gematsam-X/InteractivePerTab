@@ -4,7 +4,7 @@
 
 
 Sviluppata dalla 2D CDP, questa tavola periodica interattiva potrà aiutare studenti di varie fasce d'età nello studio. Contiene anche approfondimenti su ogni elemento.
-Visita il [sito di InteractivePerTab](https://interactivepertab2.webnode.it).
+Visita il [sito di InteractivePerTab](https://interactivepertab2.webnode.page).
 
 ### Cambiare tema
 
