@@ -18,8 +18,8 @@ E' possibile effettuare una ricerca per simbolo, numero o nome dell'elemento usa
 
 La realizzazione di questo progetto non sarebbe stata possibile senza l'aiuto di:
 
-[@Greninja12-debug] per aver fatto approfondimenti su alcuni elementi.
+- [@Greninja12-debug](github.com/Greninja12-debug) per aver fatto approfondimenti su alcuni elementi.
 
-[@RebyCDP] per aver reso possibile il coinvolgimento della classe 2D.
+- [@RebyCDP](github.com/RebyCDP) per aver reso possibile il coinvolgimento della classe 2D.
 
-[@laurabanducci93] per l'idea e la collaborazione generale.
+- [@laurabanducci93](github.com/laurabanducci93) per l'idea e la collaborazione generale.
