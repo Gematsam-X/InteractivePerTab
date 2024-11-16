@@ -89,6 +89,7 @@ button.theme-toggle {
   border: none;
   cursor: pointer;
   font-size: 16px;
+  font-family: 'FiraSansCondensedSemiBold', Arial;
   color: #f4f4f9;
   background-color: #1c1c1c;
   border-radius: 5px;
@@ -226,4 +227,23 @@ li {
 
 .main-img {
   text-align: center;
+}
+
+.return {
+  font-family: 'FiraSansCondensedSemiBold', Arial;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #f4f4f9;
+  background-color: #1c1c1c;
+  border-radius: 5px;
+}
+
+.dark-theme .return {
+  color: #1c1c1c;
+  background-color: #f4f4f9;
 }
