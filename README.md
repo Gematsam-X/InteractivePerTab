@@ -8,15 +8,15 @@ Visita il [sito di InteractivePerTab](https://interactivepertab2.webnode.page).
 
 ### Cambiare tema
 
-E' possibile cambiare dal tema chiaro a quello scuro e viceversa semplicemente cliccando il bottone in alto a sinistra presente in ogni pagina del progetto.
+È possibile cambiare dal tema chiaro a quello scuro e viceversa semplicemente cliccando il bottone in alto a sinistra presente in ogni pagina del progetto.
 
 ### Funzione di ricerca
 
-E' possibile effettuare una ricerca per simbolo, numero o nome dell'elemento usando l'apposito campo di ricerca posto in alto a destra.
+È possibile effettuare una ricerca per simbolo, numero o nome dell'elemento usando l'apposito campo di ricerca posto in alto a destra.
 
 ### Filtraggio per tipo
 
-E' possibile vedere evidenzioati gli elementi di un determinato tipo (metalli, semimetalli, gas nobili, elementi artificiali o non metalli) cliccando sul relativo tipo nella legenda.
+È possibile vedere evidenziati gli elementi di un determinato tipo (metalli, semimetalli, gas nobili, elementi artificiali o non metalli) cliccando sul relativo tipo nella legenda.
 
 ## Ringraziamenti
 
