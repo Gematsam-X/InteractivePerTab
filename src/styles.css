@@ -81,6 +81,8 @@ td[colspan="18"] {
   border: none; /* Rimuove il bordo per i td della legenda */
 }
 
+
+
 /* Regola generale per la transizione */
 .periodic-table td {
   transition: opacity 0.5s ease, transform 0.3s ease; /* Aggiunto effetto fluidità */
@@ -140,6 +142,10 @@ button.theme-toggle {
 
 #search-input::placeholder {
   color: #ddd;
+}
+
+.legend.artificial, .legend.non-metal, .legend.metal, .legend.noble-gas, .legend.metalloid {
+  background-color: #f4f4f9 !important;
 }
 
 /* Stile per il tema scuro */
@@ -263,4 +269,8 @@ li {
 .dark-theme .return {
   color: #1c1c1c;
   background-color: #f4f4f9;
+}
+
+.dark-theme .legend.artificial, .dark-theme .legend.non-metal, .dark-theme .legend.metal, .dark-theme .legend.noble-gas, .dark-theme .legend.metalloid {
+  background-color: #1c1c1c !important;
 }
