@@ -13,7 +13,7 @@
     <button class="theme-toggle">Cambia tema</button>
 
     <div class="search-container">
-      <input        
+      <input
         type="text"
         id="search-input"
         placeholder="Cerca per nome, simbolo o numero atomico"
@@ -25,13 +25,13 @@
       <tr>
         <td class="non-metal">1<br />H<br />Idrogeno<br />1.008</td>
         <td colspan="4"></td>
-        <td colspan="2" class="legend">
+        <td colspan="2" class="legend" id="metalsLegendContainer">
           <img
             id="metals_img"
             src="assets/legend/light/metals.png"
           /><br />Metalli
         </td>
-        <td colspan="2" class="legend">
+        <td colspan="2" class="legend" id="nobelGasesLegendContainer">
           <img
             id="nobelGases_img"
             src="assets/legend/light/nobel-gases.png"
@@ -44,13 +44,13 @@
         <td class="metal">3<br />Li<br />Litio<br />6.94</td>
         <td class="metal">4<br />Be<br />Berillio<br />9.0122</td>
         <td colspan="3"></td>
-        <td colspan="2" class="legend">
+        <td colspan="2" class="legend" id="metalloidsLegendContainer">
           <img
             id="metalloids_img"
             src="assets/legend/light/metalloids.png"
           /><br />Semimetalli
         </td>
-        <td colspan="2" class="legend">
+        <td colspan="2" class="legend" id="nonMetalsLegendContainer">
           <img
             id="nonMetals_img"
             src="assets/legend/light/non-metals.png"
@@ -68,7 +68,7 @@
         <td class="metal">11<br />Na<br />Sodio<br />22.99</td>
         <td class="metal">12<br />Mg<br />Magnesio<br />24.305</td>
         <td colspan="3"></td>
-        <td colspan="2" class="legend">
+        <td colspan="2" class="legend" id="artificialsLegendContainer">
           <img
             id="artificials_img"
             src="assets/legend/light/artificials.png"
@@ -170,7 +170,7 @@
         <td colspan="18"></td>
       </tr>
       <tr>
-        <td colspan="3" class="legend">
+        <td colspan="3" class="specialLegend">
           <br />Lantanoidi<br /><img src="assets/lanthanides.png" />
         </td>
         <td class="metal">57<br />La<br />Lantanio<br />138.91</td>
@@ -190,7 +190,7 @@
         <td class="metal">71<br />Lu<br />Lutezio<br />174.97</td>
       </tr>
       <tr>
-        <td colspan="3" class="legend">
+        <td colspan="3" class="specialLegend">
           <br />Attinoidi<br /><img src="assets/actinides.png" />
         </td>
         <td class="metal">89<br />Ac<br />Attinio<br />[227]</td>

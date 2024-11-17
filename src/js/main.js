@@ -10,7 +10,8 @@ for (let i = 0; i < elements.length; i++) {
   if (
     elements[i].className !== "" &&
     elements[i].className !== "special" &&
-    elements[i].className !== "legend"
+    elements[i].className !== "legend" &&
+    elements[i].className !== "specialLegend"
   ) {
     // Aggiungi l'elemento all'array filtrato
     filteredElements.push(elements[i]);
@@ -66,10 +67,6 @@ function estraiDatiElementi() {
 
 // Funzione per cercare l'elemento
 function cercaElemento() {
-  if (!Array.isArray(datiElementi) || datiElementi.length === 0) {
-    console.error("Dati degli elementi non disponibili!");
-    return;
-  }
 
   const searchInput = document
     .getElementById("search-input")
@@ -100,23 +97,39 @@ function cercaElemento() {
   }
 }
 
-// Esegui l’estrazione e poi assegna gli event listener
-document.addEventListener("DOMContentLoaded", () => {
-  estraiDatiElementi()
-    .then(() => {
-      // Aggiungi il listener per il clic del bottone
-      document
-        .getElementById("search-button")
-        .addEventListener("click", cercaElemento);
+const metals = document.getElementById("metalsLegendContainer");
+const nonMetals = document.getElementById("nonMetalsLegendContainer");
+const metalloids = document.getElementById("metalloidsLegendContainer");
+const artificials = document.getElementById("artificialsLegendContainer");
+const nobleGases = document.getElementById("nobelGasesLegendContainer");
 
-      // Aggiungi il listener per il tasto Invio nella barra di ricerca
-      document
-        .getElementById("search-input")
-        .addEventListener("keydown", (event) => {
-          if (event.key === "Enter") {
-            cercaElemento(); // Esegui la ricerca se premi "Enter"
-          }
+let activeCategory = null; // Tiene traccia della categoria attiva
+
+function adjustTransparency(targetClass) {
+    const elements = document.querySelectorAll(".metal, .non-metal, .metalloid, .artificial, .noble-gas, .special, .specialLegend");
+
+    if (activeCategory === targetClass) {
+        // Se è già selezionata, ripristina tutto
+        elements.forEach(element => {
+            element.classList.remove("faded");
         });
-    })
-    .catch((error) => console.error("Errore durante l'estrazione:", error));
-});
+        activeCategory = null; // Nessuna categoria attiva
+    } else {
+        // Altrimenti, applica la trasparenza
+        elements.forEach(element => {
+            if (element.classList.contains(targetClass)) {
+                element.classList.remove("faded"); // Mostra gli elementi della categoria
+            } else {
+                element.classList.add("faded"); // Rende trasparenti gli altri
+            }
+        });
+        activeCategory = targetClass; // Imposta la nuova categoria attiva
+    }
+}
+
+// Eventi per ogni categoria
+metals.addEventListener("click", () => adjustTransparency("metal"));
+nonMetals.addEventListener("click", () => adjustTransparency("non-metal"));
+metalloids.addEventListener("click", () => adjustTransparency("metalloid"));
+artificials.addEventListener("click", () => adjustTransparency("artificial"));
+nobleGases.addEventListener("click", () => adjustTransparency("noble-gas"));

@@ -14,12 +14,16 @@ E' possibile cambiare dal tema chiaro a quello scuro e viceversa semplicemente c
 
 E' possibile effettuare una ricerca per simbolo, numero o nome dell'elemento usando l'apposito campo di ricerca posto in alto a destra.
 
+### Filtraggio per tipo
+
+E' possibile vedere evidenzioati gli elementi di un determinato tipo (metalli, semimetalli, gas nobili, elementi artificiali o non metalli) cliccando sul relativo tipo nella legenda.
+
 ## Ringraziamenti
 
 La realizzazione di questo progetto non sarebbe stata possibile senza l'aiuto di:
 
-- [@Greninja12-debug](https://github.com/Greninja12-debug) per aver fatto approfondimenti su alcuni elementi.
+- [@Greninja12-debug](https://github.com/Greninja12-debug) che ringrazio per aver fatto approfondimenti su alcuni elementi.
 
-- [@RebyCDP](https://github.com/RebyCDP) per aver reso possibile il coinvolgimento della classe 2D.
+- [@RebyCDP](https://github.com/RebyCDP) che ringrazio per aver reso possibile il coinvolgimento della classe 2D.
 
-- [@laurabanducci93](https://github.com/laurabanducci93) per l'idea e la collaborazione generale.
+- [@laurabanducci93](https://github.com/laurabanducci93) che ringrazio per l'idea e la collaborazione generale.

@@ -81,6 +81,19 @@ td[colspan="18"] {
   border: none; /* Rimuove il bordo per i td della legenda */
 }
 
+/* Regola generale per la transizione */
+.periodic-table td {
+  transition: opacity 0.5s ease, transform 0.3s ease; /* Aggiunto effetto fluidità */
+}
+
+/* Classe per rendere gli elementi trasparenti */
+.faded {
+  pointer-events: none;
+  opacity: 0.2; /* Riduce l'opacità */
+}
+
+
+
 button.theme-toggle {
   position: fixed;
   top: 20px;
@@ -195,6 +208,10 @@ body.dark-theme {
 
 .dark-theme .special {
   background-color: #636e72;
+}
+
+.dark-theme .specialLegend {
+  color: #f4f4f9 !important;
 }
 
 .dark-theme button.theme-toggle {
