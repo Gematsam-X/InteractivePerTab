@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Auto Git Pull",
+            "type": "shell",
+            "command": "git pull",
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "group": "build"
+        }
+    ]
+}

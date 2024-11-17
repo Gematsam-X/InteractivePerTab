@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InteractivePerTab</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="assets/favicon.ico" />
+  </head>
+  <body>
+    <h1>InteractivePerTab - Tavola Periodica Interattiva</h1>
+
+    <button class="theme-toggle">Cambia tema</button>
+
+    <div class="search-container">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Cerca per nome, simbolo o numero atomico"
+      />
+      <button id="search-button"><img src="assets/lens.png" /></button>
+    </div>
+
+    <table class="periodic-table">
+      <tr>
+        <td class="non-metal">1<br />H<br />Idrogeno<br />1.008</td>
+        <td colspan="4"></td>
+        <td colspan="2" class="legend metal" id="metalsLegendContainer">
+          <img
+            id="metals_img"
+            src="assets/legend/light/metals.png"
+          /><br />Metalli
+        </td>
+        <td colspan="2" class="legend noble-gas" id="nobelGasesLegendContainer">
+          <img
+            id="nobelGases_img"
+            src="assets/legend/light/nobel-gases.png"
+          /><br />Gas nobili
+        </td>
+        <td colspan="8"></td>
+        <td class="noble-gas">2<br />He<br />Elio<br />4.0026</td>
+      </tr>
+      <tr>
+        <td class="metal">3<br />Li<br />Litio<br />6.94</td>
+        <td class="metal">4<br />Be<br />Berillio<br />9.0122</td>
+        <td colspan="3"></td>
+        <td colspan="2" class="legend metalloid" id="metalloidsLegendContainer">
+          <img
+            id="metalloids_img"
+            src="assets/legend/light/metalloids.png"
+          /><br />Semimetalli
+        </td>
+        <td colspan="2" class="legend non-metal" id="nonMetalsLegendContainer">
+          <img
+            id="nonMetals_img"
+            src="assets/legend/light/non-metals.png"
+          /><br />Non metalli
+        </td>
+        <td colspan="3"></td>
+        <td class="metalloid">5<br />B<br />Boro<br />10.81</td>
+        <td class="non-metal">6<br />C<br />Carbonio<br />12.011</td>
+        <td class="non-metal">7<br />N<br />Azoto<br />14.007</td>
+        <td class="non-metal">8<br />O<br />Ossigeno<br />15.999</td>
+        <td class="non-metal">9<br />F<br />Fluoro<br />18.998</td>
+        <td class="noble-gas">10<br />Ne<br />Neon<br />20.180</td>
+      </tr>
+      <tr>
+        <td class="metal">11<br />Na<br />Sodio<br />22.99</td>
+        <td class="metal">12<br />Mg<br />Magnesio<br />24.305</td>
+        <td colspan="3"></td>
+        <td
+          colspan="2"
+          class="legend artificial"
+          id="artificialsLegendContainer"
+        >
+          <img
+            id="artificials_img"
+            src="assets/legend/light/artificials.png"
+          /><br />Elementi artificiali
+        </td>
+        <td colspan="5"></td>
+        <td class="metal">13<br />Al<br />Alluminio<br />26.982</td>
+        <td class="metalloid">14<br />Si<br />Silicio<br />28.085</td>
+        <td class="non-metal">15<br />P<br />Fosforo<br />30.974</td>
+        <td class="non-metal">16<br />S<br />Zolfo<br />32.06</td>
+        <td class="non-metal">17<br />Cl<br />Cloro<br />35.45</td>
+        <td class="noble-gas">18<br />Ar<br />Argon<br />39.948</td>
+      </tr>
+      <tr>
+        <td class="metal">19<br />K<br />Potassio<br />39.098</td>
+        <td class="metal">20<br />Ca<br />Calcio<br />40.078</td>
+        <td class="metal">21<br />Sc<br />Scandio<br />44.956</td>
+        <td class="metal">22<br />Ti<br />Titanio<br />47.867</td>
+        <td class="metal">23<br />V<br />Vanadio<br />50.942</td>
+        <td class="metal">24<br />Cr<br />Cromo<br />51.996</td>
+        <td class="metal">25<br />Mn<br />Manganese<br />54.938</td>
+        <td class="metal">26<br />Fe<br />Ferro<br />55.845</td>
+        <td class="metal">27<br />Co<br />Cobalto<br />58.933</td>
+        <td class="metal">28<br />Ni<br />Nichel<br />58.693</td>
+        <td class="metal">29<br />Cu<br />Rame<br />63.546</td>
+        <td class="metal">30<br />Zn<br />Zinco<br />65.38</td>
+        <td class="metal">31<br />Ga<br />Gallio<br />69.723</td>
+        <td class="metalloid">32<br />Ge<br />Germanio<br />72.63</td>
+        <td class="metalloid">33<br />As<br />Arsenico<br />74.922</td>
+        <td class="non-metal">34<br />Se<br />Selenio<br />78.96</td>
+        <td class="non-metal">35<br />Br<br />Bromo<br />79.904</td>
+        <td class="noble-gas">36<br />Kr<br />Kripton<br />83.798</td>
+      </tr>
+      <tr>
+        <td class="metal">37<br />Rb<br />Rubidio<br />85.468</td>
+        <td class="metal">38<br />Sr<br />Stronzio<br />87.62</td>
+        <td class="metal">39<br />Y<br />Ittrio<br />88.906</td>
+        <td class="metal">40<br />Zr<br />Zirconio<br />91.224</td>
+        <td class="metal">41<br />Nb<br />Niobio<br />92.906</td>
+        <td class="metal">42<br />Mo<br />Molibdeno<br />95.95</td>
+        <td class="artificial">43<br />Tc<br />Tecnezio<br />[98]</td>
+        <td class="metal">44<br />Ru<br />Rutenio<br />101.07</td>
+        <td class="metal">45<br />Rh<br />Rodio<br />102.91</td>
+        <td class="metal">46<br />Pd<br />Palladio<br />106.42</td>
+        <td class="metal">47<br />Ag<br />Argento<br />107.87</td>
+        <td class="metal">48<br />Cd<br />Cadmio<br />112.41</td>
+        <td class="metal">49<br />In<br />Indio<br />114.82</td>
+        <td class="metal">50<br />Sn<br />Stagno<br />118.71</td>
+        <td class="metalloid">51<br />Sb<br />Antimonio<br />121.76</td>
+        <td class="metalloid">52<br />Te<br />Tellurio<br />127.6</td>
+        <td class="non-metal">53<br />I<br />Iodio<br />126.9</td>
+        <td class="noble-gas">54<br />Xe<br />Xenon<br />131.29</td>
+      </tr>
+      <tr>
+        <td class="metal">55<br />Cs<br />Cesio<br />132.91</td>
+        <td class="metal">56<br />Ba<br />Bario<br />137.33</td>
+        <td class="special lanthanides">
+          57-71<br /><img src="assets/lanthanides.png" /><br />Lantanoidi
+        </td>
+        <td class="metal">72<br />Hf<br />Afnio<br />178.49</td>
+        <td class="metal">73<br />Ta<br />Tantalio<br />180.95</td>
+        <td class="metal">74<br />W<br />Tungsteno<br />183.84</td>
+        <td class="metal">75<br />Re<br />Renio<br />186.21</td>
+        <td class="metal">76<br />Os<br />Osmio<br />190.23</td>
+        <td class="metal">77<br />Ir<br />Iridio<br />192.22</td>
+        <td class="metal">78<br />Pt<br />Platino<br />195.08</td>
+        <td class="metal">79<br />Au<br />Oro<br />196.97</td>
+        <td class="metal">80<br />Hg<br />Mercurio<br />200.59</td>
+        <td class="metal">81<br />Tl<br />Tallio<br />204.38</td>
+        <td class="metal">82<br />Pb<br />Piombo<br />207.2</td>
+        <td class="metal">83<br />Bi<br />Bismuto<br />208.98</td>
+        <td class="metalloid">84<br />Po<br />Polonio<br />[209]</td>
+        <td class="metalloid">85<br />At<br />Astato<br />[210]</td>
+        <td class="noble-gas">86<br />Rn<br />Radon<br />[222]</td>
+      </tr>
+      <tr>
+        <td class="metal">87<br />Fr<br />Francio<br />[223]</td>
+        <td class="metal">88<br />Ra<br />Radio<br />[226]</td>
+        <td class="special actinides">
+          89-103<br /><img src="assets/actinides.png" /><br />Attinoidi
+        </td>
+        <td class="artificial">104<br />Rf<br />Rutherfordio<br />[267]</td>
+        <td class="artificial">105<br />Db<br />Dubnio<br />[270]</td>
+        <td class="artificial">106<br />Sg<br />Siborgio<br />[271]</td>
+        <td class="artificial">107<br />Bh<br />Bohrio<br />[270]</td>
+        <td class="artificial">108<br />Hs<br />Hassio<br />[277]</td>
+        <td class="artificial">109<br />Mt<br />Meitnerio<br />[276]</td>
+        <td class="artificial">110<br />Ds<br />Darmstazio<br />[281]</td>
+        <td class="artificial">111<br />Rg<br />Roentgenio<br />[282]</td>
+        <td class="artificial">112<br />Cn<br />Copernico<br />[285]</td>
+        <td class="artificial">113<br />Nh<br />Nihonium<br />[286]</td>
+        <td class="artificial">114<br />Fl<br />Flerovio<br />[289]</td>
+        <td class="artificial">115<br />Mc<br />Moscovium<br />[290]</td>
+        <td class="artificial">116<br />Lv<br />Livermorio<br />[293]</td>
+        <td class="artificial">117<br />Ts<br />Tenessine<br />[294]</td>
+        <td class="artificial">118<br />Og<br />Oganesson<br />[294]</td>
+      </tr>
+      <tr>
+        <td colspan="18"></td>
+      </tr>
+      <tr>
+        <td colspan="3" class="specialLegend lanthanides">
+          <br />Lantanoidi<br /><img src="assets/lanthanides.png" />
+        </td>
+        <td class="metal">57<br />La<br />Lantanio<br />138.91</td>
+        <td class="metal">58<br />Ce<br />Cerio<br />140.12</td>
+        <td class="metal">59<br />Pr<br />Praseodimio<br />140.91</td>
+        <td class="metal">60<br />Nd<br />Neodimio<br />144.24</td>
+        <td class="artificial">61<br />Pm<br />Promezio<br />[145]</td>
+        <td class="metal">62<br />Sm<br />Samario<br />150.36</td>
+        <td class="metal">63<br />Eu<br />Europio<br />151.96</td>
+        <td class="metal">64<br />Gd<br />Gadolinio<br />157.25</td>
+        <td class="metal">65<br />Tb<br />Terbio<br />158.93</td>
+        <td class="metal">66<br />Dy<br />Disprosio<br />162.5</td>
+        <td class="metal">67<br />Ho<br />Olmio<br />164.93</td>
+        <td class="metal">68<br />Er<br />Erbio<br />167.26</td>
+        <td class="metal">69<br />Tm<br />Tullio<br />168.93</td>
+        <td class="metal">70<br />Yb<br />Itterbio<br />173.04</td>
+        <td class="metal">71<br />Lu<br />Lutezio<br />174.97</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="specialLegend actinides">
+          <br />Attinoidi<br /><img src="assets/actinides.png" />
+        </td>
+        <td class="metal">89<br />Ac<br />Attinio<br />[227]</td>
+        <td class="metal">90<br />Th<br />Torio<br />232.04</td>
+        <td class="metal">91<br />Pa<br />Protattinio<br />231.04</td>
+        <td class="metal">92<br />U<br />Uranio<br />238.03</td>
+        <td class="artificial">93<br />Np<br />Nettunio<br />[237]</td>
+        <td class="artificial">94<br />Pu<br />Plutonio<br />[244]</td>
+        <td class="artificial">95<br />Am<br />Americio<br />[243]</td>
+        <td class="artificial">96<br />Cm<br />Curio<br />[247]</td>
+        <td class="artificial">97<br />Bk<br />Berkelio<br />[247]</td>
+        <td class="artificial">98<br />Cf<br />Californio<br />[251]</td>
+        <td class="artificial">99<br />Es<br />Einsteinio<br />[252]</td>
+        <td class="artificial">100<br />Fm<br />Fermio<br />[257]</td>
+        <td class="artificial">101<br />Md<br />Mendelevio<br />[258]</td>
+        <td class="artificial">102<br />No<br />Nobelio<br />[259]</td>
+        <td class="artificial">103<br />Lr<br />Lawrenzio<br />[262]</td>
+      </tr>
+    </table>
+    <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/legend.js"></script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+Shemira: Oro
+
+Aurora: Carbonio
+
+Giorgio: Arsenico
+
+Eric: Fosforo
+
+Joshua: Tungsteno, Tennessine, Xenon, Tantalio, Manganese, Osmio, Cobalto, Cromo, Cesio, Dubnio, Darmstazio, Disprosio, Erbio, Einsteinio, Europio, Fluoro, Ferro, Flerovio, Fermio, Francio, Gallio
+
+Fabio: Cloro
+
+Narcisa: Magnesio
+
+Steven: Alluminio
+
+Michela: Azoto
+
+Allegra: Argento
+
+Luiza: Ossigeno
+
+Rebecca: Iodio
+
+Alessio: Mercurio
+
+Federica: Zolfo
+
+Elena: Potassio
+
+Andrea: Idrogeno
+
+Giona: Calcio
+
+Christian: Elio
+
+Silvia: Platino
+
+Michele: Piombo
+
+Gionatan: Oganesson, Stronzio, Attinio, Americio, Argon, Astato, Bario, Boro, Bohrio, Bismuto, Berkelio, Bromo, Cadmio, Cerio, Californio, Protoattinio, Curio, Copernico, Radio, Neodimio, Lantanio, Vanadio, Zirconio, Zinco, Itterbio, Ittrio, Tullio, Titanio, Tallio, Antimonio, Torio, Tellurio, Tecnezio, Rodio, Roentgenio, Hassio, Afnio, Siborgio, Scandio, Samario, Silicio, Rutenio, Stagno, Terbio, Radon, Rutherfordio, Renio, Rubidio, Plutonio, Praseodimio, Polonio, Promezio, Palladio, Nettunio, Nobelio, Nichel, Nihonium, Niobio, Sodio, Meitnerio, Molibdeno, Mendelevio, Moscovium, Lawrenzio, Livermorio, Litio, Iridio, Indio, Olmio, Germanio, Gadolinio
+
+Thilina: Neon
+
+Ambrosini: Lutezio, Kripton
