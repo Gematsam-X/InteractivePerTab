@@ -129,7 +129,6 @@ const nobleGases = document.getElementById("nobelGasesLegendContainer");
 const lanthanides = document.querySelectorAll(".lanthanides");
 const actinides = document.querySelectorAll(".actinides");
 
-
 let activeCategory = null; // Tiene traccia della categoria attiva
 
 function adjustTransparency(targetClass) {
@@ -155,7 +154,7 @@ function adjustTransparency(targetClass) {
     activeCategory = targetClass; // Imposta la nuova categoria attiva
   }
 }
-let activeCategoryRange = null;  // Variabile per tracciare la categoria attiva
+let activeCategoryRange = null; // Variabile per tracciare la categoria attiva
 
 // Funzione per evidenziare una categoria specifica e gestire il toggle
 function highlightCategoryRange(start, end, category) {

@@ -81,8 +81,6 @@ td[colspan="18"] {
   border: none; /* Rimuove il bordo per i td della legenda */
 }
 
-
-
 /* Regola generale per la transizione */
 .periodic-table td {
   transition: opacity 0.5s ease, transform 0.3s ease; /* Aggiunto effetto fluidità */
@@ -94,8 +92,6 @@ td[colspan="18"] {
   opacity: 0.2; /* Riduce l'opacità */
 }
 
-
-
 button.theme-toggle {
   position: fixed;
   top: 20px;
@@ -104,7 +100,7 @@ button.theme-toggle {
   border: none;
   cursor: pointer;
   font-size: 16px;
-  font-family: 'FiraSansCondensedSemiBold', Arial;
+  font-family: "FiraSansCondensedSemiBold", Arial;
   color: #f4f4f9;
   background-color: #1c1c1c;
   border-radius: 5px;
@@ -144,7 +140,11 @@ button.theme-toggle {
   color: #ddd;
 }
 
-.legend.artificial, .legend.non-metal, .legend.metal, .legend.noble-gas, .legend.metalloid {
+.legend.artificial,
+.legend.non-metal,
+.legend.metal,
+.legend.noble-gas,
+.legend.metalloid {
   background-color: #f4f4f9 !important;
 }
 
@@ -253,7 +253,7 @@ li {
 }
 
 .return {
-  font-family: 'FiraSansCondensedSemiBold', Arial;
+  font-family: "FiraSansCondensedSemiBold", Arial;
   position: fixed;
   top: 20px;
   right: 20px;
@@ -271,6 +271,10 @@ li {
   background-color: #f4f4f9;
 }
 
-.dark-theme .legend.artificial, .dark-theme .legend.non-metal, .dark-theme .legend.metal, .dark-theme .legend.noble-gas, .dark-theme .legend.metalloid {
+.dark-theme .legend.artificial,
+.dark-theme .legend.non-metal,
+.dark-theme .legend.metal,
+.dark-theme .legend.noble-gas,
+.dark-theme .legend.metalloid {
   background-color: #1c1c1c !important;
 }
