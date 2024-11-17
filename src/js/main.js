@@ -1,3 +1,13 @@
+// Estrai i dati quando la pagina è pronta
+window.addEventListener('load', function () {
+  estraiDatiElementi().then(() => {
+    console.log("Dati estratti con successo!");
+  }).catch((error) => {
+    console.error("Errore durante l'estrazione dei dati:", error);
+  });
+});
+
+
 // Seleziona tutti gli elementi <td>
 let elements = document.getElementsByTagName("td");
 
@@ -65,9 +75,8 @@ function estraiDatiElementi() {
   });
 }
 
-// Funzione per cercare l'elemento
+// Funzione per cercare l'elemento (rimane invariata)
 function cercaElemento() {
-
   const searchInput = document
     .getElementById("search-input")
     .value.toLowerCase()
@@ -96,6 +105,17 @@ function cercaElemento() {
     );
   }
 }
+
+// Evento per il bottone di ricerca
+document.getElementById("search-button").addEventListener('click', cercaElemento);
+
+// Aggiungi un ascoltatore per l'evento 'keypress' sul campo di input
+document.getElementById("search-input").addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    cercaElemento(); // Esegui la funzione di ricerca
+  }
+});
+
 
 const metals = document.getElementById("metalsLegendContainer");
 const nonMetals = document.getElementById("nonMetalsLegendContainer");
