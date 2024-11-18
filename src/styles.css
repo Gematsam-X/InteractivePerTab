@@ -275,10 +275,13 @@ h1,
 h2,
 h3,
 p,
-li {
-  text-align: center;
-}
-
+li,
 ul {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 85%;
+  word-wrap: break-word;
+  white-space: normal;
   list-style-position: inside;
 }
