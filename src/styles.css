@@ -26,6 +26,7 @@ h1 {
   border: 1px solid #ddd;
   padding: 10px;
   text-align: center;
+  user-select: none;
 }
 
 .non-metal {
