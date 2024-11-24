@@ -85,7 +85,7 @@ function cercaElemento() {
 
   if (searchInput === "") {
     alert(
-      "Digita nel campo di ricerca il nome completo, il simbolo o il numero dell'elemento che vuoi cercare."
+      "Digita nel campo di ricerca il nome completo, il simbolo o il numero atomico dell'elemento che vuoi cercare."
     );
     return;
   }
@@ -102,7 +102,7 @@ function cercaElemento() {
     window.location.href = `elements/html/${risultato.symbol.toLowerCase()}.html`;
   } else {
     alert(
-      "Elemento non trovato. Assicurati di digitare il nome esatto dell'elemento o la sua sigla."
+      "Elemento non trovato. Assicurati di digitare il nome esatto dell'elemento, la sua sigla o il suo numero atomico correttamente."
     );
   }
 }
