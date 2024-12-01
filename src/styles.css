@@ -286,3 +286,7 @@ ul {
   white-space: normal;
   list-style-position: inside;
 }
+
+a {
+  color: blue;
+}
