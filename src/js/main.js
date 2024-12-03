@@ -121,6 +121,7 @@ document
     }
   });
 
+// Definisci le categorie
 const metals = document.getElementById("metalsLegendContainer");
 const nonMetals = document.getElementById("nonMetalsLegendContainer");
 const metalloids = document.getElementById("metalloidsLegendContainer");
@@ -131,6 +132,7 @@ const actinides = document.querySelectorAll(".actinides");
 
 let activeCategory = null; // Tiene traccia della categoria attiva
 
+// Funzione per applicare la trasparenza agli elementi
 function adjustTransparency(targetClass) {
   const elements = document.querySelectorAll(
     ".metal, .non-metal, .metalloid, .artificial, .noble-gas, .special, .specialLegend, .legend"
@@ -154,6 +156,7 @@ function adjustTransparency(targetClass) {
     activeCategory = targetClass; // Imposta la nuova categoria attiva
   }
 }
+
 let activeCategoryRange = null; // Variabile per tracciare la categoria attiva
 
 // Funzione per evidenziare una categoria specifica e gestire il toggle
@@ -227,3 +230,24 @@ nonMetals.addEventListener("click", () => adjustTransparency("non-metal"));
 metalloids.addEventListener("click", () => adjustTransparency("metalloid"));
 artificials.addEventListener("click", () => adjustTransparency("artificial"));
 nobleGases.addEventListener("click", () => adjustTransparency("noble-gas"));
+
+
+// TODO: IMLEMENTARE LOGICA 
+    // Al caricamento della pagina, leggi il nome dell'elemento corrente da localStorage
+    const currentElement = window.localStorage.getItem('currentElement');
+    
+    // Se c'è un elemento corrente, aggiungi la classe .faded agli altri
+    if (currentElement) {
+      const allElements = document.querySelectorAll("td");
+      
+      allElements.forEach(element => {
+        if (element.id !== currentElement) {
+          element.classList.add('faded');
+        } else {
+          element.classList.remove('faded');
+        }
+      });
+
+      // Rimuovi l'elemento da localStorage dopo averlo usato
+      window.localStorage.removeItem('currentElement');
+    }
