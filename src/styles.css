@@ -26,6 +26,7 @@ h1 {
   border: 1px solid #ddd;
   padding: 10px;
   text-align: center;
+  user-select: none;
 }
 
 .non-metal {
@@ -83,7 +84,7 @@ td[colspan="18"] {
 
 /* Regola generale per la transizione */
 .periodic-table td {
-  transition: opacity 0.5s ease, transform 0.3s ease; /* Aggiunto effetto fluidità */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Aggiunto effetto fluidità */
 }
 
 /* Classe per rendere gli elementi trasparenti */
