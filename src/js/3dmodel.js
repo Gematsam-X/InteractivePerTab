@@ -186,7 +186,9 @@ export default function create3dModel(electrons1, electrons2, electrons3, electr
     .getElementById("pauseCameraButton")
     .addEventListener("click", function () {
       cameraMove = !cameraMove;
-      this.innerText = cameraMove ? "Pausa camera" : "Riprendi camera";
+      this.innerText = cameraMove
+      ? "Pausa camera"
+      : "Riprendi camera";
     });
 
   document
