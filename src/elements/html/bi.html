@@ -14,6 +14,20 @@
     <div class="main-img">
       <img src="../assets/Bi/bi.png" alt="Immagine di Bismuto (Bi)" />
     </div>
+    <div id="rendererContainer"></div>
+
+    <div class="controls">
+      <button id="pauseButton">Pausa</button>
+      <button id="speedUpButton">Velocizza</button>
+      <button id="slowDownButton">Rallenta</button>
+      <button id="pauseCameraButton">Pausa camera</button>
+      <button id="pauseAnimationsButton">Pausa animazioni</button>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
 
     <h2>Numero atomico:</h2>
     <p>83</p>
@@ -27,10 +41,11 @@
     <h2>Descrizione</h2>
     <p>
       Il bismuto è un elemento chimico della tavola periodica con simbolo Bi e
-      numero atomico 83. È un metallo di post-transizione pesante con una densità elevata e una
-      bassa tossicità rispetto ad altri metalli pesanti. Il bismuto è noto per
-      la sua colorazione unica e la sua struttura cristallina complessa, che lo
-      rendono esteticamente gradevole quando cristallizza.
+      numero atomico 83. È un metallo di post-transizione pesante con una
+      densità elevata e una bassa tossicità rispetto ad altri metalli pesanti.
+      Il bismuto è noto per la sua colorazione unica e la sua struttura
+      cristallina complessa, che lo rendono esteticamente gradevole quando
+      cristallizza.
     </p>
 
     <h2>Uso</h2>
@@ -64,6 +79,14 @@
     </p>
     <button class="theme-toggle">Cambia tema</button>
     <a href="../../index.html"><button class="return">Indietro</button></a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script type="module">
+      import create3dModel from "../../js/3dModel.js";
+
+      create3dModel(2, 8, 18, 32, 18, 5);
+    </script>
+
     <script src="../../js/theme.js"></script>
   </body>
 </html>

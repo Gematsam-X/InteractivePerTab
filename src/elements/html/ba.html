@@ -14,6 +14,20 @@
     <div class="main-img">
       <img src="../assets/Ba/ba.png" title="Bario (Ba)" />
     </div>
+    <div id="rendererContainer"></div>
+
+    <div class="controls">
+      <button id="pauseButton">Pausa</button>
+      <button id="speedUpButton">Velocizza</button>
+      <button id="slowDownButton">Rallenta</button>
+      <button id="pauseCameraButton">Pausa camera</button>
+      <button id="pauseAnimationsButton">Pausa animazioni</button>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
 
     <h2>Numero atomico:</h2>
     <p>56</p>
@@ -27,13 +41,12 @@
     <h2>Descrizione</h2>
     <p>
       Il bario è un elemento chimico appartenente al gruppo 2 della tavola
-      periodica, con simbolo "Ba". È un metallo
-      alcalino-terroso di colore bianco argenteo, molto reattivo, soprattutto
-      con l'acqua e l'aria. Il bario non si trova libero in natura, ma è
-      presente in diversi minerali, come la barite e la witherite. A causa della
-      sua reattività, il bario viene tipicamente conservato in ambienti inerti.
-      È utilizzato in diverse applicazioni industriali e scientifiche grazie
-      alle sue proprietà uniche.
+      periodica, con simbolo "Ba". È un metallo alcalino-terroso di colore
+      bianco argenteo, molto reattivo, soprattutto con l'acqua e l'aria. Il
+      bario non si trova libero in natura, ma è presente in diversi minerali,
+      come la barite e la witherite. A causa della sua reattività, il bario
+      viene tipicamente conservato in ambienti inerti. È utilizzato in diverse
+      applicazioni industriali e scientifiche grazie alle sue proprietà uniche.
     </p>
 
     <h2>Uso</h2>
@@ -72,6 +85,14 @@
     </p>
     <button class="theme-toggle">Cambia tema</button>
     <a href="../../index.html"><button class="return">Indietro</button></a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script type="module">
+      import create3dModel from "../../js/3dModel.js";
+
+      create3dModel(2, 8, 18, 18, 8, 2);
+    </script>
+
     <script src="../../js/theme.js"></script>
   </body>
 </html>

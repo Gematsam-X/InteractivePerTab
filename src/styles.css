@@ -322,11 +322,10 @@ button:hover {
 }
 
 #rendererContainer {
-  margin: 20px auto; /* Centra il contenitore orizzontalmente e aggiunge margine sopra e sotto */
-  display: flex; /* Usa flexbox per il contenuto */
-  justify-content: center; /* Centra orizzontalmente il contenuto */
-  align-items: center; /* Centra verticalmente il contenuto */
-  position: relative; /* Posizione relativa per gestire meglio l'allineamento */
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #f4f4f9;
 }
 

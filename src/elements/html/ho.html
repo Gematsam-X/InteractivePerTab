@@ -14,6 +14,20 @@
     <div class="main-img">
       <img src="../assets/Ho/ho.png" alt="Immagine dell'olmidio" />
     </div>
+    <div id="rendererContainer"></div>
+
+    <div class="controls">
+      <button id="pauseButton">Pausa</button>
+      <button id="speedUpButton">Velocizza</button>
+      <button id="slowDownButton">Rallenta</button>
+      <button id="pauseCameraButton">Pausa camera</button>
+      <button id="pauseAnimationsButton">Pausa animazioni</button>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
 
     <h2>Numero atomico:</h2>
     <p>121</p>
@@ -26,33 +40,34 @@
 
     <h2>Descrizione</h2>
     <p>
-      L'Olmio (Ho) è un elemento chimico appartenente al gruppo dei
-      lantanoidi. Ha il numero atomico 121 e anche se si trova in natura in piccole quantità, viene
-      prodotto principalmente in laboratorio tramite reazioni nucleari. L'olmio è uno degli
-      elementi più pesanti tra quelli che fanno parte dei lantanoidi. A causa
-      della sua rarità e della complessità del processo di produzione, il suo
-      studio è limitato, ma è stato oggetto di ricerca soprattutto nell'ambito
-      delle proprietà dei lantanoidi e degli attinoidi.
+      L'Olmio (Ho) è un elemento chimico appartenente al gruppo dei lantanoidi.
+      Ha il numero atomico 121 e anche se si trova in natura in piccole
+      quantità, viene prodotto principalmente in laboratorio tramite reazioni
+      nucleari. L'olmio è uno degli elementi più pesanti tra quelli che fanno
+      parte dei lantanoidi. A causa della sua rarità e della complessità del
+      processo di produzione, il suo studio è limitato, ma è stato oggetto di
+      ricerca soprattutto nell'ambito delle proprietà dei lantanoidi e degli
+      attinoidi.
     </p>
 
     <h2>Uso</h2>
     <p>
-      A causa della sua natura principalmente artificiale e della sua scarsità, l'olmio non ha
-      applicazioni industriali pratiche al di fuori della ricerca scientifica.
-      Tuttavia, il suo studio è utile per comprendere meglio il comportamento
-      degli altri lantanoidi, che sono impiegati in numerosi dispositivi
-      tecnologici avanzati, come magneti, lampade a fluorescenza e
+      A causa della sua natura principalmente artificiale e della sua scarsità,
+      l'olmio non ha applicazioni industriali pratiche al di fuori della ricerca
+      scientifica. Tuttavia, il suo studio è utile per comprendere meglio il
+      comportamento degli altri lantanoidi, che sono impiegati in numerosi
+      dispositivi tecnologici avanzati, come magneti, lampade a fluorescenza e
       catalizzatori.
     </p>
 
     <h2>Curiosità</h2>
     <p>
       Il nome "Olmio" deriva da un famoso fisico che ha contribuito alla
-      scoperta di elementi pesanti. Essendo un elemento prevalentemente artificiale, non ha un
-      ruolo significativo nell'industria o nell'uso quotidiano, ma la sua
-      esistenza è importante per espandere la nostra comprensione degli elementi
-      chimici nelle zone più pesanti della tavola periodica. Inoltre, l'olmio è instabile e ha una vita media molto
-      breve.
+      scoperta di elementi pesanti. Essendo un elemento prevalentemente
+      artificiale, non ha un ruolo significativo nell'industria o nell'uso
+      quotidiano, ma la sua esistenza è importante per espandere la nostra
+      comprensione degli elementi chimici nelle zone più pesanti della tavola
+      periodica. Inoltre, l'olmio è instabile e ha una vita media molto breve.
     </p>
 
     <h2>Futuro della ricerca</h2>
@@ -68,6 +83,14 @@
 
     <button class="theme-toggle">Cambia tema</button>
     <a href="../../index.html"><button class="return">Indietro</button></a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script type="module">
+      import create3dModel from "../../js/3dModel.js";
+
+      create3dModel();
+    </script>
+
     <script src="../../js/theme.js"></script>
   </body>
 </html>

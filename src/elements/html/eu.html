@@ -14,6 +14,20 @@
     <div class="main-img">
       <img src="../assets/Eu/eu.png" alt="Immagine dell'Europio" />
     </div>
+    <div id="rendererContainer"></div>
+
+    <div class="controls">
+      <button id="pauseButton">Pausa</button>
+      <button id="speedUpButton">Velocizza</button>
+      <button id="slowDownButton">Rallenta</button>
+      <button id="pauseCameraButton">Pausa camera</button>
+      <button id="pauseAnimationsButton">Pausa animazioni</button>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
 
     <h2>Numero atomico:</h2>
     <p>63</p>
@@ -28,46 +42,56 @@
     <p>
       L'Europio è un elemento chimico della serie delle terre rare, noto per la
       sua proprietà di emettere luce fluorescente. È un metallo tenero, duttile,
-      e ha una struttura argentea che si ossida facilmente all'aria. L'Europio è uno degli elementi
-      più reattivi della serie dei lantanoidi, ed è ampiamente utilizzato per la sua
-      intensità luminosa che lo rende ideale per applicazioni nei display a schermo piatto.
+      e ha una struttura argentea che si ossida facilmente all'aria. L'Europio è
+      uno degli elementi più reattivi della serie dei lantanoidi, ed è
+      ampiamente utilizzato per la sua intensità luminosa che lo rende ideale
+      per applicazioni nei display a schermo piatto.
     </p>
 
     <h2>Uso</h2>
     <p>
       Viene principalmente utilizzato nelle industrie dei fosfori per schermi
-      televisivi e lampade fluorescenti, dove il suo potere di fluorescenza è sfruttato per
-      produrre colori intensi e brillanti. È anche usato nei materiali di
-      sicurezza, come nei segnali di emergenza e nei dispositivi di illuminazione
-      di sicurezza, grazie alla sua capacità di emettere luce in condizioni di bassa visibilità.
-      In ambito scientifico, viene utilizzato come marcatore nei test biomedici
-      e nei processi di ricerca, sfruttando la sua fluorescenza unica.
+      televisivi e lampade fluorescenti, dove il suo potere di fluorescenza è
+      sfruttato per produrre colori intensi e brillanti. È anche usato nei
+      materiali di sicurezza, come nei segnali di emergenza e nei dispositivi di
+      illuminazione di sicurezza, grazie alla sua capacità di emettere luce in
+      condizioni di bassa visibilità. In ambito scientifico, viene utilizzato
+      come marcatore nei test biomedici e nei processi di ricerca, sfruttando la
+      sua fluorescenza unica.
     </p>
 
     <h2>Curiosità</h2>
     <p>
-      Il nome 'Europio' deriva dal continente europeo, in quanto l'elemento è stato
-      scoperto da un team di scienziati europei nel 1896. L'Europio è uno degli
-      elementi più reattivi della sua categoria ed è altamente raro in natura, ed è per
-      questo che viene estratto da minerali complessi. È così luminoso che può essere
-      utilizzato per creare luci visibili anche in assenza di fonti di energia diretta, come
-      nelle luci di emergenza.
+      Il nome 'Europio' deriva dal continente europeo, in quanto l'elemento è
+      stato scoperto da un team di scienziati europei nel 1896. L'Europio è uno
+      degli elementi più reattivi della sua categoria ed è altamente raro in
+      natura, ed è per questo che viene estratto da minerali complessi. È così
+      luminoso che può essere utilizzato per creare luci visibili anche in
+      assenza di fonti di energia diretta, come nelle luci di emergenza.
     </p>
 
     <h2>Futuro della ricerca</h2>
     <p>
       La ricerca sull'Europio si concentra sull'ottimizzazione delle sue
-      proprietà luminose per applicazioni più avanzate, come la produzione di dispositivi
-      elettronici più efficienti e schermi a risoluzione ultra-alta. Un altro campo di
-      ricerca promettente riguarda il miglioramento delle tecniche di recupero e
-      riciclaggio, dato l'alto valore dell'Europio per l'industria elettronica, ma anche
-      la crescente domanda per applicazioni sostenibili che riducano l'impatto ambientale
-      del suo uso. Inoltre, nuove scoperte potrebbero permettere di utilizzare l'Europio
-      in tecnologie avanzate come le batterie ad alta efficienza e i laser.
+      proprietà luminose per applicazioni più avanzate, come la produzione di
+      dispositivi elettronici più efficienti e schermi a risoluzione ultra-alta.
+      Un altro campo di ricerca promettente riguarda il miglioramento delle
+      tecniche di recupero e riciclaggio, dato l'alto valore dell'Europio per
+      l'industria elettronica, ma anche la crescente domanda per applicazioni
+      sostenibili che riducano l'impatto ambientale del suo uso. Inoltre, nuove
+      scoperte potrebbero permettere di utilizzare l'Europio in tecnologie
+      avanzate come le batterie ad alta efficienza e i laser.
     </p>
-    
+
     <button class="theme-toggle">Cambia tema</button>
     <a href="../../index.html"><button class="return">Indietro</button></a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script type="module">
+      import create3dModel from "../../js/3dModel.js";
+
+      create3dModel();
+    </script>
 
     <script src="../../js/theme.js"></script>
   </body>

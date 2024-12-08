@@ -14,6 +14,20 @@
     <div class="main-img">
       <img src="../assets/Y/y.png" alt="Immagine di Ittrio" />
     </div>
+    <div id="rendererContainer"></div>
+
+    <div class="controls">
+      <button id="pauseButton">Pausa</button>
+      <button id="speedUpButton">Velocizza</button>
+      <button id="slowDownButton">Rallenta</button>
+      <button id="pauseCameraButton">Pausa camera</button>
+      <button id="pauseAnimationsButton">Pausa animazioni</button>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
 
     <h2>Numero atomico:</h2>
     <p>39</p>
@@ -26,10 +40,11 @@
 
     <h2>Descrizione</h2>
     <p>
-      L'ittrio è l'elemento chimico con numero 39. Si presenta come un metallo grigio argenteo. È noto per la sua stabilità e
-      resistenza alla corrosione, e gioca un ruolo importante in numerosi
-      composti chimici e materiali avanzati. È relativamente raro in natura,
-      trovandosi principalmente in minerali come la xenotime e la gadolinite.
+      L'ittrio è l'elemento chimico con numero 39. Si presenta come un metallo
+      grigio argenteo. È noto per la sua stabilità e resistenza alla corrosione,
+      e gioca un ruolo importante in numerosi composti chimici e materiali
+      avanzati. È relativamente raro in natura, trovandosi principalmente in
+      minerali come la xenotime e la gadolinite.
     </p>
 
     <h2>Uso</h2>
@@ -68,6 +83,14 @@
 
     <button class="theme-toggle">Cambia tema</button>
     <a href="../../index.html"><button class="return">Indietro</button></a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script type="module">
+  import create3dModel from "../../js/3dModel.js";
+
+  create3dModel();
+</script>
+
     <script src="../../js/theme.js"></script>
   </body>
 </html>

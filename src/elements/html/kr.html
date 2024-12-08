@@ -14,6 +14,20 @@
     <div class="main-img">
       <img src="../assets/Kr/kr.png" alt="Immagine di Kripton" />
     </div>
+    <div id="rendererContainer"></div>
+
+    <div class="controls">
+      <button id="pauseButton">Pausa</button>
+      <button id="speedUpButton">Velocizza</button>
+      <button id="slowDownButton">Rallenta</button>
+      <button id="pauseCameraButton">Pausa camera</button>
+      <button id="pauseAnimationsButton">Pausa animazioni</button>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
 
     <h2>Numero atomico:</h2>
     <p>36</p>
@@ -66,8 +80,8 @@
       proprietà fisiche e chimiche, con l'obiettivo di sviluppare nuove
       applicazioni. Gli scienziati stanno esplorando come il kripton possa
       essere utilizzato in tecnologie di illuminazione più avanzate e
-      sostenibili. Inoltre, potrebbe avere un ruolo chiave nelle tecnologie emergenti, come i
-      materiali per batterie e nel campo della spintronica.
+      sostenibili. Inoltre, potrebbe avere un ruolo chiave nelle tecnologie
+      emergenti, come i materiali per batterie e nel campo della spintronica.
       Queste innovazioni potrebbero rivoluzionare non solo il modo in cui
       utilizziamo la luce, ma anche il modo in cui immagazziniamo e utilizziamo
       l'energia in futuro, rendendo il kripton un elemento di grande interesse
@@ -76,6 +90,14 @@
 
     <button class="theme-toggle">Cambia tema</button>
     <a href="../../index.html"><button class="return">Indietro</button></a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script type="module">
+      import create3dModel from "../../js/3dModel.js";
+
+      create3dModel();
+    </script>
+
     <script src="../../js/theme.js"></script>
   </body>
 </html>
