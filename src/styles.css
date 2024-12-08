@@ -286,3 +286,50 @@ ul {
   white-space: normal;
   list-style-position: inside;
 }
+
+canvas {
+  display: block;
+  margin: 0;
+}
+
+.controls {
+  text-align: center;
+}
+
+button {
+  text-align: center;
+  font-family: "FiraSansCondensedSemiBold", Arial;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #f4f4f9;
+  background-color: #1c1c1c;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #000000;
+}
+
+.dark-theme button {
+  background-color: #f4f4f9;
+  color: #1c1c1c;
+}
+
+.dark-theme button:hover {
+  background-color: #f4f4f9af;
+}
+
+#rendererContainer {
+  margin: 20px auto; /* Centra il contenitore orizzontalmente e aggiunge margine sopra e sotto */
+  display: flex; /* Usa flexbox per il contenuto */
+  justify-content: center; /* Centra orizzontalmente il contenuto */
+  align-items: center; /* Centra verticalmente il contenuto */
+  position: relative; /* Posizione relativa per gestire meglio l'allineamento */
+  background-color: #f4f4f9;
+}
+
+.dark-theme #rendererContainer {
+  background-color: #1c1c1c;
+}
