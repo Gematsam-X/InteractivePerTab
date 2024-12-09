@@ -82,15 +82,26 @@ td[colspan="18"] {
   border: none; /* Rimuove il bordo per i td della legenda */
 }
 
-/* Regola generale per la transizione */
-.periodic-table td {
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Aggiunto effetto fluidità */
-}
-
 /* Classe per rendere gli elementi trasparenti */
 .faded {
   pointer-events: none;
   opacity: 0.2; /* Riduce l'opacità */
+}
+
+button {
+  text-align: center;
+  font-family: "FiraSansCondensedSemiBold", Arial;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #f4f4f9;
+  background-color: #1c1c1c;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #000000;
 }
 
 button.theme-toggle {
@@ -239,27 +250,18 @@ body.dark-theme {
   border: none; /* Rimuove il bordo per i td della legenda */
 }
 
-.main-img {
-  text-align: center;
-}
-
-.return {
-  font-family: "FiraSansCondensedSemiBold", Arial;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: #f4f4f9;
-  background-color: #1c1c1c;
-  border-radius: 5px;
-}
-
 .dark-theme .return {
   color: #1c1c1c;
   background-color: #f4f4f9;
+}
+
+.dark-theme button {
+  background-color: #f4f4f9;
+  color: #1c1c1c;
+}
+
+.dark-theme button:hover {
+  background-color: #f4f4f9af;
 }
 
 .dark-theme .legend.artificial,
@@ -296,31 +298,6 @@ canvas {
   text-align: center;
 }
 
-button {
-  text-align: center;
-  font-family: "FiraSansCondensedSemiBold", Arial;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: #f4f4f9;
-  background-color: #1c1c1c;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: #000000;
-}
-
-.dark-theme button {
-  background-color: #f4f4f9;
-  color: #1c1c1c;
-}
-
-.dark-theme button:hover {
-  background-color: #f4f4f9af;
-}
-
 #rendererContainer {
   margin: 20px auto;
   display: flex;
@@ -331,4 +308,22 @@ button:hover {
 
 .dark-theme #rendererContainer {
   background-color: #1c1c1c;
+}
+
+.main-img {
+  text-align: center;
+}
+
+.return {
+  font-family: "FiraSansCondensedSemiBold", Arial;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #f4f4f9;
+  background-color: #1c1c1c;
+  border-radius: 5px;
 }
