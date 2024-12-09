@@ -17,6 +17,10 @@ const categories = {
     "assets/legend/light/artificials.png",
     "assets/legend/dark/artificials.png",
   ],
+  lens: [
+    "assets/lens/light/lens.png",
+    "assets/lens/dark/lens.png",
+  ]
 };
 
 let index = 0; // Imposta l'indice a light di default
