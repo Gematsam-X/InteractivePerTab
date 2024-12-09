@@ -27,6 +27,7 @@ h1 {
   padding: 10px;
   text-align: center;
   user-select: none;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
 }
 
 .non-metal {
@@ -326,4 +327,15 @@ canvas {
   color: #f4f4f9;
   background-color: #1c1c1c;
   border-radius: 5px;
+}
+
+#showInPeriodicTableButton {
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  display: block;
+}
+
+.no-transition * {
+  transition: none !important;
 }

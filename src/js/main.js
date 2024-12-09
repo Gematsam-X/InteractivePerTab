@@ -231,24 +231,59 @@ metalloids.addEventListener("click", () => adjustTransparency("metalloid"));
 artificials.addEventListener("click", () => adjustTransparency("artificial"));
 nobleGases.addEventListener("click", () => adjustTransparency("noble-gas"));
 
-// TODO: FINIRE DI IMLEMENTARE LOGICA
+// Funzioni per il pulsante "Mostra nella tavola periodica"
 
-estraiDatiElementi();
-// Al caricamento della pagina, leggi il nome dell'elemento corrente da localStorage
-const currentElement = window.localStorage.getItem("currentElement");
+document.body.classList.add("no-transition");
 
-// Se c'è un elemento corrente, aggiungi la classe .faded agli altri
-if (currentElement) {
+window.setTimeout(() => {
+  document.body.classList.remove("no-transition");
+}, 50);
+
+const currentElementSymbol = window.localStorage.getItem("currentElement");
+
+if (currentElementSymbol) {
   const allElements = document.querySelectorAll("td");
 
   allElements.forEach((element) => {
-    if (element.symbol !== currentElement) {
-      element.classList.add("faded");
+    const contenuto = element.innerHTML.trim();
+    const righeContenuto = contenuto.split("<br>");
+
+    // Verifica che righeContenuto[1] esista
+    if (righeContenuto.length > 1) {
+      const symbol = righeContenuto[1].toLowerCase();
+
+      // Evidenzia solo l'elemento corrente
+      if (symbol === currentElementSymbol.toLowerCase()) {
+        element.classList.remove("faded");
+        element.classList.remove("no-transition");
+      } else {
+        element.classList.add("faded");
+      }
     } else {
-      element.classList.remove("faded");
+      // Gestisci elementi che non hanno un simbolo
+      element.classList.add("faded");
     }
   });
 
-  // Rimuovi l'elemento da localStorage dopo averlo usato
-  window.localStorage.removeItem("currentElement");
+  // Aggiungi un listener per il click fuori dagli elementi evidenziati
+  document.addEventListener("click", (event) => {
+    const clickedElement = event.target;
+    const isInsideHighlighted = [...allElements].some(
+      (element) =>
+        element.contains(clickedElement) && !element.classList.contains("faded")
+    );
+
+    if (!isInsideHighlighted) {
+      // Rimuovi la classe .faded da tutti gli elementi
+      allElements.forEach((element) => {
+        element.classList.remove("faded");
+      });
+
+      // Svuota il localStorage
+      window.localStorage.removeItem("currentElement");
+    }
+  });
 }
+window.addEventListener("beforeunload", () => {
+  window.localStorage.removeItem("currentElement");
+});
