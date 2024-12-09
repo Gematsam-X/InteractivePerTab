@@ -10,6 +10,6 @@ export default function showInPeriodicTable() {
 
       localStorage.setItem("currentElement", elementSymbol);
 
-      window.location.href = "/src/index.html";
+      window.location.href = "../../index.html";
     });
 }
