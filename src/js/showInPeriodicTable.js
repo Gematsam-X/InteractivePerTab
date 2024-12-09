@@ -8,7 +8,7 @@ export default function showInPeriodicTable() {
 
       let elementSymbol = fileName.replace(".html", "");
 
-      localStorage.setItem("currentElement", elementSymbol);
+      sessionStorage.setItem("currentElement", elementSymbol);
 
       window.location.href = "../../index.html";
     });

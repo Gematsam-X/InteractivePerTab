@@ -239,7 +239,7 @@ window.setTimeout(() => {
   document.body.classList.remove("no-transition");
 }, 50);
 
-const currentElementSymbol = window.localStorage.getItem("currentElement");
+const currentElementSymbol = window.sessionStorage.getItem("currentElement");
 
 if (currentElementSymbol) {
   const allElements = document.querySelectorAll("td");
@@ -280,10 +280,10 @@ if (currentElementSymbol) {
       });
 
       // Svuota il localStorage
-      window.localStorage.removeItem("currentElement");
+      window.sessionStorage.removeItem("currentElement");
     }
   });
 }
 window.addEventListener("beforeunload", () => {
-  window.localStorage.removeItem("currentElement");
+  window.sessionStorage.removeItem("currentElement");
 });
