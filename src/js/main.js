@@ -231,23 +231,24 @@ metalloids.addEventListener("click", () => adjustTransparency("metalloid"));
 artificials.addEventListener("click", () => adjustTransparency("artificial"));
 nobleGases.addEventListener("click", () => adjustTransparency("noble-gas"));
 
+// TODO: FINIRE DI IMLEMENTARE LOGICA
 
-// TODO: IMLEMENTARE LOGICA 
-    // Al caricamento della pagina, leggi il nome dell'elemento corrente da localStorage
-    const currentElement = window.localStorage.getItem('currentElement');
-    
-    // Se c'è un elemento corrente, aggiungi la classe .faded agli altri
-    if (currentElement) {
-      const allElements = document.querySelectorAll("td");
-      
-      allElements.forEach(element => {
-        if (element.id !== currentElement) {
-          element.classList.add('faded');
-        } else {
-          element.classList.remove('faded');
-        }
-      });
+estraiDatiElementi();
+// Al caricamento della pagina, leggi il nome dell'elemento corrente da localStorage
+const currentElement = window.localStorage.getItem("currentElement");
 
-      // Rimuovi l'elemento da localStorage dopo averlo usato
-      window.localStorage.removeItem('currentElement');
+// Se c'è un elemento corrente, aggiungi la classe .faded agli altri
+if (currentElement) {
+  const allElements = document.querySelectorAll("td");
+
+  allElements.forEach((element) => {
+    if (element.symbol !== currentElement) {
+      element.classList.add("faded");
+    } else {
+      element.classList.remove("faded");
     }
+  });
+
+  // Rimuovi l'elemento da localStorage dopo averlo usato
+  window.localStorage.removeItem("currentElement");
+}

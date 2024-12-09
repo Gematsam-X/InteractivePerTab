@@ -94,6 +94,7 @@
       principali riguardano la produzione e la gestione sicura dell'attinio
       nelle ricerche future.
     </p>
+    <button onclick="showInPeriodicTable()">Mostra nella tavola periodica</button>
     <button class="theme-toggle">Cambia tema</button>
     <a href="../../index.html"><button class="return">Indietro</button></a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -102,6 +103,20 @@
       import create3dModel from "../../js/3dmodel.js";
 
       create3dModel(2, 8, 18, 32, 18, 9, 2);
+    </script>
+
+    <script>
+      function showInPeriodicTable() {
+        let currentLocation = window.location.pathname;
+
+        let fileName = currentLocation.split("/").pop();
+
+        let elementSymbol = fileName.replace(".html", "");
+
+        localStorage.setItem("currentElement", elementSymbol);
+
+        window.location.href="/src/index.html"
+      }
     </script>
 
     <script src="../../js/theme.js"></script>
