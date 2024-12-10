@@ -267,7 +267,6 @@ if (currentElementSymbol) {
         element.classList.remove("no-transition");
         element.style.transform = "scale(1.2)";
       } else {
-        element.style.transform = "scale(1.0)"
         element.classList.add("faded");
       }
     } else {
@@ -287,6 +286,7 @@ if (currentElementSymbol) {
     if (!isInsideHighlighted) {
       // Rimuovi la classe .faded da tutti gli elementi
       allElements.forEach((element) => {
+        element.style.removeProperty("transform");
         element.classList.remove("faded");
       });
 
