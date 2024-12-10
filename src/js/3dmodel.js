@@ -1,4 +1,12 @@
-export default function create3dModel(electrons1, electrons2, electrons3, electrons4, electrons5, electrons6, electrons7) {
+export default function create3dModel(
+  electrons1,
+  electrons2,
+  electrons3,
+  electrons4,
+  electrons5,
+  electrons6,
+  electrons7
+) {
   const container = document.getElementById("rendererContainer");
 
   let cameraMove = true;
@@ -94,16 +102,58 @@ export default function create3dModel(electrons1, electrons2, electrons3, electr
   const orbitColor = 0x000000; // Colore delle orbite (nero)
   const electronColor = 0x0000ff; // Colore degli elettroni (blu)
 
+  camera.position.z = 5;
   createOrbit(1, electrons1, orbitColor, electronColor, 0, 1); // First orbit
-  if (electrons2) createOrbit(2, electrons2, orbitColor, electronColor, 0, 50); // Second orbit
-  if (electrons3) createOrbit(3, electrons3, orbitColor, electronColor, Math.PI / 4, 0); // Third orbit}
-  if (electrons4) createOrbit(4, electrons4, orbitColor, electronColor, Math.PI / 6, Math.PI / 4); // Fourth orbit
-  if (electrons5) createOrbit(5, electrons5, orbitColor, electronColor, -Math.PI / 6, Math.PI / 3); // Fifth orbit
-  if (electrons6) createOrbit(6, electrons6, orbitColor, electronColor, Math.PI / 6, -Math.PI / 4); // Sixth orbit
-  if (electrons7) createOrbit(7, electrons7, orbitColor, electronColor, -Math.PI / 3, 0); // Seventh orbit
 
-  // Camera setup
-  camera.position.z = 15;
+  if (electrons2) {
+    camera.position.z = 6;
+    createOrbit(2, electrons2, orbitColor, electronColor, 0, 50);
+  }
+  if (electrons3) {
+    camera.position.z = 7;
+    createOrbit(3, electrons3, orbitColor, electronColor, Math.PI / 4, 0);
+  }
+
+  if (electrons4) {
+    camera.position.z = 8;
+    createOrbit(
+      4,
+      electrons4,
+      orbitColor,
+      electronColor,
+      Math.PI / 6,
+      Math.PI / 4
+    );
+  } // Fourth orbit
+
+  if (electrons5) {
+    camera.position.z = 9;
+    createOrbit(
+      5,
+      electrons5,
+      orbitColor,
+      electronColor,
+      -Math.PI / 6,
+      Math.PI / 3
+    );
+  } // Fifth orbit
+
+  if (electrons6) {
+    camera.position.z = 10;
+    createOrbit(
+      6,
+      electrons6,
+      orbitColor,
+      electronColor,
+      Math.PI / 6,
+      -Math.PI / 4
+    );
+  } // Sixth orbit
+
+  if (electrons7) {
+    camera.position.z = 12;
+    createOrbit(7, electrons7, orbitColor, electronColor, -Math.PI / 3, 0);
+  } // Seventh orbit
 
   // Lighting setup
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
@@ -186,9 +236,7 @@ export default function create3dModel(electrons1, electrons2, electrons3, electr
     .getElementById("pauseCameraButton")
     .addEventListener("click", function () {
       cameraMove = !cameraMove;
-      this.innerText = cameraMove
-      ? "Pausa camera"
-      : "Riprendi camera";
+      this.innerText = cameraMove ? "Pausa camera" : "Riprendi camera";
     });
 
   document

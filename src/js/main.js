@@ -1,4 +1,4 @@
-// Estrai i dati quando la pagina è pronta
+// Aggiungi un evento per eseguire l'estrazione dei dati quando la pagina è pronta
 window.addEventListener("load", function () {
   estraiDatiElementi()
     .then(() => {
@@ -29,9 +29,11 @@ for (let i = 0; i < elements.length; i++) {
 
     // Aggiungi un evento di click per il reindirizzamento
     elements[i].addEventListener("click", function () {
+      elements[i].style.transform = "scale(1.2)";
       // Estrai il simbolo dall'elemento
       const symbol = elements[i].innerHTML.split("<br>")[1]; // Ottieni il simbolo dall'elemento
       // Reindirizza alla pagina dell'elemento
+      window.sessionStorage.removeItem("currentElement");
       window.location.href = "elements/html/" + symbol.toLowerCase() + ".html";
     });
   }
@@ -46,18 +48,22 @@ function estraiDatiElementi() {
     const righe = document.querySelectorAll(".periodic-table tr");
     const datiTemporanei = [];
 
+    // Itera sulle righe della tabella
     righe.forEach((riga) => {
       const celle = riga.querySelectorAll("td");
 
+      // Itera su ciascuna cella della riga
       celle.forEach((cella) => {
         const contenuto = cella.innerHTML.trim();
         const righeContenuto = contenuto.split("<br>");
 
+        // Se il contenuto ha 4 righe, estrai i dati
         if (righeContenuto.length === 4) {
           const number = parseInt(righeContenuto[0]);
           const symbol = righeContenuto[1];
           const elementName = righeContenuto[2];
 
+          // Aggiungi i dati estratti all'array temporaneo
           datiTemporanei.push({
             number,
             symbol,
@@ -67,6 +73,7 @@ function estraiDatiElementi() {
       });
     });
 
+    // Se i dati sono stati trovati, salva nella variabile globale e risolvi la Promise
     if (datiTemporanei.length > 0) {
       datiElementi = datiTemporanei; // Popola la variabile globale
       resolve(); // Risolve la Promise
@@ -76,13 +83,14 @@ function estraiDatiElementi() {
   });
 }
 
-// Funzione per cercare l'elemento (rimane invariata)
+// Funzione per cercare un elemento in base al nome, simbolo o numero atomico
 function cercaElemento() {
   const searchInput = document
     .getElementById("search-input")
     .value.toLowerCase()
     .trim();
 
+  // Se il campo di ricerca è vuoto, mostra un messaggio di errore
   if (searchInput === "") {
     alert(
       "Digita nel campo di ricerca il nome completo, il simbolo o il numero atomico dell'elemento che vuoi cercare."
@@ -90,6 +98,7 @@ function cercaElemento() {
     return;
   }
 
+  // Cerca l'elemento corrispondente
   const risultato = datiElementi.find(
     (element) =>
       element.symbol.toLowerCase() === searchInput ||
@@ -97,10 +106,12 @@ function cercaElemento() {
       element.number.toString() === searchInput
   );
 
+  // Se l'elemento è trovato, reindirizza alla sua pagina
   if (risultato) {
-    console.log(`Elemento trovato:`, risultato);
+    window.sessionStorage.removeItem("currentElement");
     window.location.href = `elements/html/${risultato.symbol.toLowerCase()}.html`;
   } else {
+    // Se l'elemento non è trovato, mostra un messaggio di errore
     alert(
       "Elemento non trovato. Assicurati di digitare il nome esatto dell'elemento, la sua sigla o il suo numero atomico correttamente."
     );
@@ -132,14 +143,14 @@ const actinides = document.querySelectorAll(".actinides");
 
 let activeCategory = null; // Tiene traccia della categoria attiva
 
-// Funzione per applicare la trasparenza agli elementi
+// Funzione per applicare la trasparenza agli elementi in base alla categoria
 function adjustTransparency(targetClass) {
   const elements = document.querySelectorAll(
     ".metal, .non-metal, .metalloid, .artificial, .noble-gas, .special, .specialLegend, .legend"
   );
 
   if (activeCategory === targetClass) {
-    // Se è già selezionata, ripristina tutto
+    // Se la categoria è già selezionata, ripristina tutto
     elements.forEach((element) => {
       element.classList.remove("faded");
     });
@@ -165,7 +176,6 @@ function highlightCategoryRange(start, end, category) {
 
   // Se la categoria è già attiva, rimuovi la classe "faded" e resetta
   if (activeCategoryRange === category) {
-    // Rimuovi la classe "faded" da tutti gli elementi
     elements.forEach((element) => {
       element.classList.remove("faded");
     });
@@ -217,9 +227,7 @@ lanthanides.forEach((lantanoide) => {
 // Eventi per gli Attinoidi
 actinides.forEach((actinoide) => {
   actinoide.addEventListener("click", function () {
-    // Evidenzia o deseleziona gli Attinoidi
     highlightCategoryRange(89, 103, "89-103"); // Evidenzia gli Attinoidi
-    // Rimuovi "faded" dalla legenda degli attinoidi
     removeFadedFromActinides();
   });
 });
@@ -239,6 +247,7 @@ window.setTimeout(() => {
   document.body.classList.remove("no-transition");
 }, 50);
 
+// Gestisci la selezione dell'elemento corrente nella tavola periodica
 const currentElementSymbol = window.sessionStorage.getItem("currentElement");
 
 if (currentElementSymbol) {
@@ -265,7 +274,7 @@ if (currentElementSymbol) {
     }
   });
 
-  // Aggiungi un listener per il click fuori dagli elementi evidenziati
+  // Aggiungi l'event listener per il click
   document.addEventListener("click", (event) => {
     const clickedElement = event.target;
     const isInsideHighlighted = [...allElements].some(
@@ -279,11 +288,21 @@ if (currentElementSymbol) {
         element.classList.remove("faded");
       });
 
-      // Svuota il localStorage
+      // Svuota il sessionStorage
+      window.sessionStorage.removeItem("currentElement");
+    }
+  });
+
+  // Aggiungi l'event listener per il tasto Escape
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      // Rimuovi la classe .faded da tutti gli elementi
+      allElements.forEach((element) => {
+        element.classList.remove("faded");
+      });
+
+      // Svuota il sessionStorage
       window.sessionStorage.removeItem("currentElement");
     }
   });
 }
-window.addEventListener("beforeunload", () => {
-  window.sessionStorage.removeItem("currentElement");
-});

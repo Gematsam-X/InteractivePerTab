@@ -27,7 +27,11 @@ h1 {
   padding: 10px;
   text-align: center;
   user-select: none;
-  transition: opacity 0.3s ease, background-color 0.3s ease;
+  transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+td:hover {
+  transform: scale(1.1);
 }
 
 .non-metal {
@@ -99,6 +103,7 @@ button {
   color: #f4f4f9;
   background-color: #1c1c1c;
   border-radius: 5px;
+  opacity: 1 !important;
 }
 
 button:hover {
@@ -153,12 +158,8 @@ button.theme-toggle {
   color: #ddd;
 }
 
-.legend.artificial,
-.legend.non-metal,
-.legend.metal,
-.legend.noble-gas,
-.legend.metalloid {
-  background-color: #f4f4f9 !important;
+.legend {
+  background-color: transparent !important;
 }
 
 /* Stile per il tema scuro */
@@ -190,7 +191,7 @@ body.dark-theme {
 }
 
 .non-metal:hover {
-  background-color: #ff7575ce;
+  background-color: #d86565;
 }
 
 .dark-theme .noble-gas {
@@ -198,7 +199,7 @@ body.dark-theme {
 }
 
 .dark-theme .noble-gas:hover {
-  background-color: #55efc3b4;
+  background-color: #46be9c;
 }
 
 .dark-theme .metal {
@@ -239,6 +240,7 @@ body.dark-theme {
 }
 
 .dark-theme .legend {
+  background-color: transparent !important;
   color: #f4f4f9 !important;
 }
 
@@ -263,14 +265,6 @@ body.dark-theme {
 
 .dark-theme button:hover {
   background-color: #f4f4f9af;
-}
-
-.dark-theme .legend.artificial,
-.dark-theme .legend.non-metal,
-.dark-theme .legend.metal,
-.dark-theme .legend.noble-gas,
-.dark-theme .legend.metalloid {
-  background-color: #1c1c1c !important;
 }
 
 /* Stili per gli elementi */
