@@ -267,6 +267,7 @@ if (currentElementSymbol) {
         element.classList.remove("no-transition");
         element.style.transform = "scale(1.2)";
       } else {
+        element.style.transform = "scale(1.0)"
         element.classList.add("faded");
       }
     } else {
