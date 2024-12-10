@@ -265,6 +265,7 @@ if (currentElementSymbol) {
       if (symbol === currentElementSymbol.toLowerCase()) {
         element.classList.remove("faded");
         element.classList.remove("no-transition");
+        element.style.transform = "scale(1.2)";
       } else {
         element.classList.add("faded");
       }
