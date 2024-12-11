@@ -3,12 +3,17 @@
   src: url("../fonts/FiraSansCondensedSemiBold.ttf") format("truetype");
 }
 
+
+.no-transition * {
+  transition: none !important;
+}
+
 /* Stili generali per il tema chiaro (predefinito) */
 body {
   background-color: #f4f4f9;
   color: #333;
   font-family: "FiraSansCondensedSemiBold", Arial;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease-out;
 }
 
 h1 {
@@ -28,7 +33,7 @@ h1 {
   padding: 10px;
   text-align: center;
   user-select: none;
-  transition: opacity 0.5s ease, background-color 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease-out, background-color 0.5s ease-out, transform 0.5s ease-out;
 }
 
 td:hover {
@@ -40,15 +45,15 @@ td:hover {
 }
 
 .non-metal:hover {
-  background-color: rgb(207, 144, 154);
+  background-color: #d39da5;
 }
 
 .metal {
-  background-color: rgb(172, 248, 172);
+  background-color: #acf8ac;
 }
 
 .metal:hover {
-  background-color: rgb(132, 192, 132);
+  background-color: #84c084;
 }
 
 .noble-gas {
@@ -64,7 +69,7 @@ td:hover {
 }
 
 .metalloid:hover {
-  background-color: rgb(160, 158, 158);
+  background-color: #a09e9e;
 }
 
 .artificial {
@@ -104,7 +109,7 @@ button {
   color: #f4f4f9;
   background-color: #1c1c1c;
   border-radius: 5px;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease-out;
   opacity: 1 !important;
 }
 
@@ -135,7 +140,7 @@ button.theme-toggle {
 }
 
 #search-input {
-  transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease-out;
   height: 40px;
   margin-right: 5px; /* Spazio tra l'input e il bottone */
   padding: 0 10px;
@@ -331,8 +336,4 @@ canvas {
   justify-content: center;
   margin: 20px auto;
   display: block;
-}
-
-.no-transition * {
-  transition: none !important;
 }
