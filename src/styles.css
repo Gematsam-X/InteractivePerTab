@@ -8,6 +8,7 @@ body {
   background-color: #f4f4f9;
   color: #333;
   font-family: "FiraSansCondensedSemiBold", Arial;
+  transition: background-color 0.5s ease;
 }
 
 h1 {
@@ -27,7 +28,7 @@ h1 {
   padding: 10px;
   text-align: center;
   user-select: none;
-  transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.5s ease, background-color 0.5s ease, transform 0.5s ease;
 }
 
 td:hover {
@@ -103,6 +104,7 @@ button {
   color: #f4f4f9;
   background-color: #1c1c1c;
   border-radius: 5px;
+  transition: background-color 0.5s ease;
   opacity: 1 !important;
 }
 
@@ -133,6 +135,7 @@ button.theme-toggle {
 }
 
 #search-input {
+  transition: background-color 0.5s ease;
   height: 40px;
   margin-right: 5px; /* Spazio tra l'input e il bottone */
   padding: 0 10px;
