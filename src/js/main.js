@@ -9,6 +9,12 @@ window.addEventListener("load", function () {
     });
 });
 
+document.body.classList.add("no-transition");
+
+window.setTimeout(() => {
+  document.body.classList.remove("no-transition");
+}, 100);
+
 // Seleziona tutti gli elementi <td>
 let elements = document.getElementsByTagName("td");
 
@@ -143,28 +149,27 @@ const actinides = document.querySelectorAll(".actinides");
 
 let activeCategory = null; // Tiene traccia della categoria attiva
 
+function toggleFaded(elements, condition) {
+  elements.forEach((element) => {
+    if (condition(element)) {
+      element.classList.remove("faded");
+    } else {
+      element.classList.add("faded");
+    }
+  });
+}
+
 // Funzione per applicare la trasparenza agli elementi in base alla categoria
 function adjustTransparency(targetClass) {
   const elements = document.querySelectorAll(
     ".metal, .non-metal, .metalloid, .artificial, .noble-gas, .special, .specialLegend, .legend"
   );
-
   if (activeCategory === targetClass) {
-    // Se la categoria è già selezionata, ripristina tutto
-    elements.forEach((element) => {
-      element.classList.remove("faded");
-    });
-    activeCategory = null; // Nessuna categoria attiva
+    toggleFaded(elements, () => true); // Mostra tutto
+    activeCategory = null;
   } else {
-    // Altrimenti, applica la trasparenza
-    elements.forEach((element) => {
-      if (element.classList.contains(targetClass)) {
-        element.classList.remove("faded"); // Mostra gli elementi della categoria
-      } else {
-        element.classList.add("faded"); // Rende trasparenti gli altri
-      }
-    });
-    activeCategory = targetClass; // Imposta la nuova categoria attiva
+    toggleFaded(elements, (element) => element.classList.contains(targetClass));
+    activeCategory = targetClass;
   }
 }
 
@@ -241,12 +246,6 @@ nobleGases.addEventListener("click", () => adjustTransparency("noble-gas"));
 
 // Funzioni per il pulsante "Mostra nella tavola periodica"
 
-document.body.classList.add("no-transition");
-
-window.setTimeout(() => {
-  document.body.classList.remove("no-transition");
-}, 50);
-
 // Gestisci la selezione dell'elemento corrente nella tavola periodica
 const currentElementSymbol = window.sessionStorage.getItem("currentElement");
 
@@ -275,6 +274,18 @@ if (currentElementSymbol) {
     }
   });
 
+  function resetDefaultStyle() {
+    // Rimuovi la classe .faded da tutti gli elementi
+    allElements.forEach((element) => {
+      element.style.removeProperty("transform");
+      element.style.removeProperty("opacity");
+      element.classList.remove("faded");
+    });
+
+    // Svuota il sessionStorage
+    window.sessionStorage.removeItem("currentElement");
+  }
+
   // Aggiungi l'event listener per il click
   document.addEventListener("click", (event) => {
     const clickedElement = event.target;
@@ -284,27 +295,14 @@ if (currentElementSymbol) {
     );
 
     if (!isInsideHighlighted) {
-      // Rimuovi la classe .faded da tutti gli elementi
-      allElements.forEach((element) => {
-        element.style.removeProperty("transform");
-        element.classList.remove("faded");
-      });
-
-      // Svuota il sessionStorage
-      window.sessionStorage.removeItem("currentElement");
+      resetDefaultStyle();
     }
   });
 
   // Aggiungi l'event listener per il tasto Escape
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-      // Rimuovi la classe .faded da tutti gli elementi
-      allElements.forEach((element) => {
-        element.classList.remove("faded");
-      });
-
-      // Svuota il sessionStorage
-      window.sessionStorage.removeItem("currentElement");
+      resetDefaultStyle();
     }
   });
 }

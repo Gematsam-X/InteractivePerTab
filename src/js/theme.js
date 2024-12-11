@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("no-transition");
+
+  window.setTimeout(() => {
+    document.body.classList.remove("no-transition");
+  }, 100);
+
   const toggleButton = document.querySelector(".theme-toggle");
   const body = document.body;
 
