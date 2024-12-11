@@ -9,8 +9,10 @@ window.addEventListener("load", function () {
     });
 });
 
+// Disabilita temporaneamente le transizioni
 document.body.classList.add("no-transition");
 
+// Rimuove la classe "no-transition" dopo 100 millisecondi per abilitare le transizioni
 window.setTimeout(() => {
   document.body.classList.remove("no-transition");
 }, 100);
@@ -23,7 +25,7 @@ let filteredElements = [];
 
 // Itera su ciascun elemento <td>
 for (let i = 0; i < elements.length; i++) {
-  // Controlla se la classe non è vuota e non è "special" o "legend" o "specialLegend"
+  // Controlla se la classe non è vuota e non è "special", "legend" o "specialLegend"
   if (
     elements[i].classList.length > 0 && // Aggiungiamo il controllo sulla lunghezza delle classi
     !elements[i].classList.contains("special") &&
@@ -35,7 +37,7 @@ for (let i = 0; i < elements.length; i++) {
 
     // Aggiungi un evento di click per il reindirizzamento
     elements[i].addEventListener("click", function () {
-      elements[i].style.transform = "scale(1.2)";
+      elements[i].style.transform = "scale(1.2)"; // Ingrandisce l'elemento al clic
       // Estrai il simbolo dall'elemento
       const symbol = elements[i].innerHTML.split("<br>")[1]; // Ottieni il simbolo dall'elemento
       // Reindirizza alla pagina dell'elemento
@@ -149,6 +151,7 @@ const actinides = document.querySelectorAll(".actinides");
 
 let activeCategory = null; // Tiene traccia della categoria attiva
 
+// Funzione per aggiungere o rimuovere la classe "faded" in base alla condizione
 function toggleFaded(elements, condition) {
   elements.forEach((element) => {
     if (condition(element)) {
@@ -263,7 +266,6 @@ if (currentElementSymbol) {
       // Evidenzia solo l'elemento corrente
       if (symbol === currentElementSymbol.toLowerCase()) {
         element.classList.remove("faded");
-        element.classList.remove("no-transition");
         element.style.transform = "scale(1.2)";
       } else {
         element.classList.add("faded");
@@ -294,14 +296,8 @@ if (currentElementSymbol) {
         element.contains(clickedElement) && !element.classList.contains("faded")
     );
 
+    // Se si fa clic fuori dalla tavola periodica, ripristina lo stile predefinito
     if (!isInsideHighlighted) {
-      resetDefaultStyle();
-    }
-  });
-
-  // Aggiungi l'event listener per il tasto Escape
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
       resetDefaultStyle();
     }
   });
