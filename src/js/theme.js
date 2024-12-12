@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-  document.body.classList.add("no-transition");
+document.body.classList.add("no-transition");
 
+document.addEventListener("DOMContentLoaded", () => {
   window.setTimeout(() => {
     document.body.classList.remove("no-transition");
   }, 100);
