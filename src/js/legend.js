@@ -7,7 +7,7 @@ const categories = {
     "assets/legend/light/non-metals.png",
     "assets/legend/dark/non-metals.png",
   ],
-  nobelGases: [
+  nobleGases: [
     "assets/legend/light/nobel-gases.png",
     "assets/legend/dark/nobel-gases.png",
   ],
