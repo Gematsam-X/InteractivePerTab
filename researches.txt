@@ -12,7 +12,7 @@ Fabio: Cloro
 
 Narcisa: Magnesio
 
-Steven: Alluminio
+Steven: Alluminio NON FATTO
 
 Michela: Azoto
 
@@ -24,9 +24,9 @@ Rebecca: Iodio
 
 Alessio: Mercurio
 
-Federica: Zolfo
+Federica: Zolfo NON FATTO
 
-Elena: Potassio
+Elena: Potassio NON FATTO 
 
 Andrea: Idrogeno
 
@@ -36,9 +36,9 @@ Christian: Elio
 
 Silvia: Platino
 
-Michele: Piombo
+Michele: Piombo NON FATTO
 
-Gionatan: Oganesson, Stronzio, Attinio, Americio, Argon, Astato, Bario, Boro, Bohrio, Bismuto, Berkelio, Bromo, Cadmio, Cerio, Californio, Protoattinio, Curio, Copernico, Radio, Neodimio, Lantanio, Vanadio, Zirconio, Zinco, Itterbio, Ittrio, Tullio, Titanio, Tallio, Antimonio, Torio, Tellurio, Tecnezio, Rodio, Roentgenio, Hassio, Afnio, Siborgio, Scandio, Samario, Silicio, Rutenio, Stagno, Terbio, Radon, Rutherfordio, Renio, Rubidio, Plutonio, Praseodimio, Polonio, Promezio, Palladio, Nettunio, Nobelio, Nichel, Nihonium, Niobio, Sodio, Meitnerio, Molibdeno, Mendelevio, Moscovium, Lawrenzio, Livermorio, Litio, Iridio, Indio, Olmio, Germanio, Gadolinio
+Gionatan: Oganesson, Stronzio, Attinio, Americio, Argon, Astato, Bario, Boro, Bohrio, Bismuto, Berkelio, Bromo, Cadmio, Cerio, Californio, Protoattinio, Curio, Copernico, Radio, Neodimio, Lantanio, Vanadio, Zirconio, Zinco, Itterbio, Ittrio, Tullio, Titanio, Tallio, Antimonio, Torio, Tellurio, Tecnezio, Rodio, Roentgenio, Hassio, Afnio, Siborgio, Scandio, Samario, Silicio, Rutenio, Stagno, Terbio, Radon, Rutherfordio, Renio, Rubidio, Plutonio, Praseodimio, Polonio, Promezio, Palladio, Nettunio, Nobelio, Nichel, Nihonium, Niobio, Sodio, Meitnerio, Molibdeno, Mendelevio, Moscovium, Lawrenzio, Livermorio, Litio, Iridio, Indio, Olmio, Germanio, Gadolinio, Rame
 
 Thilina: Neon
 

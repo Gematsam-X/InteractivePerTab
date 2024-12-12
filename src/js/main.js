@@ -165,7 +165,7 @@ function toggleFaded(elements, condition) {
 // Funzione per applicare la trasparenza agli elementi in base alla categoria
 function adjustTransparency(targetClass) {
   const elements = document.querySelectorAll(
-    ".metal, .non-metal, .metalloid, .artificial, .noble-gas, .special, .specialLegend, .legend"
+    "td"
   );
   if (activeCategory === targetClass) {
     toggleFaded(elements, () => true); // Mostra tutto
