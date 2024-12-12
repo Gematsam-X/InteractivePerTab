@@ -8,10 +8,6 @@
   src: url("../fonts/CinzelBold.ttf");
 }
 
-.no-transition * {
-  transition: none !important;
-}
-
 .group-period {
   font-size: 2rem;
   border: none !important;
@@ -325,6 +321,7 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.5s ease !important;
   background-color: #f4f4f9;
 }
 
@@ -355,4 +352,8 @@ canvas {
   justify-content: center;
   margin: 20px auto;
   display: block;
+}
+
+.no-transition * {
+  transition: none !important;
 }
