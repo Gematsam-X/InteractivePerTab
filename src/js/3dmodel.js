@@ -106,16 +106,42 @@ export default function create3dModel(
   createOrbit(1, electrons1, orbitColor, electronColor, 0, 1); // First orbit
 
   if (electrons2) createOrbit(2, electrons2, orbitColor, electronColor, 0, 50);
-  
-  if (electrons3) createOrbit(3, electrons3, orbitColor, electronColor, Math.PI / 4, 0);
 
-  if (electrons4) createOrbit(4, electrons4, orbitColor, electronColor, Math.PI / 6, Math.PI / 4); // Fourth orbit
+  if (electrons3)
+    createOrbit(3, electrons3, orbitColor, electronColor, Math.PI / 4, 0);
 
-  if (electrons5) createOrbit(5, electrons5, orbitColor, electronColor, -Math.PI / 6, Math.PI / 3); // Fifth orbit
+  if (electrons4)
+    createOrbit(
+      4,
+      electrons4,
+      orbitColor,
+      electronColor,
+      Math.PI / 6,
+      Math.PI / 4
+    ); // Fourth orbit
 
-  if (electrons6) createOrbit(6, electrons6, orbitColor, electronColor, Math.PI / 6, -Math.PI / 4); // Sixth orbit
+  if (electrons5)
+    createOrbit(
+      5,
+      electrons5,
+      orbitColor,
+      electronColor,
+      -Math.PI / 6,
+      Math.PI / 3
+    ); // Fifth orbit
 
-  if (electrons7) createOrbit(7, electrons7, orbitColor, electronColor, -Math.PI / 3, 0); // Seventh orbit
+  if (electrons6)
+    createOrbit(
+      6,
+      electrons6,
+      orbitColor,
+      electronColor,
+      Math.PI / 6,
+      -Math.PI / 4
+    ); // Sixth orbit
+
+  if (electrons7)
+    createOrbit(7, electrons7, orbitColor, electronColor, -Math.PI / 3, 0); // Seventh orbit
 
   // Lighting setup
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);

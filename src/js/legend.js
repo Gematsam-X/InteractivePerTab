@@ -1,3 +1,5 @@
+import { toggleButton } from "./theme.js";
+
 // Array di immagini per ogni categoria
 const categories = {
   metals: ["assets/legend/light/metals.png", "assets/legend/dark/metals.png"],
@@ -43,8 +45,6 @@ function toggleImages() {
   cambiaImmagini(); // Aggiorna le immagini
 }
 
-// Aggiungi l'evento click al pulsante con classe 'theme-toggle'
-const toggleButton = document.querySelector(".theme-toggle");
 if (toggleButton) {
   toggleButton.addEventListener("click", toggleImages);
 }

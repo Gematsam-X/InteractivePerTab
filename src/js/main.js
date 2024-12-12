@@ -164,9 +164,7 @@ function toggleFaded(elements, condition) {
 
 // Funzione per applicare la trasparenza agli elementi in base alla categoria
 function adjustTransparency(targetClass) {
-  const elements = document.querySelectorAll(
-    "td"
-  );
+  const elements = document.querySelectorAll("td");
   if (activeCategory === targetClass) {
     toggleFaded(elements, () => true); // Mostra tutto
     activeCategory = null;
