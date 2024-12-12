@@ -9,14 +9,6 @@ window.addEventListener("load", function () {
     });
 });
 
-// Disabilita temporaneamente le transizioni
-document.body.classList.add("no-transition");
-
-// Rimuove la classe "no-transition" dopo 100 millisecondi per abilitare le transizioni
-window.setTimeout(() => {
-  document.body.classList.remove("no-transition");
-}, 100);
-
 // Seleziona tutti gli elementi <td>
 let elements = document.getElementsByTagName("td");
 
