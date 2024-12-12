@@ -1,4 +1,3 @@
-<!-- File HTML per P -->
 <!DOCTYPE html>
 <html lang="it">
   <head>
@@ -6,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../../assets/favicon.ico" />
     <link rel="stylesheet" href="../../styles.css" />
-    <title>TEMPLATE</title>
+    <title>Fosforo (P)</title>
   </head>
   <body>
-    <h1></h1>
+    <h1>Fosforo (P)</h1>
 
-    <div class="main-img"><img src="../assets/" /></div>
+    <div class="main-img">
+      <img src="../assets/P/p.png" alt="Immagine del Fosforo" />
+    </div>
     <div id="rendererContainer"></div>
 
     <div class="controls">
@@ -28,36 +29,77 @@
     <br />
 
     <h2>Numero atomico:</h2>
+    <p>15</p>
 
-    <h3>Peso atomico: u</h3>
+    <h3>Peso atomico:</h3>
+    <p>30,974 u</p>
 
     <h3>Tipo:</h3>
+    <p>Non metallo</p>
 
     <h2>Descrizione</h2>
-    <p></p>
+    <p>
+      Il Fosforo è un elemento chimico non metallico, essenziale per la vita
+      sulla Terra. Esiste in diverse forme allotropiche, le più comuni sono il
+      fosforo bianco e il fosforo rosso. Il fosforo bianco è altamente reattivo
+      e luminoso, mentre il fosforo rosso è meno reattivo ed è usato in molte
+      applicazioni industriali. Questo elemento è vitale per i processi
+      biologici, in particolare per la formazione di DNA, RNA e ATP. Viene
+      estratto principalmente dal fosfato di calcio presente nelle rocce
+      fosfatiche.
+    </p>
 
     <h2>Uso</h2>
-    <h2></h2>
+    <p>
+      Il Fosforo è usato principalmente nella produzione di fertilizzanti,
+      poiché è essenziale per la crescita delle piante. Viene anche utilizzato
+      in pesticidi, detergenti, lubrificanti e in applicazioni industriali come
+      la produzione di acciaio. Il fosforo rosso è impiegato nella produzione di
+      fiammiferi e in alcuni dispositivi di sicurezza. Inoltre, il fosforo è
+      usato in tecnologie di illuminazione, come luci fluorescenti e lampade a
+      neon.
+    </p>
 
     <h2>Curiosità</h2>
-    <p></p>
+    <p>
+      Il fosforo fu scoperto nel 1669 da Hennig Brandt, un alchimista tedesco,
+      che cercava di produrre l'oro ma finì per isolare questo elemento
+      luminoso. Il fosforo bianco emette una luce verde-gialla quando è esposto
+      all'aria, un fenomeno noto come fosforescenza. Questo elemento prende il
+      suo nome dal greco "phos" (luce) e "phoros" (portatore), poiché era
+      conosciuto come "portatore di luce". Il fosforo è altamente reattivo e
+      deve essere conservato sott'acqua o in atmosfera inerte per evitare che
+      reagisca con l'ossigeno.
+    </p>
 
     <h2>Futuro della ricerca</h2>
-    <p></p>
+    <p>
+      La ricerca sul fosforo è incentrata principalmente sull'uso sostenibile di
+      questo elemento, poiché le risorse di fosforo naturale sono limitate. Il
+      riciclo dei fosfati e il miglioramento dell'efficienza nell'uso dei
+      fertilizzanti sono aree di grande interesse per garantire la sicurezza
+      alimentare mondiale. Inoltre, gli scienziati stanno studiando il fosforo
+      in ambito energetico, esplorando le sue potenzialità in nuove batterie e
+      nella produzione di energia rinnovabile.
+    </p>
+
     <button class="theme-toggle">Cambia tema</button>
     <button id="showInPeriodicTableButton">
       Mostra nella tavola periodica
     </button>
+
     <a href="../../index.html"><button class="return">Indietro</button></a>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script type="module" src="../../js/theme.js"></script>
+
     <script type="module">
       import create3dModel from "../../js/3dmodel.js";
       import showInPeriodicTable from "../../js/showInPeriodicTable.js";
 
       showInPeriodicTable();
-      create3dModel();
+      create3dModel(2, 8, 5);
     </script>
   </body>
 </html>

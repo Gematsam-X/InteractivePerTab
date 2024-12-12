@@ -1,4 +1,3 @@
-<!-- File HTML per Al -->
 <!DOCTYPE html>
 <html lang="it">
   <head>
@@ -6,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../../assets/favicon.ico" />
     <link rel="stylesheet" href="../../styles.css" />
-    <title>TEMPLATE</title>
+    <title>Alluminio (Al)</title>
   </head>
   <body>
-    <h1></h1>
+    <h1>Alluminio (Al)</h1>
 
-    <div class="main-img"><img src="../assets/" /></div>
+    <div class="main-img">
+      <img src="../assets/Al/al.png" alt="Immagine dell'Alluminio" />
+    </div>
     <div id="rendererContainer"></div>
 
     <div class="controls">
@@ -28,36 +29,77 @@
     <br />
 
     <h2>Numero atomico:</h2>
+    <p>13</p>
 
-    <h3>Peso atomico: u</h3>
+    <h3>Peso atomico:</h3>
+    <p>26,982 u</p>
 
     <h3>Tipo:</h3>
+    <p>Metallo di transizione</p>
 
     <h2>Descrizione</h2>
-    <p></p>
+    <p>
+      L'Alluminio è un metallo leggero, resistente alla corrosione, e ampiamente
+      utilizzato in vari settori, tra cui l'edilizia, l'automobile e
+      l'aerospaziale. È il terzo elemento più abbondante nella crosta terrestre
+      e si presenta come un metallo bianco-argenteo. Grazie alla sua
+      malleabilità e conducibilità, l'alluminio è spesso utilizzato per produrre
+      leghe leggere per veicoli e aerei, oltre che per la produzione di
+      imballaggi, come lattine e fogli. È anche facilmente riciclabile, il che
+      lo rende una scelta ecologica nelle applicazioni industriali.
+    </p>
 
     <h2>Uso</h2>
-    <h2></h2>
+    <p>
+      L'alluminio è usato in una vasta gamma di applicazioni, dai veicoli
+      leggeri agli aerei, passando per l'elettronica e l'edilizia. Le sue leghe
+      leggere sono ideali per la costruzione di automobili e componenti
+      aerospaziali, dove ridurre il peso è cruciale per migliorare l'efficienza
+      del carburante. Inoltre, l'alluminio è usato per produrre contenitori
+      alimentari (come lattine e pellicola) grazie alla sua resistenza alla
+      corrosione e alla leggerezza. In campo elettronico, viene utilizzato per i
+      circuiti e i conduttori elettrici grazie alla sua buona conducibilità.
+    </p>
 
     <h2>Curiosità</h2>
-    <p></p>
+    <p>
+      Nonostante l'alluminio sia il terzo elemento più abbondante nella crosta
+      terrestre, è stato considerato raro e prezioso fino alla metà del 1800.
+      Solo nel 1886 fu scoperto un metodo economico per estrarlo, grazie al
+      processo di Hall-Héroult, che ha reso possibile la produzione di massa
+      dell'alluminio. Inoltre, l'alluminio puro è noto per la sua capacità di
+      riflettere la luce, motivo per cui viene utilizzato nei rivestimenti di
+      specchi e finestre ad alte prestazioni.
+    </p>
 
     <h2>Futuro della ricerca</h2>
-    <p></p>
+    <p>
+      La ricerca sull'alluminio si concentra sul miglioramento dei processi di
+      produzione per ridurre i costi energetici e migliorare l'efficienza del
+      riciclo. In particolare, l'industria automobilistica sta investendo molto
+      nell'utilizzo di leghe di alluminio per costruire veicoli più leggeri e
+      più efficienti. Inoltre, gli scienziati stanno esplorando nuove
+      applicazioni dell'alluminio in dispositivi elettronici avanzati e nella
+      produzione di celle solari e batterie.
+    </p>
+
     <button class="theme-toggle">Cambia tema</button>
     <button id="showInPeriodicTableButton">
       Mostra nella tavola periodica
     </button>
+
     <a href="../../index.html"><button class="return">Indietro</button></a>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script type="module" src="../../js/theme.js"></script>
+
     <script type="module">
       import create3dModel from "../../js/3dmodel.js";
       import showInPeriodicTable from "../../js/showInPeriodicTable.js";
 
       showInPeriodicTable();
-      create3dModel();
+      create3dModel(2, 8, 3);
     </script>
   </body>
 </html>
