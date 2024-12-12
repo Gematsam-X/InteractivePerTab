@@ -137,7 +137,7 @@ const metals = document.getElementById("metalsLegendContainer");
 const nonMetals = document.getElementById("nonMetalsLegendContainer");
 const metalloids = document.getElementById("metalloidsLegendContainer");
 const artificials = document.getElementById("artificialsLegendContainer");
-const nobleGases = document.getElementById("nobelGasesLegendContainer");
+const nobleGases = document.getElementById("nobleGasesLegendContainer");
 const lanthanides = document.querySelectorAll(".lanthanides");
 const actinides = document.querySelectorAll(".actinides");
 
