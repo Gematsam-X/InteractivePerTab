@@ -12,9 +12,14 @@
   font-family: "CinzelBold";
   src: url("../fonts/CinzelBold.ttf");
 }
+.miniTable {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
 
 .group-period {
   font-size: 2rem;
+  text-align: center;
   border: none !important;
   font-family: "CinzelBold", Arial;
   pointer-events: none;
@@ -97,13 +102,8 @@ td:hover {
   background-color: white;
 }
 
-td[colspan="2"],
-td[colspan="3"],
-td[colspan="4"],
-td[colspan="5"],
-td[colspan="8"],
-td[colspan="18"] {
-  border: none; /* Rimuove il bordo per i td della legenda */
+.no-border {
+  border: none !important; /* Rimuove il bordo per i td della legenda */
 }
 
 /* Classe per rendere gli elementi trasparenti */
@@ -270,13 +270,8 @@ body.dark-theme {
   color: #f4f4f9 !important;
 }
 
-.dark-theme .periodic-table td[colspan="2"],
-.dark-theme .periodic-table td[colspan="3"],
-.dark-theme .periodic-table td[colspan="4"],
-.dark-theme .periodic-table td[colspan="5"],
-.dark-theme .periodic-table td[colspan="8"],
-.dark-theme .periodic-table td[colspan="18"] {
-  border: none; /* Rimuove il bordo per i td della legenda */
+.dark-theme .no-border  {
+  border: none !important; /* Rimuove il bordo per i td della legenda */
 }
 
 .dark-theme .return {
