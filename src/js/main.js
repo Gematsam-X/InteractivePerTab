@@ -99,11 +99,10 @@ function cercaElemento() {
   }
 
   // Cerca l'elemento corrispondente
-  const risultato = datiElementi.find(
-    (element) =>
-      element.symbol.toLowerCase() === searchInput ||
-      element.elementName.toLowerCase() === searchInput ||
-      element.number.toString() === searchInput
+  const risultato = datiElementi.find((element) =>
+    [element.symbol, element.elementName, element.number.toString()].some(
+      (val) => val.toLowerCase() === searchInput
+    )
   );
 
   // Se l'elemento è trovato, reindirizza alla sua pagina
@@ -183,6 +182,10 @@ function highlightCategoryRange(start, end, category) {
     elements.forEach((element) => {
       const contenuto = element.innerHTML.trim();
       const righeContenuto = contenuto.split("<br>");
+
+      // Se è un numero di gruppo o periodo, non deve essere evidenziato
+      if (element.classList.contains("group-period"))
+        element.classList.add("faded");
 
       if (righeContenuto.length >= 2) {
         const elementNumber = parseInt(righeContenuto[0]);

@@ -8,8 +8,8 @@ const categories = {
     "assets/legend/dark/non-metals.png",
   ],
   nobleGases: [
-    "assets/legend/light/nobel-gases.png",
-    "assets/legend/dark/nobel-gases.png",
+    "assets/legend/light/noble-gases.png",
+    "assets/legend/dark/noble-gases.png",
   ],
   metalloids: [
     "assets/legend/light/metalloids.png",

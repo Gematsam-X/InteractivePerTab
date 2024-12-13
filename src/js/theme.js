@@ -16,12 +16,12 @@ if (localStorage.getItem("theme") === "dark") {
 
 // Funzione di toggle per il cambio di tema
 toggleButton.addEventListener("click", () => {
-  body.style.transition = "background-color 0.5s ease"
+  body.style.transition = "background-color 0.5s ease";
   body.classList.toggle("dark-theme");
   const theme = body.classList.contains("dark-theme") ? "dark" : "light";
   localStorage.setItem("theme", theme);
 });
 
-window.addEventListener('DOMContentLoaded', () => {
-  showContentAfterDelay()
-})
+window.addEventListener("DOMContentLoaded", () => {
+  showContentAfterDelay();
+});
