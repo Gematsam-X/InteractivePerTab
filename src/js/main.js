@@ -34,10 +34,7 @@ for (let i = 0; i < elements.length; i++) {
       const symbol = elements[i].innerHTML.split("<br>")[1]; // Ottieni il simbolo dall'elemento
       // Reindirizza alla pagina dell'elemento
       window.sessionStorage.removeItem("currentElement");
-      window.setTimeout(() => {
-        elements[i].style.removeProperty("transform");
-        window.location.href = "elements/html/" + symbol.toLowerCase() + ".html";
-      }, 500)
+      window.location.href = "elements/html/" + symbol.toLowerCase() + ".html";
     });
   }
 }
