@@ -7,6 +7,7 @@ window.addEventListener("load", function () {
     .catch((error) => {
       console.error("Errore durante l'estrazione dei dati:", error);
     });
+  resetDefaultStyle();
 });
 
 // Seleziona tutti gli elementi <td>
@@ -35,7 +36,6 @@ for (let i = 0; i < elements.length; i++) {
       // Reindirizza alla pagina dell'elemento
       window.sessionStorage.removeItem("currentElement");
       window.location.href = "elements/html/" + symbol.toLowerCase() + ".html";
-      resetDefaultStyle();
     });
   }
 }
