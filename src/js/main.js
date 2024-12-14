@@ -295,3 +295,9 @@ if (currentElementSymbol) {
     }
   });
 }
+
+window.addEventListener("load", () => {
+  if (currentElementSymbol) {
+    resetDefaultStyle();
+  }
+}
