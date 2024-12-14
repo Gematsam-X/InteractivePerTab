@@ -295,3 +295,6 @@ if (currentElementSymbol) {
     }
   });
 }
+if (!currentElementSymbol) {
+  resetDefaultStyle();
+}
