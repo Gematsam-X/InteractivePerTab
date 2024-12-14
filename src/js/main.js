@@ -28,13 +28,15 @@ for (let i = 0; i < elements.length; i++) {
     filteredElements.push(elements[i]);
 
     // Aggiungi un evento di click per il reindirizzamento
-    elements[i].addEventListener("click", function () {
+    elements[i].addEventListener("click", function() {
       elements[i].style.transform = "scale(1.2)"; // Ingrandisce l'elemento al clic
       // Estrai il simbolo dall'elemento
       const symbol = elements[i].innerHTML.split("<br>")[1]; // Ottieni il simbolo dall'elemento
       // Reindirizza alla pagina dell'elemento
       window.sessionStorage.removeItem("currentElement");
-      window.location.href = "elements/html/" + symbol.toLowerCase() + ".html";
+      window.setTimeout(() => {
+        window.location.href = "elements/html/" + symbol.toLowerCase() + ".html";
+      }, 500)
     });
   }
 }
