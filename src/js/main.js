@@ -294,9 +294,4 @@ if (currentElementSymbol) {
       resetDefaultStyle();
     }
   });
-} else {
-  filteredElements.forEach((element) => {
-    element.style.removeProperty("transform");
-    element.style.removeProperty("opacity");
-    element.classList.remove("faded");
-  });
+}
