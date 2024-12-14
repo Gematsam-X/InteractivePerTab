@@ -7,7 +7,6 @@ window.addEventListener("load", function () {
     .catch((error) => {
       console.error("Errore durante l'estrazione dei dati:", error);
     });
-  resetDefaultStyle();
 });
 
 // Seleziona tutti gli elementi <td>
