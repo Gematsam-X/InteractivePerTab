@@ -247,7 +247,6 @@ const currentElementSymbol = window.sessionStorage.getItem("currentElement");
 
 if (currentElementSymbol) {
   const allElements = document.querySelectorAll("td");
-  resetDefaultStyle();
 
   allElements.forEach((element) => {
     const contenuto = element.innerHTML.trim();
@@ -262,7 +261,7 @@ if (currentElementSymbol) {
         element.classList.remove("faded");
         element.style.transform = "scale(1.2)";
       } else {
-        element.classList.add("faded");
+        element.classList.add("faded"); 
       }
     } else {
       // Gestisci elementi che non hanno un simbolo
@@ -295,4 +294,9 @@ if (currentElementSymbol) {
       resetDefaultStyle();
     }
   });
-}
+} else {
+  filteredElements.forEach((element) => {
+    element.style.removeProperty("transform");
+    element.style.removeProperty("opacity");
+    element.classList.remove("faded");
+  });
