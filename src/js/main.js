@@ -247,6 +247,7 @@ const currentElementSymbol = window.sessionStorage.getItem("currentElement");
 
 if (currentElementSymbol) {
   const allElements = document.querySelectorAll("td");
+  resetDefaultStyle();
 
   allElements.forEach((element) => {
     const contenuto = element.innerHTML.trim();
@@ -294,10 +295,4 @@ if (currentElementSymbol) {
       resetDefaultStyle();
     }
   });
-}
-
-window.addEventListener("load", () => {
-  if (currentElementSymbol) {
-    resetDefaultStyle();
-  }
 }
