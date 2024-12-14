@@ -35,7 +35,7 @@ for (let i = 0; i < elements.length; i++) {
       // Reindirizza alla pagina dell'elemento
       window.sessionStorage.removeItem("currentElement");
       window.setTimeout(() => {
-        resetDefaultStyle()
+        elements[i].style.removeProperty("transform");
         window.location.href = "elements/html/" + symbol.toLowerCase() + ".html";
       }, 500)
     });
