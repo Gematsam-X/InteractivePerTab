@@ -350,7 +350,7 @@ function getCategoryCell(category) {
  ** Funzione principale per attivare/disattivare la visualizzazione avanzata
  * @param {boolean} removeMetalClass Indica se rimuovere le classi dei metalli
  */
-function setupAdvancedVisualizzazion(removeMetalClass) {
+function toggleStatus(removeMetalClass) {
   localStorage.setItem("isAdvancedVisualizzation", isAdvancedVisualizzation);
   // Modifica il testo del bottone in base allo stato corrente
   advancedVisualizzationButton.innerText = isAdvancedVisualizzation
@@ -500,10 +500,12 @@ function setupAdvancedVisualizzazion(removeMetalClass) {
  * 2. Imposta la visualizzazione predefinita.
  */
 document.addEventListener("DOMContentLoaded", () => {
-  setupAdvancedVisualizzazion(false); // Configurazione visualizzazione iniziale
+  estraiDatiElementi(); // Estrae i dati
+  checkElementsClass(); // Controlla le classi sugli elementi
+  toggleStatus(false); // Configurazione visualizzazione iniziale
 });
 
 // Gestione del bottone per attivare/disattivare la visualizzazione avanzata
 advancedVisualizzationButton.addEventListener("click", () =>
-  setupAdvancedVisualizzazion(true)
+  toggleStatus(true)
 );
