@@ -537,10 +537,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Gestione del bottone per attivare/disattivare la visualizzazione avanzata
-advancedVisualizzationButton.addEventListener("click", () =>
-  document.querySelectorAll("td").forEach((element) => {
-    element.style.transition = "background-color 0.5s ease";
-  })
-  
+advancedVisualizzationButton.addEventListener("click", () => {
   toggleStatus(true)
-);
+}
