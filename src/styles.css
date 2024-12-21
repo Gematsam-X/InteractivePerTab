@@ -168,7 +168,15 @@ td:hover {
   background-color: white !important;
 }
 
+.special:hover {
+  background-color: #e6e6e6 !important;
+}
+
 .specialLegend {
+  background-color: transparent !important;
+}
+
+.specialLegend:hover {
   background-color: transparent !important;
 }
 
@@ -374,9 +382,15 @@ body.dark-theme {
 .dark-theme .special {
   background-color: #636e72 !important;
 }
+.dark-theme .special:hover {
+  background-color: #4f5a5e !important;
+}
 
 .dark-theme .specialLegend {
   color: #f4f4f9 !important;
+  background-color: transparent !important;
+}
+.dark-theme .specialLegend:hover {
   background-color: transparent !important;
 }
 

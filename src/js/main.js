@@ -46,45 +46,34 @@ function checkElementsClass() {
 let datiElementi = [];
 
 // Funzione per estrarre i dati degli elementi chimici dalla tabella, usando Promise
-function estraiDatiElementi() {
-  return new Promise((resolve, reject) => {
-    const righe = document.querySelectorAll(".periodic-table tr");
-    const datiTemporanei = [];
+async function estraiDatiElementi() {
+  const righe = document.querySelectorAll(".periodic-table tr");
+  const datiTemporanei = [];
 
-    // Itera sulle righe della tabella
-    righe.forEach((riga) => {
-      const celle = riga.querySelectorAll("td");
+  for (let riga of righe) {
+    const celle = riga.querySelectorAll("td");
+    for (let cella of celle) {
+      const contenuto = cella.innerHTML.trim();
+      const righeContenuto = contenuto.split("<br>");
 
-      // Itera su ciascuna cella della riga
-      celle.forEach((cella) => {
-        const contenuto = cella.innerHTML.trim();
-        const righeContenuto = contenuto.split("<br>");
-
-        // Se il contenuto ha 4 righe, estrai i dati
-        if (righeContenuto.length === 4) {
-          const number = parseInt(righeContenuto[0]);
-          const symbol = righeContenuto[1];
-          const elementName = righeContenuto[2];
-
-          // Aggiungi i dati estratti all'array temporaneo
-          datiTemporanei.push({
-            number,
-            symbol,
-            elementName,
-          });
-        }
-      });
-    });
-
-    // Se i dati sono stati trovati, salva nella variabile globale e risolvi la Promise
-    if (datiTemporanei.length > 0) {
-      datiElementi = datiTemporanei; // Popola la variabile globale
-      console.log(datiElementi);
-      resolve(); // Risolve la Promise
-    } else {
-      reject("Nessun dato trovato");
+      if (righeContenuto.length === 4) {
+        const number = parseInt(righeContenuto[0]);
+        const symbol = righeContenuto[1];
+        const elementName = righeContenuto[2];
+        datiTemporanei.push({
+          number,
+          symbol,
+          elementName,
+        });
+      }
     }
-  });
+  }
+  if (datiTemporanei.length > 0) {
+    datiElementi = datiTemporanei;
+    console.log(datiElementi);
+  } else {
+    throw new Error("Nessun dato trovato");
+  }
 }
 
 // Funzione per cercare un elemento in base al nome, simbolo o numero atomico
@@ -170,45 +159,98 @@ function toggleFaded(elements, condition) {
   });
 }
 
-// Funzione per applicare la trasparenza agli elementi in base alla categoria
+function resetDefaultStyle() {
+  // Rimuovi la classe .faded da tutti gli elementi
+  document.querySelectorAll("td").forEach((element) => {
+    element.style.removeProperty("transform");
+    element.style.removeProperty("opacity");
+    element.classList.remove("faded");
+  });
+
+  // Svuota il sessionStorage
+  window.sessionStorage.removeItem("currentElement");
+}
+
+let clickListenerAdded = false; // Indica se il listener è stato aggiunto
+
+// Funzione principale per applicare la trasparenza agli elementi in base alla categoria
 function adjustTransparency(targetClass) {
   const elements = document.querySelectorAll("td");
+
+  // Se la categoria è già attiva (sta per essere disattivata)
   if (activeCategory === targetClass) {
-    toggleFaded(elements, () => true); // Mostra tutto
-    activeCategory = null;
+    // Rimuovi l'ascoltatore dell'evento, dato che disattiviamo
+    if (clickListenerAdded) {
+      document.removeEventListener("click", handleOutsideClick);
+      clickListenerAdded = false;
+    }
+
+    // Reset della classe "faded" sugli elementi
+    resetDefaultStyle();
+    activeCategory = null; // Resetta la categoria attiva
   } else {
+    // Applica l'effetto "faded" alla categoria selezionata
     toggleFaded(elements, (element) => element.classList.contains(targetClass));
-    activeCategory = targetClass;
+    activeCategory = targetClass; // Imposta la nuova categoria attiva
+
+    // Aggiungi un listener per il clic fuori dalla tavola periodica
+    if (!clickListenerAdded) {
+      document.addEventListener("click", handleOutsideClick);
+      clickListenerAdded = true; // Indica che l'ascoltatore è stato aggiunto
+    }
   }
 }
 
+// Funzione per gestire il clic fuori dalla tavola e ripristinare gli stili predefiniti
+function handleOutsideClick(event) {
+  const elements = document.querySelectorAll("td");
+  const clickedElement = event.target;
+
+  // Verifica se il clic è all'interno degli elementi evidenziati
+  const isInsideHighlighted = [...elements].some(
+    (element) =>
+      element.contains(clickedElement) && !element.classList.contains("faded")
+  );
+
+  // Se clicchi fuori, ripristina lo stile predefinito
+  if (!isInsideHighlighted) {
+    resetDefaultStyle();
+    activeCategory = null; // Resetta la categoria attiva
+  }
+}
 let activeCategoryRange = null; // Variabile per tracciare la categoria attiva
+
+let areIntTransElemsHighlighted = false; // Indica se gli elementi di transizione interna sono evidenziati
 
 // Funzione per evidenziare una categoria specifica e gestire il toggle
 function highlightCategoryRange(category, series) {
-  const allElements = document.querySelectorAll("td");
+  if (areIntTransElemsHighlighted) {
+    return;
+  } else {
+    const allElements = document.querySelectorAll("td");
 
-  if (activeCategoryRange === category) {
-    // Se la categoria è già attiva, rimuoviamo 'faded' da tutti gli elementi
+    if (activeCategoryRange === category) {
+      // Se la categoria è già attiva, rimuoviamo 'faded' da tutti gli elementi
+      allElements.forEach((element) => {
+        element.classList.remove("faded");
+      });
+      activeCategoryRange = null; // Annulla la categoria attiva
+      return; // Termina la funzione, niente più evidenza
+    }
+
+    // Aggiungi una classe 'faded' a tutti gli elementi
     allElements.forEach((element) => {
-      element.classList.remove("faded");
+      element.classList.add("faded");
     });
-    activeCategoryRange = null; // Annulla la categoria attiva
-    return; // Termina la funzione, niente più evidenza
+
+    // Poi rimuovi 'faded' da quelli che appartengono alla categoria specificata
+    const selectedElements = document.querySelectorAll(`.${series}`);
+    selectedElements.forEach((element) => {
+      element.classList.remove("faded"); // Rimuovi il 'faded' per la serie selezionata
+    });
+
+    activeCategoryRange = category; // Imposta la categoria come attiva}}
   }
-
-  // Aggiungi una classe 'faded' a tutti gli elementi
-  allElements.forEach((element) => {
-    element.classList.add("faded");
-  });
-
-  // Poi rimuovi 'faded' da quelli che appartengono alla categoria specificata
-  const selectedElements = document.querySelectorAll(`.${series}`);
-  selectedElements.forEach((element) => {
-    element.classList.remove("faded"); // Rimuovi il 'faded' per la serie selezionata
-  });
-
-  activeCategoryRange = category; // Imposta la categoria come attiva}
 }
 
 // Funzione per rimuovere la classe 'faded' da un gruppo specifico di elementi
@@ -241,6 +283,7 @@ metals.addEventListener("click", () => {
   removeFadedFromCategory(".lanthanides, .actinides");
 });
 internalTransitionMetals.addEventListener("click", () => {
+  areIntTransElemsHighlighted = !areIntTransElemsHighlighted;
   adjustTransparency("internalTransitionMetal");
 });
 transitionMetals.addEventListener("click", () =>
@@ -260,7 +303,9 @@ nonMetals.addEventListener("click", () => adjustTransparency("non-metal"));
 metalloids.addEventListener("click", () => adjustTransparency("metalloid"));
 artificials.addEventListener("click", () => adjustTransparency("artificial"));
 nobleGases.addEventListener("click", () => adjustTransparency("noble-gas"));
-// Funzioni per il pulsante "Mostra nella tavola periodica"
+
+//* Funzioni per il pulsante "Mostra nella tavola periodica"
+
 // Gestisci la selezione dell'elemento corrente nella tavola periodica
 const currentElementSymbol = window.sessionStorage.getItem("currentElement");
 
@@ -288,18 +333,6 @@ if (currentElementSymbol) {
     }
   });
 
-  function resetDefaultStyle() {
-    // Rimuovi la classe .faded da tutti gli elementi
-    allElements.forEach((element) => {
-      element.style.removeProperty("transform");
-      element.style.removeProperty("opacity");
-      element.classList.remove("faded");
-    });
-
-    // Svuota il sessionStorage
-    window.sessionStorage.removeItem("currentElement");
-  }
-
   // Aggiungi l'event listener per il click
   document.addEventListener("click", (event) => {
     const clickedElement = event.target;
@@ -318,7 +351,8 @@ if (currentElementSymbol) {
 //* VISUALIZZAZIONE AVANZATA
 
 // Stato della visualizzazione avanzata (attiva/disattiva)
-let isAdvancedVisualizzation = false;
+let isAdvancedVisualizzation =
+  JSON.parse(localStorage.getItem("isAdvancedVisualizzation")) || false;
 // Elementi principali del DOM
 const advancedVisualizzationButton = getCategoryCell("advancedVisualizzation"); // Bottone per visualizzazione avanzata
 const metalsLegendContainerCell = getCategoryCell("metalsLegendContainer"); // Contenitore principale delle legende
@@ -351,7 +385,10 @@ function getCategoryCell(category) {
  * @param {boolean} removeMetalClass Indica se rimuovere le classi dei metalli
  */
 function toggleStatus(removeMetalClass) {
-  localStorage.setItem("isAdvancedVisualizzation", isAdvancedVisualizzation);
+  localStorage.setItem(
+    "isAdvancedVisualizzation",
+    JSON.stringify(isAdvancedVisualizzation)
+  );
   // Modifica il testo del bottone in base allo stato corrente
   advancedVisualizzationButton.innerText = isAdvancedVisualizzation
     ? "Disattiva visualizzazione avanzata"
@@ -369,12 +406,6 @@ function toggleStatus(removeMetalClass) {
       .querySelectorAll(".lanthanid, .actinid, .lanthanides, .actinides")
       .forEach((obj) => {
         obj.classList.add("internalTransitionMetal");
-        if (
-          obj.classList.contains("lanthanides") ||
-          obj.classList.contains("actinides")
-        ) {
-          obj.classList.add("no-click");
-        }
       });
 
     datiElementi.forEach((element) => {
