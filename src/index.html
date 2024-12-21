@@ -26,15 +26,15 @@
     <table class="periodic-table">
       <tr>
         <td class="no-border"></td>
-        <td class="group-period">IA</td>
+        <td class="group-period">1</td>
         <td colspan="16" class="no-border"></td>
-        <td class="group-period">VIIIA</td>
+        <td class="group-period">18</td>
       </tr>
       <tr>
         <td class="group-period">1</td>
         <td class="non-metal">1<br />H<br />Idrogeno<br />1.008</td>
-        <td class="group-period">IIA</td>
-        <td colspan="2" class="no-border"></td>
+        <td class="group-period">2</td>
+        <td colspan="2" class="no-border removable"></td>
         <td
           colspan="2"
           class="legend artificial no-border"
@@ -46,24 +46,62 @@
           /><br />Elementi artificiali
         </td>
 
-        <td colspan="2" class="legend metal no-border" id="metalsLegendContainer">
-          <img
-            id="metals_img"
-            src="assets/legend/light/metals.png"
-          /><br />Metalli
-        </td>
-        <td colspan="2" class="legend noble-gas no-border" id="nobleGasesLegendContainer">
+        <td
+          colspan="2"
+          class="legend noble-gas no-border"
+          id="nobleGasesLegendContainer"
+        >
           <img
             id="nobleGases_img"
             src="assets/legend/light/noble-gases.png"
           /><br />Gas nobili
         </td>
-        <td colspan="2" class="no-border"></td>
-        <td class="group-period">IIIA</td>
-        <td class="group-period">IVA</td>
-        <td class="group-period">VA</td>
-        <td class="group-period">VIA</td>
-        <td class="group-period">VIIA</td>
+        <td
+          colspan="2"
+          class="legend metal no-border"
+          id="metalsLegendContainer"
+        >
+          <img
+            id="metals_img"
+            src="assets/legend/light/metals.png"
+          /><br />Metalli
+        </td>
+        <td colspan="2" class="no-border removable"></td>
+
+        <td
+          colspan="2"
+          class="no-border legend transitionMetal"
+          id="transitionMetalsLegendContainer"
+        >
+          <img id="transitionMetals_img" src="assets/legend/light/metals/transition-metals.png"/>
+          <br />
+          Metalli di transizione
+        </td>
+
+        <td
+          colspan="2"
+          class="no-border legend postTransitionMetal"
+          id="postTransitionMetalsLegendContainer"
+        >
+          <img id="postTransitionMetals_img" src="assets/legend/light/metals/post-transition-metals.png"/>
+          <br />
+          Metalli di post-transizione
+        </td>
+        <td
+          colspan="2"
+          class="no-border legend internalTransitionMetal"
+          id="internalTransitionMetalsLegendContainer"
+        >
+          <img id="internalTransitionMetals_img" src="assets/legend/light/metals/internal-transition-metals.png"/>
+          <br />
+          Metalli di transizione interna
+        </td>
+
+        <td class="group-period">13</td>
+        <td class="group-period">14</td>
+        <td class="group-period">15</td>
+        <td class="group-period">16</td>
+        <td class="group-period">17</td>
 
         <td class="noble-gas">2<br />He<br />Elio<br />4.0026</td>
       </tr>
@@ -71,20 +109,52 @@
         <td class="group-period">2</td>
         <td class="metal">3<br />Li<br />Litio<br />6.94</td>
         <td class="metal">4<br />Be<br />Berillio<br />9.0122</td>
-        <td colspan="4" class="no-border"></td>
-        <td colspan="2" class="legend metalloid no-border" id="metalloidsLegendContainer">
+        <td colspan="2" class="no-border removable"></td>
+        <td
+          colspan="2"
+          class="legend metalloid no-border"
+          id="metalloidsLegendContainer"
+        >
           <img
             id="metalloids_img"
             src="assets/legend/light/metalloids.png"
           /><br />Semimetalli
         </td>
-        <td colspan="2" class="legend non-metal no-border" id="nonMetalsLegendContainer">
+
+        <td
+          colspan="2"
+          class="legend non-metal no-border"
+          id="nonMetalsLegendContainer"
+        >
           <img
             id="nonMetals_img"
             src="assets/legend/light/non-metals.png"
           /><br />Non metalli
         </td>
-        <td colspan="2" class="no-border"></td>
+
+        <td
+          colspan="2"
+          class="no-border legend alkaliMetal"
+          id="alkaliMetalsLegendContainer"
+        >
+          <img src="assets/legend/light/metals/alkali-metals.png"/>
+          <br />
+          Metalli alcalini
+        </td>
+        <td
+          colspan="2"
+          class="no-border legend alkalineEarthMetal"
+          id="alkalineEarthMetalsLegendContainer"
+        >
+          <img id="alkalineEarthMetals_img" src="assets/legend/light/metals/alkaline-earth-metals.png"/>
+          <br />
+          Metalli alcalino-terrosi
+        </td>
+
+        <td colspan="2" class="no-border">
+          <button id="advancedVisualizzation"></button>
+        </td>
+        <td colspan="2" class="no-border removable"></td>
         <td class="metalloid">5<br />B<br />Boro<br />10.81</td>
         <td class="non-metal">6<br />C<br />Carbonio<br />12.011</td>
         <td class="non-metal">7<br />N<br />Azoto<br />14.007</td>
@@ -97,17 +167,17 @@
         <td class="metal">11<br />Na<br />Sodio<br />22.99</td>
         <td class="metal">12<br />Mg<br />Magnesio<br />24.305</td>
 
-        <td class="group-period">IIIB</td>
-        <td class="group-period">IVB</td>
-        <td class="group-period">VB</td>
-        <td class="group-period">VIB</td>
-        <td class="group-period">VIIB</td>
-        <td class="group-period">VIIIB</td>
-        <td class="group-period">VIIIB</td>
-        <td class="group-period">VIIIB</td>
-        <td class="group-period">IB</td>
-        <td class="group-period">IIB</td>
-        <td class="metal">13<br />Al<br />Alluminio<br />26.982</td>
+        <td class="group-period">3</td>
+        <td class="group-period">4</td>
+        <td class="group-period">5</td>
+        <td class="group-period">6</td>
+        <td class="group-period">7</td>
+        <td class="group-period">8</td>
+        <td class="group-period">9</td>
+        <td class="group-period">10</td>
+        <td class="group-period">11</td>
+        <td class="group-period">12</td>
+        <td class="metal transition-metal">13<br />Al<br />Alluminio<br />26.982</td>
         <td class="metalloid">14<br />Si<br />Silicio<br />28.085</td>
         <td class="non-metal">15<br />P<br />Fosforo<br />30.974</td>
         <td class="non-metal">16<br />S<br />Zolfo<br />32.06</td>
@@ -143,7 +213,7 @@
         <td class="metal">40<br />Zr<br />Zirconio<br />91.224</td>
         <td class="metal">41<br />Nb<br />Niobio<br />92.906</td>
         <td class="metal">42<br />Mo<br />Molibdeno<br />95.95</td>
-        <td class="artificial">43<br />Tc<br />Tecnezio<br />[98]</td>
+        <td class="artificial metal">43<br />Tc<br />Tecnezio<br />[98]</td>
         <td class="metal">44<br />Ru<br />Rutenio<br />101.07</td>
         <td class="metal">45<br />Rh<br />Rodio<br />102.91</td>
         <td class="metal">46<br />Pd<br />Palladio<br />106.42</td>
@@ -186,21 +256,21 @@
         <td class="special actinides">
           89-103<br /><img src="assets/actinides.png" /><br />Attinoidi
         </td>
-        <td class="artificial">104<br />Rf<br />Rutherfordio<br />[267]</td>
-        <td class="artificial">105<br />Db<br />Dubnio<br />[270]</td>
-        <td class="artificial">106<br />Sg<br />Siborgio<br />[271]</td>
-        <td class="artificial">107<br />Bh<br />Bohrio<br />[270]</td>
-        <td class="artificial">108<br />Hs<br />Hassio<br />[277]</td>
-        <td class="artificial">109<br />Mt<br />Meitnerio<br />[276]</td>
-        <td class="artificial">110<br />Ds<br />Darmstazio<br />[281]</td>
-        <td class="artificial">111<br />Rg<br />Roentgenio<br />[282]</td>
-        <td class="artificial">112<br />Cn<br />Copernico<br />[285]</td>
-        <td class="artificial">113<br />Nh<br />Nihonium<br />[286]</td>
-        <td class="artificial">114<br />Fl<br />Flerovio<br />[289]</td>
-        <td class="artificial">115<br />Mc<br />Moscovium<br />[290]</td>
-        <td class="artificial">116<br />Lv<br />Livermorio<br />[293]</td>
-        <td class="artificial">117<br />Ts<br />Tenessine<br />[294]</td>
-        <td class="artificial">118<br />Og<br />Oganesson<br />[294]</td>
+        <td class="artificial metal">104<br />Rf<br />Rutherfordio<br />[267]</td>
+        <td class="artificial metal">105<br />Db<br />Dubnio<br />[270]</td>
+        <td class="artificial metal">106<br />Sg<br />Siborgio<br />[271]</td>
+        <td class="artificial metal">107<br />Bh<br />Bohrio<br />[270]</td>
+        <td class="artificial metal">108<br />Hs<br />Hassio<br />[277]</td>
+        <td class="artificial metal">109<br />Mt<br />Meitnerio<br />[276]</td>
+        <td class="artificial metal">110<br />Ds<br />Darmstazio<br />[281]</td>
+        <td class="artificial metal">111<br />Rg<br />Roentgenio<br />[282]</td>
+        <td class="artificial metal">112<br />Cn<br />Copernico<br />[285]</td>
+        <td class="artificial metal">113<br />Nh<br />Nihonium<br />[286]</td>
+        <td class="artificial metal">114<br />Fl<br />Flerovio<br />[289]</td>
+        <td class="artificial metal">115<br />Mc<br />Moscovium<br />[290]</td>
+        <td class="artificial metal">116<br />Lv<br />Livermorio<br />[293]</td>
+        <td class="artificial metalloid">117<br />Ts<br />Tennessine<br />[294]</td>
+        <td class="artificial noble-gas">118<br />Og<br />Oganesson<br />[294]</td>
       </tr>
       <tr>
         <td colspan="18" class="no-border"></td>
@@ -209,41 +279,51 @@
         <td colspan="3" class="specialLegend lanthanides no-border">
           <br />Lantanoidi<br /><img src="assets/lanthanides.png" />
         </td>
-        <td class="metal">57<br />La<br />Lantanio<br />138.91</td>
-        <td class="metal">58<br />Ce<br />Cerio<br />140.12</td>
-        <td class="metal">59<br />Pr<br />Praseodimio<br />140.91</td>
-        <td class="metal">60<br />Nd<br />Neodimio<br />144.24</td>
-        <td class="artificial">61<br />Pm<br />Promezio<br />[145]</td>
-        <td class="metal">62<br />Sm<br />Samario<br />150.36</td>
-        <td class="metal">63<br />Eu<br />Europio<br />151.96</td>
-        <td class="metal">64<br />Gd<br />Gadolinio<br />157.25</td>
-        <td class="metal">65<br />Tb<br />Terbio<br />158.93</td>
-        <td class="metal">66<br />Dy<br />Disprosio<br />162.5</td>
-        <td class="metal">67<br />Ho<br />Olmio<br />164.93</td>
-        <td class="metal">68<br />Er<br />Erbio<br />167.26</td>
-        <td class="metal">69<br />Tm<br />Tullio<br />168.93</td>
-        <td class="metal">70<br />Yb<br />Itterbio<br />173.04</td>
-        <td class="metal">71<br />Lu<br />Lutezio<br />174.97</td>
+        <td class="metal lanthanid">57<br />La<br />Lantanio<br />138.91</td>
+        <td class="metal lanthanid">58<br />Ce<br />Cerio<br />140.12</td>
+        <td class="metal lanthanid">59<br />Pr<br />Praseodimio<br />140.91</td>
+        <td class="metal lanthanid">60<br />Nd<br />Neodimio<br />144.24</td>
+        <td class="artificial lanthanid metal">
+          61<br />Pm<br />Promezio<br />[145]
+        </td>
+        <td class="metal lanthanid">62<br />Sm<br />Samario<br />150.36</td>
+        <td class="metal lanthanid">63<br />Eu<br />Europio<br />151.96</td>
+        <td class="metal lanthanid">64<br />Gd<br />Gadolinio<br />157.25</td>
+        <td class="metal lanthanid">65<br />Tb<br />Terbio<br />158.93</td>
+        <td class="metal lanthanid">66<br />Dy<br />Disprosio<br />162.5</td>
+        <td class="metal lanthanid">67<br />Ho<br />Olmio<br />164.93</td>
+        <td class="metal lanthanid">68<br />Er<br />Erbio<br />167.26</td>
+        <td class="metal lanthanid">69<br />Tm<br />Tullio<br />168.93</td>
+        <td class="metal lanthanid">70<br />Yb<br />Itterbio<br />173.04</td>
+        <td class="metal lanthanid">71<br />Lu<br />Lutezio<br />174.97</td>
       </tr>
       <tr>
         <td colspan="3" class="specialLegend actinides no-border">
           <br />Attinoidi<br /><img src="assets/actinides.png" />
         </td>
-        <td class="metal">89<br />Ac<br />Attinio<br />[227]</td>
-        <td class="metal">90<br />Th<br />Torio<br />232.04</td>
-        <td class="metal">91<br />Pa<br />Protoattinio<br />231.04</td>
-        <td class="metal">92<br />U<br />Uranio<br />238.03</td>
-        <td class="artificial">93<br />Np<br />Nettunio<br />[237]</td>
-        <td class="artificial">94<br />Pu<br />Plutonio<br />[244]</td>
-        <td class="artificial">95<br />Am<br />Americio<br />[243]</td>
-        <td class="artificial">96<br />Cm<br />Curio<br />[247]</td>
-        <td class="artificial">97<br />Bk<br />Berkelio<br />[247]</td>
-        <td class="artificial">98<br />Cf<br />Californio<br />[251]</td>
-        <td class="artificial">99<br />Es<br />Einsteinio<br />[252]</td>
-        <td class="artificial">100<br />Fm<br />Fermio<br />[257]</td>
-        <td class="artificial">101<br />Md<br />Mendelevio<br />[258]</td>
-        <td class="artificial">102<br />No<br />Nobelio<br />[259]</td>
-        <td class="artificial">103<br />Lr<br />Lawrenzio<br />[262]</td>
+        <td class="metal actinid">89<br />Ac<br />Attinio<br />[227]</td>
+        <td class="metal actinid">90<br />Th<br />Torio<br />232.04</td>
+        <td class="metal actinid">91<br />Pa<br />Protoattinio<br />231.04</td>
+        <td class="metal actinid">92<br />U<br />Uranio<br />238.03</td>
+        <td class="artificial actinid metal">93<br />Np<br />Nettunio<br />[237]</td>
+        <td class="artificial actinid metal">94<br />Pu<br />Plutonio<br />[244]</td>
+        <td class="artificial actinid metal">95<br />Am<br />Americio<br />[243]</td>
+        <td class="artificial actinid metal">96<br />Cm<br />Curio<br />[247]</td>
+        <td class="artificial actinid metal">97<br />Bk<br />Berkelio<br />[247]</td>
+        <td class="artificial actinid metal">
+          98<br />Cf<br />Californio<br />[251]
+        </td>
+        <td class="artificial actinid metal">
+          99<br />Es<br />Einsteinio<br />[252]
+        </td>
+        <td class="artificial actinid metal">100<br />Fm<br />Fermio<br />[257]</td>
+        <td class="artificial actinid metal">
+          101<br />Md<br />Mendelevio<br />[258]
+        </td>
+        <td class="artificial actinid metal">102<br />No<br />Nobelio<br />[259]</td>
+        <td class="artificial actinid metal">
+          103<br />Lr<br />Lawrenzio<br />[262]
+        </td>
       </tr>
     </table>
     <script type="module" src="js/theme.js"></script>

@@ -20,6 +20,27 @@ const categories = {
     "assets/legend/dark/artificials.png",
   ],
   lens: ["assets/lens/light/lens.png", "assets/lens/dark/lens.png"],
+  internalTransitionMetals: [
+    "assets/legend/light/metals/internal-transition-metals.png",
+    "assets/legend/dark/metals/internal-transition-metals.png",
+  ],
+
+  postTransitionMetals: [
+    "assets/legend/light/metals/post-transition-metals.png",
+    "assets/legend/dark/metals/post-transition-metals.png",
+  ],
+  transitionMetals: [
+    "assets/legend/light/metals/transition-metals.png",
+    "assets/legend/dark/metals/transition-metals.png",
+  ],
+  alkaliMetals: [
+    "assets/legend/light/metals/alkali-metals.png",
+    "assets/legend/dark/metals/alkali-metals.png",
+  ],
+  alkalineEarthMetals: [
+    "assets/legend/light/metals/alkaline-earth-metals.png",
+    "assets/legend/dark/metals/alkaline-earth-metals.png",
+  ],
 };
 
 let index = 0; // Imposta l'indice a light di default
