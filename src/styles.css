@@ -3,6 +3,14 @@
   display: none !important;
 }
 
+.hidden {
+  display: none !important;
+}
+
+.no-click {
+  pointer-events: none !important;
+}
+
 @font-face {
   font-family: "FiraSansCondensedSemiBold";
   src: url("../fonts/FiraSansCondensedSemiBold.ttf") format("truetype");
@@ -11,10 +19,6 @@
 @font-face {
   font-family: "CinzelBold";
   src: url("../fonts/CinzelBold.ttf");
-}
-.miniTable {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
 }
 
 .group-period {
@@ -29,14 +33,14 @@
 /* Stili generali per il tema chiaro (predefinito) */
 body {
   background-color: #f4f4f9;
-  color: #333;
+  color: #1c1c1c;
   font-family: "FiraSansCondensedSemiBold", Arial;
 }
 
 h1 {
   text-align: center;
   margin-top: 20px;
-  color: #333;
+  color: #1c1c1c;
 }
 
 .periodic-table {
@@ -74,6 +78,68 @@ td:hover {
   background-color: #84c084;
 }
 
+/* Vari tipi di metalli */
+
+.dark-theme .internalTransitionMetal {
+  background-color: #b89706 !important;
+}
+
+.internalTransitionMetal:hover {
+  background-color: #b39305 !important;
+}
+
+.internalTransitionMetal {
+  background-color: #f3c705 !important;
+}
+
+.dark-theme .transitionMetal {
+  background-color: #327de0 !important;
+}
+
+.transitionMetal {
+  background-color: #327de0 !important;
+}
+
+.transitionMetal:hover {
+  background-color: #2862ad !important;
+}
+
+.dark-theme .alkaliMetal {
+  background-color: darkcyan !important;
+}
+
+.alkaliMetal {
+  background-color: #05b8b8 !important;
+}
+
+.alkaliMetal:hover {
+  background-color: #057e7e !important;
+}
+
+.dark-theme .alkalineEarthMetal {
+  background-color: deeppink !important;
+}
+
+.alkalineEarthMetal {
+  background-color: #c787be !important;
+}
+
+.alkalineEarthMetal:hover {
+  background-color: #9b6994 !important;
+}
+
+.dark-theme .postTransitionMetal {
+  background-color: #c16cfd !important;
+}
+
+.postTransitionMetal {
+  background-color: #f0ee85 !important;
+}
+
+.postTransitionMetal:hover {
+  background-color: #b9b86a !important;
+}
+
 .noble-gas {
   background-color: #ffcc99;
 }
@@ -91,15 +157,19 @@ td:hover {
 }
 
 .artificial {
-  background-color: #8fbcd4;
+  background-color: #8fbcd4 !important;
 }
 
 .artificial:hover {
-  background-color: #7295a8;
+  background-color: #7295a8 !important;
 }
 
 .special {
-  background-color: white;
+  background-color: white !important;
+}
+
+.specialLegend {
+  background-color: transparent !important;
 }
 
 .no-border {
@@ -184,6 +254,14 @@ button.theme-toggle {
   background-color: transparent !important;
 }
 
+#artificialsLegendContainer {
+  background-color: transparent !important;
+}
+
+.no-border {
+  border: none !important;
+}
+
 /* Stile per il tema scuro */
 body.dark-theme {
   background-color: #1c1c1c;
@@ -245,19 +323,20 @@ body.dark-theme {
 }
 
 .dark-theme .artificial {
-  background-color: #fab1a0;
+  background-color: #fab1a0 !important;
 }
 
 .dark-theme .artificial:hover {
-  background-color: #c98e81;
+  background-color: #c98e81 !important;
 }
 
 .dark-theme .special {
-  background-color: #636e72;
+  background-color: #636e72 !important;
 }
 
 .dark-theme .specialLegend {
   color: #f4f4f9 !important;
+  background-color: transparent !important;
 }
 
 .dark-theme button.theme-toggle {
@@ -270,7 +349,7 @@ body.dark-theme {
   color: #f4f4f9 !important;
 }
 
-.dark-theme .no-border  {
+.dark-theme .no-border {
   border: none !important; /* Rimuove il bordo per i td della legenda */
 }
 
