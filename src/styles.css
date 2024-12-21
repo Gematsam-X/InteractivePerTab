@@ -80,32 +80,28 @@ td:hover {
 
 /* Vari tipi di metalli */
 
-.dark-theme .internalTransitionMetal {
-  background-color: #b89706 !important;
+.internalTransitionMetal {
+  background-color: #f3c705 !important;
 }
 
 .internalTransitionMetal:hover {
   background-color: #b39305 !important;
 }
 
-.internalTransitionMetal {
-  background-color: #f3c705 !important;
-}
-
-.dark-theme .transitionMetal {
-  background-color: #327de0 !important;
+#internalTransitionMetalsLegendContainer {
+  background-color: transparent !important;
 }
 
 .transitionMetal {
-  background-color: #327de0 !important;
+  background-color: #559af5 !important;
 }
 
 .transitionMetal:hover {
-  background-color: #2862ad !important;
+  background-color: #457ec9 !important;
 }
 
-.dark-theme .alkaliMetal {
-  background-color: darkcyan !important;
+#transitionMetalsLegendContainer {
+  background-color: transparent !important;
 }
 
 .alkaliMetal {
@@ -113,11 +109,11 @@ td:hover {
 }
 
 .alkaliMetal:hover {
-  background-color: #057e7e !important;
+  background-color: #047777 !important;
 }
 
-.dark-theme .alkalineEarthMetal {
-  background-color: deeppink !important;
+#alkaliMetalsLegendContainer {
+  background-color: transparent !important;
 }
 
 .alkalineEarthMetal {
@@ -128,8 +124,8 @@ td:hover {
   background-color: #9b6994 !important;
 }
 
-.dark-theme .postTransitionMetal {
-  background-color: #c16cfd !important;
+#alkalineEarthMetalsLegendContainer {
+  background-color: transparent !important;
 }
 
 .postTransitionMetal {
@@ -138,6 +134,10 @@ td:hover {
 
 .postTransitionMetal:hover {
   background-color: #b9b86a !important;
+}
+
+#postTransitionMetalsLegendContainer {
+  background-color: transparent !important;
 }
 
 .noble-gas {
@@ -322,6 +322,47 @@ body.dark-theme {
   background-color: #d4c38b;
 }
 
+/* Vari tipi di metalli */
+
+.dark-theme .postTransitionMetal {
+  background-color: #c16cfd !important;
+}
+
+.dark-theme .postTransitionMetal:hover {
+  background-color: #9c57ce !important;
+}
+
+.dark-theme .alkalineEarthMetal {
+  background-color: deeppink !important;
+}
+
+.dark-theme .alkalineEarthMetal:hover {
+  background-color: #be116e !important;
+}
+
+.dark-theme .alkaliMetal {
+  background-color: darkcyan !important;
+}
+
+.dark-theme .alkaliMetal:hover {
+  background-color: #017575 !important;
+}
+
+.dark-theme .transitionMetal {
+  background-color: #327de0 !important;
+}
+
+.dark-theme .transitionMetal:hover {
+  background-color: #2f5b9f !important;
+}
+
+.dark-theme .internalTransitionMetal {
+  background-color: #b89706 !important;
+}
+.dark-theme .internalTransitionMetal:hover {
+  background-color: #8f7503 !important;
+}
+
 .dark-theme .artificial {
   background-color: #fab1a0 !important;
 }
@@ -367,7 +408,7 @@ body.dark-theme {
   background-color: #f4f4f9af;
 }
 
-/* Stili per gli elementi */
+/* Stili per gli approfondimenti */
 
 h1,
 h2,

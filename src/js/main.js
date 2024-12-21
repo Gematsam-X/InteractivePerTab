@@ -319,7 +319,6 @@ if (currentElementSymbol) {
 
 // Stato della visualizzazione avanzata (attiva/disattiva)
 let isAdvancedVisualizzation = false;
-
 // Elementi principali del DOM
 const advancedVisualizzationButton = getCategoryCell("advancedVisualizzation"); // Bottone per visualizzazione avanzata
 const metalsLegendContainerCell = getCategoryCell("metalsLegendContainer"); // Contenitore principale delle legende
@@ -351,11 +350,12 @@ function getCategoryCell(category) {
  ** Funzione principale per attivare/disattivare la visualizzazione avanzata
  * @param {boolean} removeMetalClass Indica se rimuovere le classi dei metalli
  */
-function toggleStatus(removeMetalClass) {
+function setupAdvancedVisualizzazion(removeMetalClass) {
+  localStorage.setItem("isAdvancedVisualizzation", isAdvancedVisualizzation);
   // Modifica il testo del bottone in base allo stato corrente
   advancedVisualizzationButton.innerText = isAdvancedVisualizzation
-    ? "Disattiva visualizzazione dettagliata"
-    : "Attiva visualizzazione dettagliata";
+    ? "Disattiva visualizzazione avanzata"
+    : "Attiva visualizzazione avanzata";
 
   if (isAdvancedVisualizzation) {
     // **Attivazione visualizzazione avanzata**
@@ -500,12 +500,10 @@ function toggleStatus(removeMetalClass) {
  * 2. Imposta la visualizzazione predefinita.
  */
 document.addEventListener("DOMContentLoaded", () => {
-  estraiDatiElementi(); // Estrae i dati
-  checkElementsClass(); // Controlla le classi sugli elementi
-  toggleStatus(false); // Configurazione visualizzazione iniziale
+  setupAdvancedVisualizzazion(false); // Configurazione visualizzazione iniziale
 });
 
 // Gestione del bottone per attivare/disattivare la visualizzazione avanzata
 advancedVisualizzationButton.addEventListener("click", () =>
-  toggleStatus(true)
+  setupAdvancedVisualizzazion(true)
 );
