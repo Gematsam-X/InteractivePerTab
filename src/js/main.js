@@ -539,4 +539,4 @@ document.addEventListener("DOMContentLoaded", () => {
 // Gestione del bottone per attivare/disattivare la visualizzazione avanzata
 advancedVisualizzationButton.addEventListener("click", () =>
   toggleStatus(true)
-)
+);
