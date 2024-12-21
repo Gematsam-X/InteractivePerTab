@@ -280,7 +280,7 @@ if (currentElementSymbol) {
         element.classList.remove("faded");
         element.style.transform = "scale(1.2)";
       } else {
-        element.classList.add("faded");
+        element.classList.add("faded"); 
       }
     } else {
       // Gestisci elementi che non hanno un simbolo

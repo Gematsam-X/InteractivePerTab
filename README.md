@@ -2,8 +2,14 @@
 
 ![logo_InteractivePerTab](src/assets/favicon.ico)
 
-Sviluppata dalla 2D CDP, questa tavola periodica interattiva potrà aiutare studenti di varie fasce d'età nello studio. Contiene anche approfondimenti su ogni elemento.
+Sviluppata con il supporto della 2D CDP, questa tavola periodica interattiva potrà aiutare studenti di varie fasce d'età nello studio.
 Visita il [sito di InteractivePerTab](https://interactivepertab2.webnode.page).
+
+## Funzioni principali:
+
+### Modellino 3D
+
+Per ogni elemento è disponibile un modello 3D di bohr dell'atomo in questione. È possibile interagire con esso attraverso pulsanti dedicati.
 
 ### Cambiare tema
 
