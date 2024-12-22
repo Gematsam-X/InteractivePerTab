@@ -179,6 +179,7 @@ function adjustTransparency(targetClass) {
 
   // Se la categoria è già attiva (sta per essere disattivata)
   if (activeCategory === targetClass) {
+    areIntTransElemsHighlighted = false;
     // Rimuovi l'ascoltatore dell'evento, dato che disattiviamo
     if (clickListenerAdded) {
       document.removeEventListener("click", handleOutsideClick);
