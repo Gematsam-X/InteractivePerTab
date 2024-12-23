@@ -70,7 +70,6 @@ async function estraiDatiElementi() {
   }
   if (datiTemporanei.length > 0) {
     datiElementi = datiTemporanei;
-    console.log(datiElementi);
   } else {
     throw new Error("Nessun dato trovato");
   }
