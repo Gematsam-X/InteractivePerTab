@@ -38,6 +38,7 @@ function checkElementsClass() {
         window.location.href =
           "elements/html/" + symbol.toLowerCase() + ".html";
       });
+      areIntTransElemsHighlighted = false; // Reset the highlighting state
     }
   }
 }
@@ -214,6 +215,7 @@ function handleOutsideClick(event) {
 
   // Se clicchi fuori, ripristina lo stile predefinito
   if (!isInsideHighlighted) {
+    areIntTransElemsHighlighted = false; // Reset the highlighting state
     resetDefaultStyle();
     activeCategory = null; // Resetta la categoria attiva
   }
@@ -235,6 +237,7 @@ function highlightCategoryRange(category, series) {
         element.classList.remove("faded");
       });
       activeCategoryRange = null; // Annulla la categoria attiva
+      document.removeEventListener("click", handleOutsideClick); // Rimuovi l'ascoltatore dell'evento
       return; // Termina la funzione, niente più evidenza
     }
 
@@ -249,7 +252,8 @@ function highlightCategoryRange(category, series) {
       element.classList.remove("faded"); // Rimuovi il 'faded' per la serie selezionata
     });
 
-    activeCategoryRange = category; // Imposta la categoria come attiva}}
+    activeCategoryRange = category; // Imposta la categoria come attiva
+    document.addEventListener("click", handleOutsideClick); // Aggiungi l'ascoltatore dell'evento
   }
 }
 
