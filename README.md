@@ -25,10 +25,10 @@ Per ogni elemento è disponibile un modello 3D di bohr dell'atomo in questione. 
 
 ## Ringraziamenti
 
-La realizzazione di questo progetto non sarebbe stata possibile senza l'aiuto di:
-
-- [@Greninja12-debug](https://github.com/Greninja12-debug) che ringrazio per aver fatto approfondimenti su alcuni elementi.
+I ringraziamenti speciali vanno a:
 
 - [@RebyCDP](https://github.com/RebyCDP) che ringrazio per aver reso possibile il coinvolgimento della classe 2D.
+
+- [@Greninja12-debug](https://github.com/Greninja12-debug) che ringrazio per aver fatto approfondimenti su alcuni elementi.
 
 - [@laurabanducci93](https://github.com/laurabanducci93) che ringrazio per l'idea e la collaborazione generale.
