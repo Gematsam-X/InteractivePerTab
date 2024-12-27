@@ -105,7 +105,7 @@ function searchElement() {
   } else {
     // If the element is not found, show an error message
     alert(
-      "Elemento non trovato. Assicurati di digitare correttamente il nome esatto dell'elemento, il suo numero atomico o il suo simbolo"
+      "Elemento non trovato. Assicurati di digitare il nome esatto dell'elemento, il suo numero atomico o il suo simbolo correttamente."
     );
   }
 }
