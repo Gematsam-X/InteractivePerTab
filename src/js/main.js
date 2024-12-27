@@ -1,20 +1,20 @@
-// Aggiungi un evento per eseguire l'estrazione dei dati quando la pagina è pronta
+// Add an event to execute data extraction when the page is ready
 window.addEventListener("load", function () {
-  estraiDatiElementi().catch((error) => {
-    console.error("Errore durante l'estrazione dei dati:", error);
+  extractElementData().catch((error) => {
+    console.error("Error during data extraction:", error);
   });
 });
 
-// Seleziona tutti gli elementi <td>
+// Select all <td> elements
 let elements = document.getElementsByTagName("td");
 
-// Crea un array vuoto per gli elementi con classi non vuote
+// Create an empty array for elements with non-empty classes
 let filteredElements = [];
 
-// Itera su ciascun elemento <td>
+// Iterate over each <td> element
 function checkElementsClass() {
   for (let i = 0; i < elements.length; i++) {
-    // Controlla se la classe non è vuota e non è "special", "legend", "no-border" o "specialLegend"
+    // Check if the class is not empty and not "special", "legend", "no-border" or "specialLegend"
     if (
       elements[i].classList.length > 0 &&
       !elements[i].classList.contains("special") &&
@@ -22,15 +22,15 @@ function checkElementsClass() {
       !elements[i].classList.contains("specialLegend") &&
       !elements[i].classList.contains("no-border")
     ) {
-      // Aggiungi l'elemento all'array filtrato
+      // Add the element to the filtered array
       filteredElements.push(elements[i]);
 
-      // Aggiungi un evento di click per il reindirizzamento
+      // Add a click event for redirection
       elements[i].addEventListener("click", function () {
-        elements[i].style.transform = "scale(1.2)"; // Ingrandisce l'elemento al clic
-        // Estrai il simbolo dall'elemento
-        const symbol = elements[i].innerHTML.split("<br>")[1]; // Ottieni il simbolo dall'elemento
-        // Reindirizza alla pagina dell'elemento
+        elements[i].style.transform = "scale(1.2)"; // Enlarge the element on click
+        // Extract the symbol from the element
+        const symbol = elements[i].innerHTML.split("<br>")[1]; // Get the symbol from the element
+        // Redirect to the element's page
         window.sessionStorage.removeItem("currentElement");
         window.setTimeout(() => {
           resetDefaultStyle();
@@ -43,25 +43,25 @@ function checkElementsClass() {
   }
 }
 
-// Variabile globale per i dati
-let datiElementi = [];
+// Global variable for data
+let elementData = [];
 
-// Funzione per estrarre i dati degli elementi chimici dalla tabella, usando Promise
-async function estraiDatiElementi() {
-  const righe = document.querySelectorAll(".periodic-table tr");
-  const datiTemporanei = [];
+// Function to extract chemical element data from the table, using Promise
+async function extractElementData() {
+  const rows = document.querySelectorAll(".periodic-table tr");
+  const temporaryData = [];
 
-  for (let riga of righe) {
-    const celle = riga.querySelectorAll("td");
-    for (let cella of celle) {
-      const contenuto = cella.innerHTML.trim();
-      const righeContenuto = contenuto.split("<br>");
+  for (let row of rows) {
+    const cells = row.querySelectorAll("td");
+    for (let cell of cells) {
+      const content = cell.innerHTML.trim();
+      const contentRows = content.split("<br>");
 
-      if (righeContenuto.length === 4) {
-        const number = parseInt(righeContenuto[0]);
-        const symbol = righeContenuto[1];
-        const elementName = righeContenuto[2];
-        datiTemporanei.push({
+      if (contentRows.length === 4) {
+        const number = parseInt(contentRows[0]);
+        const symbol = contentRows[1];
+        const elementName = contentRows[2];
+        temporaryData.push({
           number,
           symbol,
           elementName,
@@ -69,62 +69,62 @@ async function estraiDatiElementi() {
       }
     }
   }
-  if (datiTemporanei.length > 0) {
-    datiElementi = datiTemporanei;
+  if (temporaryData.length > 0) {
+    elementData = temporaryData;
   } else {
-    throw new Error("Nessun dato trovato");
+    throw new Error("No data found");
   }
 }
 
-// Funzione per cercare un elemento in base al nome, simbolo o numero atomico
-function cercaElemento() {
+// Function to search for an element by name, symbol, or atomic number
+function searchElement() {
   const searchInput = document
     .getElementById("search-input")
     .value.toLowerCase()
     .trim();
 
-  // Se il campo di ricerca è vuoto, mostra un messaggio di errore
+  // If the search field is empty, show an error message
   if (searchInput === "") {
     alert(
-      "Digita nel campo di ricerca il nome completo, il simbolo o il numero atomico dell'elemento che vuoi cercare."
+      "Digita nel campo di ricerca il nome completo, il simbolo o il numero atomico dell'elemento che desideri cercare."
     );
     return;
   }
 
-  // Cerca l'elemento corrispondente
-  const risultato = datiElementi.find((element) =>
+  // Search for the corresponding element
+  const result = elementData.find((element) =>
     [element.symbol, element.elementName, element.number.toString()].some(
       (val) => val.toLowerCase() === searchInput
     )
   );
 
-  // Se l'elemento è trovato, reindirizza alla sua pagina
-  if (risultato) {
+  // If the element is found, redirect to its page
+  if (result) {
     window.sessionStorage.removeItem("currentElement");
-    window.location.href = `elements/html/${risultato.symbol.toLowerCase()}.html`;
+    window.location.href = `elements/html/${result.symbol.toLowerCase()}.html`;
   } else {
-    // Se l'elemento non è trovato, mostra un messaggio di errore
+    // If the element is not found, show an error message
     alert(
-      "Elemento non trovato. Assicurati di digitare il nome esatto dell'elemento, la sua sigla o il suo numero atomico correttamente."
+      "Element not found. Make sure to type the exact name of the element, its symbol, or its atomic number correctly."
     );
   }
 }
 
-// Evento per il bottone di ricerca
+// Event for the search button
 document
   .getElementById("search-button")
-  .addEventListener("click", cercaElemento);
+  .addEventListener("click", searchElement);
 
-// Aggiungi un ascoltatore per l'evento 'keypress' sul campo di input
+// Add a listener for the 'keypress' event on the input field
 document
   .getElementById("search-input")
   .addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
-      cercaElemento(); // Esegui la funzione di ricerca
+      searchElement(); // Execute the search function
     }
   });
 
-// Definisci le categorie
+// Define the categories
 const metals = document.getElementById("metalsLegendContainer");
 const transitionMetals = document.getElementById(
   "transitionMetalsLegendContainer"
@@ -146,9 +146,12 @@ const nobleGases = document.getElementById("nobleGasesLegendContainer");
 const lanthanides = document.querySelectorAll(".lanthanides");
 const actinides = document.querySelectorAll(".actinides");
 
-let activeCategory = null; // Tiene traccia della categoria attiva
+let activeCategory = null; // Tracks the active category
 
-// Funzione per aggiungere o rimuovere la classe "faded" in base alla condizione
+/**  Function to add or remove the "faded" class based on the condition
+  * @param {NodeList} elements - List of elements to apply the class to
+  * @param {Function} condition - Condition to apply the class
+  */
 function toggleFaded(elements, condition) {
   elements.forEach((element) => {
     if (condition(element)) {
@@ -160,71 +163,79 @@ function toggleFaded(elements, condition) {
 }
 
 function resetDefaultStyle() {
-  // Rimuovi la classe .faded da tutti gli elementi
+  // Remove the .faded class from all elements
   document.querySelectorAll("td").forEach((element) => {
     element.style.removeProperty("transform");
     element.style.removeProperty("opacity");
     element.classList.remove("faded");
   });
 
-  // Svuota il sessionStorage
+  // Clear the sessionStorage
   window.sessionStorage.removeItem("currentElement");
 }
 
-let clickListenerAdded = false; // Indica se il listener è stato aggiunto
+let clickListenerAdded = false; // Indicates if the listener has been added
 
-// Funzione principale per applicare la trasparenza agli elementi in base alla categoria
+/**
+ * Function to apply transparency to elements based on the category
+ * @param {string} targetClass - Class to which not to apply transparency
+ */
+
+// Main function to apply transparency to elements based on the category
 function adjustTransparency(targetClass) {
   const elements = document.querySelectorAll("td");
 
-  // Se la categoria è già attiva (sta per essere disattivata)
+  // If the category is already active (about to be deactivated)
   if (activeCategory === targetClass) {
-    // Rimuovi l'ascoltatore dell'evento, dato che disattiviamo
+    // Remove the event listener, as we are deactivating
     if (clickListenerAdded) {
       document.removeEventListener("click", handleOutsideClick);
       clickListenerAdded = false;
     }
 
-    // Reset della classe "faded" sugli elementi
+    // Reset the "faded" class on elements
     resetDefaultStyle();
     areIntTransElemsHighlighted = false;
-    activeCategory = null; // Resetta la categoria attiva
+    activeCategory = null; // Reset the active category
   } else {
-    // Applica l'effetto "faded" alla categoria selezionata
+    // Apply the "faded" effect to the selected category
     toggleFaded(elements, (element) => element.classList.contains(targetClass));
-    activeCategory = targetClass; // Imposta la nuova categoria attiva
+    activeCategory = targetClass; // Set the new active category
 
-    // Aggiungi un listener per il clic fuori dalla tavola periodica
+    // Add a listener for clicking outside the periodic table
     if (!clickListenerAdded) {
       document.addEventListener("click", handleOutsideClick);
-      clickListenerAdded = true; // Indica che l'ascoltatore è stato aggiunto
+      clickListenerAdded = true; // Indicates that the listener has been added
     }
   }
 }
 
-// Funzione per gestire il clic fuori dalla tavola e ripristinare gli stili predefiniti
+// Function to handle clicking outside the table and restore default styles
 function handleOutsideClick(event) {
   const elements = document.querySelectorAll("td");
   const clickedElement = event.target;
 
-  // Verifica se il clic è all'interno degli elementi evidenziati
+  // Check if the click is inside the highlighted elements
   const isInsideHighlighted = [...elements].some(
     (element) =>
       element.contains(clickedElement) && !element.classList.contains("faded")
   );
 
-  // Se clicchi fuori, ripristina lo stile predefinito
+  // If you click outside, restore the default style
   if (!isInsideHighlighted) {
     areIntTransElemsHighlighted = false; // Reset the highlighting state
     resetDefaultStyle();
-    activeCategory = null; // Resetta la categoria attiva
+    activeCategory = null; // Reset the active category
   }
 }
-let activeCategoryRange = null; // Variabile per tracciare la categoria attiva
+let activeCategoryRange = null; // Variable to track the active category
 
-let areIntTransElemsHighlighted = false; // Indica se gli elementi di transizione interna sono evidenziati
+let areIntTransElemsHighlighted = false; // Indicates if internal transition elements are highlighted
 
-// Funzione per evidenziare una categoria specifica e gestire il toggle
+/** Function to highlight a specific category and manage the toggle
+ * @param {string} category - The category to highlight
+ * @param {string} series - The class that the highlighted elements should contain
+ */
 function highlightCategoryRange(category, series) {
   if (areIntTransElemsHighlighted) {
     return;
@@ -232,56 +243,58 @@ function highlightCategoryRange(category, series) {
     const allElements = document.querySelectorAll("td");
 
     if (activeCategoryRange === category) {
-      // Se la categoria è già attiva, rimuoviamo 'faded' da tutti gli elementi
+      // If the category is already active, remove 'faded' from all elements
       allElements.forEach((element) => {
         element.classList.remove("faded");
       });
-      activeCategoryRange = null; // Annulla la categoria attiva
-      document.removeEventListener("click", handleOutsideClick); // Rimuovi l'ascoltatore dell'evento
-      return; // Termina la funzione, niente più evidenza
+      activeCategoryRange = null; // Cancel the active category
+      document.removeEventListener("click", handleOutsideClick); // Remove the event listener
+      return; // End the function, no more highlighting
     }
 
-    // Aggiungi una classe 'faded' a tutti gli elementi
+    // Add a 'faded' class to all elements
     allElements.forEach((element) => {
       element.classList.add("faded");
     });
 
-    // Poi rimuovi 'faded' da quelli che appartengono alla categoria specificata
+    // Then remove 'faded' from those that belong to the specified category
     const selectedElements = document.querySelectorAll(`.${series}`);
     selectedElements.forEach((element) => {
-      element.classList.remove("faded"); // Rimuovi il 'faded' per la serie selezionata
+      element.classList.remove("faded"); // Remove 'faded' for the selected series
     });
 
-    activeCategoryRange = category; // Imposta la categoria come attiva
-    document.addEventListener("click", handleOutsideClick); // Aggiungi l'ascoltatore dell'evento
+    activeCategoryRange = category; // Set the category as active
+    document.addEventListener("click", handleOutsideClick); // Add the event listener
   }
 }
 
-// Funzione per rimuovere la classe 'faded' da un gruppo specifico di elementi
+/** Function to remove the 'faded' class from a specific group of elements
+ * @param {string} categoryClass - The class of the elements to remove the transparency from
+ */
 function removeFadedFromCategory(categoryClass) {
   const categoryElements = document.querySelectorAll(categoryClass);
   categoryElements.forEach((element) => {
-    element.classList.remove("faded"); // Rimuovi la classe 'faded' dal gruppo di elementi
+    element.classList.remove("faded"); // Remove the 'faded' class from the group of elements
   });
 }
 
-// Eventi per i Lantanoidi
-lanthanides.forEach((lantanoide) => {
-  lantanoide.addEventListener("click", function () {
-    highlightCategoryRange("57-71", "lanthanid"); // Evidenzia i Lantanoidi
-    removeFadedFromCategory(".lanthanides, .lanthanid"); // Rimuove 'faded' dai Lantanoidi
+// Events for Lanthanides
+lanthanides.forEach((lanthanide) => {
+  lanthanide.addEventListener("click", function () {
+    highlightCategoryRange("57-71", "lanthanid"); // Highlight Lanthanides
+    removeFadedFromCategory(".lanthanides, .lanthanid"); // Remove 'faded' from Lanthanides
   });
 });
 
-// Eventi per gli Attinoidi
-actinides.forEach((actinoide) => {
-  actinoide.addEventListener("click", function () {
-    highlightCategoryRange("89-103", "actinid"); // Evidenzia gli Attinoidi
-    removeFadedFromCategory(".actinides, .actinid"); // Rimuove 'faded' dagli Attinoidi
+// Events for Actinides
+actinides.forEach((actinide) => {
+  actinide.addEventListener("click", function () {
+    highlightCategoryRange("89-103", "actinid"); // Highlight Actinides
+    removeFadedFromCategory(".actinides, .actinid"); // Remove 'faded' from Actinides
   });
 });
 
-// Aggiungi eventi per ogni categoria per controllare la trasparenza
+// Add events for each category to control transparency
 metals.addEventListener("click", () => {
   adjustTransparency("metal");
   removeFadedFromCategory(".lanthanides, .actinides");
@@ -308,23 +321,23 @@ metalloids.addEventListener("click", () => adjustTransparency("metalloid"));
 artificials.addEventListener("click", () => adjustTransparency("artificial"));
 nobleGases.addEventListener("click", () => adjustTransparency("noble-gas"));
 
-//* Funzioni per il pulsante "Mostra nella tavola periodica"
+//* Functions for the "Mostra nella tavola periodica" button
 
-// Gestisci la selezione dell'elemento corrente nella tavola periodica
+// Manage the selection of the current element in the periodic table
 const currentElementSymbol = window.sessionStorage.getItem("currentElement");
 
 if (currentElementSymbol) {
   const allElements = document.querySelectorAll("td");
 
   allElements.forEach((element) => {
-    const contenuto = element.innerHTML.trim();
-    const righeContenuto = contenuto.split("<br>");
+    const content = element.innerHTML.trim();
+    const contentRows = content.split("<br>");
 
-    // Verifica che righeContenuto[1] esista
-    if (righeContenuto.length > 1) {
-      const symbol = righeContenuto[1].toLowerCase();
+    // Check that contentRows[1] exists
+    if (contentRows.length > 1) {
+      const symbol = contentRows[1].toLowerCase();
 
-      // Evidenzia solo l'elemento corrente
+      // Highlight only the current element
       if (symbol === currentElementSymbol.toLowerCase()) {
         element.classList.remove("faded");
         element.style.transform = "scale(1.2)";
@@ -332,12 +345,12 @@ if (currentElementSymbol) {
         element.classList.add("faded");
       }
     } else {
-      // Gestisci elementi che non hanno un simbolo
+      // Handle elements that do not have a symbol
       element.classList.add("faded");
     }
   });
 
-  // Aggiungi l'event listener per il click
+  // Add the event listener for the click
   document.addEventListener("click", (event) => {
     const clickedElement = event.target;
     const isInsideHighlighted = [...allElements].some(
@@ -345,23 +358,22 @@ if (currentElementSymbol) {
         element.contains(clickedElement) && !element.classList.contains("faded")
     );
 
-    // Se si fa clic fuori dalla tavola periodica, ripristina lo stile predefinito
+    // If you click outside the periodic table, restore the default style
     if (!isInsideHighlighted) {
       resetDefaultStyle();
     }
   });
 }
 
-//* VISUALIZZAZIONE AVANZATA
+//* ADVANCED VIEW
 
-// Stato della visualizzazione avanzata (attiva/disattiva)
-let isAdvancedVisualizzation =
-  JSON.parse(localStorage.getItem("isAdvancedVisualizzation")) || false;
-// Elementi principali del DOM
-const advancedVisualizzationButton = getCategoryCell("advancedVisualizzation"); // Bottone per visualizzazione avanzata
-const metalsLegendContainerCell = getCategoryCell("metalsLegendContainer"); // Contenitore principale delle legende
+// State of the advanced view (enabled/disabled)
+let isAdvancedView = JSON.parse(localStorage.getItem("isAdvancedView")) || false;
+// Main DOM elements
+const advancedViewButton = getCategoryCell("advancedView"); // Button for advanced view
+const metalsLegendContainerCell = getCategoryCell("metalsLegendContainer"); // Main container for legends
 
-// Selezione dei contenitori per categorie specifiche di metalli
+// Selection of containers for specific metal categories
 const metalsCategoriesLegendContainer = [
   getCategoryCell("transitionMetalsLegendContainer"),
   getCategoryCell("alkalineEarthMetalsLegendContainer"),
@@ -370,58 +382,55 @@ const metalsCategoriesLegendContainer = [
   getCategoryCell("internalTransitionMetalsLegendContainer"),
 ];
 
-// Seleziona tutti gli elementi che devono essere nascosti quando attiviamo la visualizzazione avanzata
+// Select all elements that need to be hidden when advanced view is activated
 let removableElements = document.querySelectorAll(".removable");
 
-// --- FUNZIONI UTILI ---
+// --- UTILITY FUNCTIONS ---
 
 /**
- * Restituisce l'elemento DOM con un dato id
- * @param {string} category ID dell'elemento da selezionare
- * @returns {HTMLElement|null} Elemento trovato o null
+ * Returns the DOM element with a given id
+ * @param {string} category ID of the element to select
+ * @returns {HTMLElement|null} Found element or null
  */
 function getCategoryCell(category) {
   return document.querySelector(`#${category}`);
 }
 
 /**
- ** Funzione principale per attivare/disattivare la visualizzazione avanzata
- * @param {boolean} removeMetalClass Indica se rimuovere le classi dei metalli
+ ** Main function to enable/disable advanced view
+ * @param {boolean} removeMetalClass Indicates whether to remove metal classes
  */
 function toggleStatus(removeMetalClass) {
-  localStorage.setItem(
-    "isAdvancedVisualizzation",
-    JSON.stringify(isAdvancedVisualizzation)
-  );
-  // Modifica il testo del bottone in base allo stato corrente
-  advancedVisualizzationButton.innerText = isAdvancedVisualizzation
+  localStorage.setItem("isAdvancedView", JSON.stringify(isAdvancedView));
+  // Change the button text based on the current state
+  advancedViewButton.innerText = isAdvancedView
     ? "Disattiva visualizzazione avanzata"
     : "Attiva visualizzazione avanzata";
 
-  if (isAdvancedVisualizzation) {
-    // **Attivazione visualizzazione avanzata**
-    metalsLegendContainerCell.classList.add("hidden"); // Nasconde il contenitore dei metalli generico
+  if (isAdvancedView) {
+    // **Enable advanced view**
+    metalsLegendContainerCell.classList.add("hidden"); // Hide the generic metals container
     metalsCategoriesLegendContainer.forEach((category) =>
       category.classList.remove("hidden")
-    ); // Mostra contenitori per categorie specifiche
+    ); // Show containers for specific categories
 
-    // Aggiunge classi specifiche a lantanoidi e attinoidi
+    // Add specific classes to lanthanides and actinides
     document
       .querySelectorAll(".lanthanid, .actinid, .lanthanides, .actinides")
       .forEach((obj) => {
         obj.classList.add("internalTransitionMetal");
       });
 
-    datiElementi.forEach((element) => {
-      // Verifica che 'element.number' sia definito e che possa essere convertito in numero
-      const numeroAtomico = parseInt(element.number);
+    elementData.forEach((element) => {
+      // Verify that 'element.number' is defined and can be converted to a number
+      const atomicNumber = parseInt(element.number);
 
-      // Controlla che il numero atomico sia valido e inferiore a 112
-      if (!isNaN(numeroAtomico) && numeroAtomico < 112) {
+      // Check that the atomic number is valid and less than 112
+      if (!isNaN(atomicNumber) && atomicNumber < 112) {
         if (element.number) {
           filteredElements.forEach((obj) => {
             let firstRow = obj.innerHTML.trim().split("<br>");
-            // Verifica che l'elemento DOM esista
+            // Verify that the DOM element exists
             if (
               (parseInt(firstRow) >= 21 && parseInt(firstRow) <= 30) ||
               (parseInt(firstRow) >= 39 && parseInt(firstRow) <= 48) ||
@@ -466,24 +475,24 @@ function toggleStatus(removeMetalClass) {
           });
         } else {
           console.warn(
-            `Elemento DOM non trovato per il numero atomico ${element.number}`
+            `DOM element not found for atomic number ${element.number}`
           );
         }
       }
     });
 
-    // Nasconde gli elementi "rimovibili"
+    // Hide "removable" elements
     removableElements.forEach((element) => element.classList.add("hidden"));
   } else {
-    //** Disattivazione visualizzazione avanzata
-    metalsLegendContainerCell.classList.remove("hidden"); // Mostra il contenitore principale
+    //** Disable advanced view
+    metalsLegendContainerCell.classList.remove("hidden"); // Show the main container
 
-    // Nasconde i contenitori delle categorie specifiche
+    // Hide containers for specific categories
     metalsCategoriesLegendContainer.forEach((category) =>
       category.classList.add("hidden")
     );
 
-    // Rimuove classi specifiche da lantanoidi e attinoidi
+    // Remove specific classes from lanthanides and actinides
     if (removeMetalClass) {
       document.querySelectorAll(".internalTransitionMetal").forEach((obj) => {
         if (!obj.classList.contains("artificial"))
@@ -519,28 +528,26 @@ function toggleStatus(removeMetalClass) {
       });
     }
 
-    // Mostra nuovamente gli elementi nascosti
+    // Show hidden elements again
     removableElements.forEach((element) => element.classList.remove("hidden"));
   }
 
-  // Inverti lo stato della variabile globale
-  isAdvancedVisualizzation = !isAdvancedVisualizzation;
+  // Toggle the global state variable
+  isAdvancedView = !isAdvancedView;
 }
 
 // --- EVENT LISTENERS ---
 
 /**
- * Event listener principale al caricamento del DOM:
- * 1. Estrae i dati e controlla le classi.
- * 2. Imposta la visualizzazione predefinita.
+ * Main event listener on DOM load:
+ * 1. Extracts data and checks classes.
+ * 2. Sets the default view.
  */
 document.addEventListener("DOMContentLoaded", () => {
-  estraiDatiElementi(); // Estrae i dati
-  checkElementsClass(); // Controlla le classi sugli elementi
-  toggleStatus(false); // Configurazione visualizzazione iniziale
+  extractElementData(); // Extracts data
+  checkElementsClass(); // Checks classes on elements
+  toggleStatus(false); // Initial view setup
 });
 
-// Gestione del bottone per attivare/disattivare la visualizzazione avanzata
-advancedVisualizzationButton.addEventListener("click", () =>
-  toggleStatus(true)
-);
+// Handle the button to enable/disable advanced view
+advancedViewButton.addEventListener("click", () => toggleStatus(true));

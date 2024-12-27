@@ -1,6 +1,6 @@
 import { toggleButton } from "./theme.js";
 
-// Array di immagini per ogni categoria
+// Array of images for each category
 const categories = {
   metals: ["assets/legend/light/metals.png", "assets/legend/dark/metals.png"],
   nonMetals: [
@@ -24,7 +24,6 @@ const categories = {
     "assets/legend/light/metals/internal-transition-metals.png",
     "assets/legend/dark/metals/internal-transition-metals.png",
   ],
-
   postTransitionMetals: [
     "assets/legend/light/metals/post-transition-metals.png",
     "assets/legend/dark/metals/post-transition-metals.png",
@@ -43,32 +42,33 @@ const categories = {
   ],
 };
 
-let index = 0; // Imposta l'indice a light di default
+let index = 0; // Set the index to light mode by default
 
-// Controlla se il tema è dark dal localStorage
+// Check if the theme is dark from localStorage
 if (localStorage.getItem("theme") === "dark") {
-  index = 1; // Imposta le immagini in dark mode
+  index = 1; // Set the images to dark mode
 }
 
-// Funzione per cambiare tutte le immagini delle categorie
+// Function to change all category images
 function cambiaImmagini() {
   for (const [category, images] of Object.entries(categories)) {
     const imgElement = document.getElementById(`${category}_img`);
     if (imgElement) {
-      imgElement.src = images[index];
+      imgElement.src = images[index]; // Update the image source based on the current index
     }
   }
 }
 
-// Funzione che alterna tra le immagini light e dark
+// Function to toggle between light and dark images
 function toggleImages() {
-  index = index === 0 ? 1 : 0; // Cambia indice tra light (0) e dark (1)
-  cambiaImmagini(); // Aggiorna le immagini
+  index = index === 0 ? 1 : 0; // Toggle index between light (0) and dark (1)
+  cambiaImmagini(); // Update the images
 }
 
+// Add event listener to the toggle button if it exists
 if (toggleButton) {
   toggleButton.addEventListener("click", toggleImages);
 }
 
-// Imposta le immagini iniziali al caricamento della pagina
+// Set the initial images when the page loads
 document.addEventListener("DOMContentLoaded", cambiaImmagini);

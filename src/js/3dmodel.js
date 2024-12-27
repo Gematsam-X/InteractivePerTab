@@ -1,3 +1,13 @@
+/**
+ * Creates a 3D model of an atom with specified electron orbits.
+ * @param {number} electrons1 - Number of electrons in the first orbit.
+ * @param {number} electrons2 - Number of electrons in the second orbit.
+ * @param {number} electrons3 - Number of electrons in the third orbit.
+ * @param {number} electrons4 - Number of electrons in the fourth orbit.
+ * @param {number} electrons5 - Number of electrons in the fifth orbit.
+ * @param {number} electrons6 - Number of electrons in the sixth orbit.
+ * @param {number} electrons7 - Number of electrons in the seventh orbit.
+ */
 export default function create3dModel(
   electrons1,
   electrons2,
@@ -11,6 +21,9 @@ export default function create3dModel(
 
   let cameraMove = true;
   let animationsOk = true;
+  let animationSpeed = 0.01;
+  let isPaused = false;
+
   // Scene setup
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(
@@ -19,38 +32,39 @@ export default function create3dModel(
     0.1,
     1000
   );
-  const renderer = new THREE.WebGLRenderer({ alpha: true }); // Aggiungi alpha: true per la trasparenza
-  // Imposta il renderer per occupare il 50% della larghezza e altezza della finestra
+  const renderer = new THREE.WebGLRenderer({ alpha: true });
   renderer.setSize(window.innerWidth * 0.5, window.innerHeight * 0.5);
-
-  // Imposta le dimensioni effettive dell'elemento canvas in percentuale
   renderer.domElement.style.width = "50%";
   renderer.domElement.style.height = "50%";
-
   container.appendChild(renderer.domElement);
 
   // Add OrbitControls
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true; // Rotazione più fluida
+  controls.enableDamping = true;
   controls.dampingFactor = 0.05;
-  controls.minDistance = 5; // Distanza minima della fotocamera
-  controls.maxDistance = 20; // Distanza massima della fotocamera
-  controls.enableZoom = true; // Abilita lo zoom con la rotella del mouse
-  controls.enablePan = false; // Disabilita il panning (movimento laterale)
+  controls.minDistance = 5;
+  controls.maxDistance = 20;
+  controls.enableZoom = true;
+  controls.enablePan = false;
 
   // Create the atom (nucleus + orbits)
-  const nucleusGeometry = new THREE.SphereGeometry(0.5, 16, 16);
-  const nucleusMaterial = new THREE.MeshBasicMaterial({
-    color: 0xff0000,
-  });
-  const nucleus = new THREE.Mesh(nucleusGeometry, nucleusMaterial);
+  const nucleus = new THREE.Mesh(
+    new THREE.SphereGeometry(0.5, 16, 16),
+    new THREE.MeshBasicMaterial({ color: 0xff0000 })
+  );
   scene.add(nucleus);
 
-  const orbits = []; // Store orbits to animate them
-  let animationSpeed = 0.01; // Impostazione della velocità di animazione
-  let isPaused = false; // Variabile per verificare se l'animazione è in pausa
+  const orbits = [];
 
-  // Function to create an orbit with electrons
+  /**
+   * Creates an orbit with specified parameters.
+   * @param {number} radius - Radius of the orbit.
+   * @param {number} numElectrons - Number of electrons in the orbit.
+   * @param {number} orbitColor - Color of the orbit.
+   * @param {number} electronColor - Color of the electrons.
+   * @param {number} tiltX - Tilt of the orbit on the X axis.
+   * @param {number} tiltY - Tilt of the orbit on the Y axis.
+   */
   function createOrbit(
     radius,
     numElectrons,
@@ -59,21 +73,11 @@ export default function create3dModel(
     tiltX,
     tiltY
   ) {
-    const orbitGeometry = new THREE.RingGeometry(
-      radius - 0.05,
-      radius + 0.05,
-      100
+    const orbit = new THREE.Mesh(
+      new THREE.RingGeometry(radius - 0.05, radius + 0.05, 100),
+      new THREE.MeshBasicMaterial({ color: orbitColor, side: THREE.DoubleSide })
     );
-    const orbitMaterial = new THREE.MeshBasicMaterial({
-      color: orbitColor,
-      side: THREE.DoubleSide,
-    });
-    const orbit = new THREE.Mesh(orbitGeometry, orbitMaterial);
-
-    orbit.rotation.x = Math.PI / 2; // Rotate the orbit to lie flat on the X-Y plane
-    orbit.rotation.x += tiltX;
-    orbit.rotation.y += tiltY;
-
+    orbit.rotation.set(Math.PI / 2 + tiltX, tiltY, 0);
     scene.add(orbit);
 
     const electronGroup = new THREE.Group();
@@ -98,18 +102,15 @@ export default function create3dModel(
     orbits.push({ orbit, electrons, radius });
   }
 
-  // Create the orbits with electrons
-  const orbitColor = 0x000000; // Colore delle orbite (nero)
-  const electronColor = 0x0000ff; // Colore degli elettroni (blu)
-
+  const orbitColor = 0x000000;
+  const electronColor = 0x0000ff;
   camera.position.z = 20;
-  createOrbit(1, electrons1, orbitColor, electronColor, 0, 1); // First orbit
 
+  // Create orbits based on the number of electrons in each orbit
+  createOrbit(1, electrons1, orbitColor, electronColor, 0, 1);
   if (electrons2) createOrbit(2, electrons2, orbitColor, electronColor, 0, 50);
-
   if (electrons3)
     createOrbit(3, electrons3, orbitColor, electronColor, Math.PI / 4, 0);
-
   if (electrons4)
     createOrbit(
       4,
@@ -118,8 +119,7 @@ export default function create3dModel(
       electronColor,
       Math.PI / 6,
       Math.PI / 4
-    ); // Fourth orbit
-
+    );
   if (electrons5)
     createOrbit(
       5,
@@ -128,8 +128,7 @@ export default function create3dModel(
       electronColor,
       -Math.PI / 6,
       Math.PI / 3
-    ); // Fifth orbit
-
+    );
   if (electrons6)
     createOrbit(
       6,
@@ -138,19 +137,17 @@ export default function create3dModel(
       electronColor,
       Math.PI / 6,
       -Math.PI / 4
-    ); // Sixth orbit
-
+    );
   if (electrons7)
-    createOrbit(7, electrons7, orbitColor, electronColor, -Math.PI / 3, 0); // Seventh orbit
+    createOrbit(7, electrons7, orbitColor, electronColor, -Math.PI / 3, 0);
 
   // Lighting setup
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-  scene.add(ambientLight);
-
+  scene.add(new THREE.AmbientLight(0xffffff, 0.5));
   const pointLight = new THREE.PointLight(0xffffff, 1, 100);
   pointLight.position.set(10, 10, 10);
   scene.add(pointLight);
 
+  // Animation loop
   function animate() {
     requestAnimationFrame(animate);
     updatePauseState();
@@ -164,9 +161,11 @@ export default function create3dModel(
             const speedFactor = 1 / radius;
             electron.userData.angle += animationSpeed * speedFactor;
             const angle = electron.userData.angle;
-            const x = radius * Math.cos(angle);
-            const y = radius * Math.sin(angle);
-            electron.position.set(x, y, 0);
+            electron.position.set(
+              radius * Math.cos(angle),
+              radius * Math.sin(angle),
+              0
+            );
           });
         });
       }
@@ -176,28 +175,21 @@ export default function create3dModel(
     renderer.render(scene, camera);
   }
 
+  // Update pause state and button text
   function updatePauseState() {
-    if (!cameraMove && !animationsOk) {
-      isPaused = true;
-      document.getElementById("pauseButton").textContent = "Riprendi";
-    } else {
-      isPaused = false;
-      document.getElementById("pauseButton").textContent = "Pausa";
-    }
+    isPaused = !cameraMove && !animationsOk;
+    document.getElementById("pauseButton").textContent = isPaused
+      ? "Riprendi"
+      : "Pausa";
   }
 
   animate();
 
-  // Aggiungi i controlli per mettere in pausa, velocizzare, rallentare
+  // Event listeners for buttons
   document.getElementById("pauseButton").addEventListener("click", function () {
     isPaused = !isPaused;
-    if (isPaused) {
-      cameraMove = false;
-      animationsOk = false;
-    } else {
-      cameraMove = true;
-      animationsOk = true;
-    }
+    cameraMove = !isPaused;
+    animationsOk = !isPaused;
     this.innerText = isPaused ? "Riprendi" : "Pausa";
     document.getElementById("pauseAnimationsButton").innerText = isPaused
       ? "Riprendi animazioni"
@@ -210,8 +202,7 @@ export default function create3dModel(
   document
     .getElementById("speedUpButton")
     .addEventListener("click", function () {
-      animationSpeed += 0.01;
-      if (animationSpeed >= 0.05) animationSpeed -= 0.01;
+      if (animationSpeed < 0.05) animationSpeed += 0.01;
     });
 
   document
@@ -236,10 +227,7 @@ export default function create3dModel(
         : "Riprendi animazioni";
     });
 
-  if (!animationsOk && !cameraMove) {
-    isPaused = true;
-  }
-
+  // Toggle fullscreen mode on container click
   document
     .getElementById("rendererContainer")
     .addEventListener("click", function () {
@@ -250,28 +238,22 @@ export default function create3dModel(
       }
     });
 
-  // Aggiungi un listener per il cambiamento dello stato del fullscreen
+  // Adjust renderer size and camera aspect ratio on fullscreen change
   document.addEventListener("fullscreenchange", function () {
-    if (document.fullscreenElement) {
-      // Quando entri in modalità fullscreen
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.domElement.style.width = "100%";
-      renderer.domElement.style.height = "100%";
-    } else {
-      // Quando esci dalla modalità fullscreen
-      renderer.setSize(window.innerWidth * 0.5, window.innerHeight * 0.5);
-      camera.aspect = (window.innerWidth * 0.5) / (window.innerHeight * 0.5);
-      camera.updateProjectionMatrix();
-      renderer.domElement.style.width = "50%";
-      renderer.domElement.style.height = "50%";
-    }
+    const isFullscreen = document.fullscreenElement;
+    const width = isFullscreen ? window.innerWidth : window.innerWidth * 0.5;
+    const height = isFullscreen ? window.innerHeight : window.innerHeight * 0.5;
+
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.domElement.style.width = isFullscreen ? "100%" : "50%";
+    renderer.domElement.style.height = isFullscreen ? "100%" : "50%";
   });
 
-  // Aggiorna il renderer e la camera quando la finestra cambia dimensioni
+  // Adjust renderer size and camera aspect ratio on window resize
   window.addEventListener("resize", function () {
-    const isFullscreen = document.fullscreenElement !== null;
+    const isFullscreen = document.fullscreenElement;
     const width = isFullscreen ? window.innerWidth : window.innerWidth * 0.5;
     const height = isFullscreen ? window.innerHeight : window.innerHeight * 0.5;
 
