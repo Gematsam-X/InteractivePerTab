@@ -494,3 +494,10 @@ canvas {
   margin: 20px auto;
   display: block;
 }
+
+@media only screen and (max-width: 600px) {
+  h1, footer {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
