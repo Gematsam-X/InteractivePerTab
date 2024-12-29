@@ -38,7 +38,7 @@ body {
 }
 
 h1 {
-  text-align: center;
+  text-align: center !important;
   margin-top: 20px;
   color: #1c1c1c;
 }
