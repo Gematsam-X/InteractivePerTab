@@ -38,7 +38,9 @@ body {
 }
 
 h1 {
-  text-align: center !important;
+  text-align: center;
+  justify-content: center;
+  align-itens: center;
   margin-top: 20px;
   color: #1c1c1c;
 }
