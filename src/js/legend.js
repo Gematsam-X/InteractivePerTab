@@ -20,6 +20,7 @@ const categories = {
     "assets/legend/dark/artificials.png",
   ],
   lens: ["assets/lens/light/lens.png", "assets/lens/dark/lens.png"],
+  github: ["assets/github/light/github.png", "assets/github/dark/github.png"],
   internalTransitionMetals: [
     "assets/legend/light/metals/internal-transition-metals.png",
     "assets/legend/dark/metals/internal-transition-metals.png",
@@ -50,7 +51,7 @@ if (localStorage.getItem("theme") === "dark") {
 }
 
 // Function to change all category images
-function cambiaImmagini() {
+function updateImgs() {
   for (const [category, images] of Object.entries(categories)) {
     const imgElement = document.getElementById(`${category}_img`);
     if (imgElement) {
@@ -62,7 +63,7 @@ function cambiaImmagini() {
 // Function to toggle between light and dark images
 function toggleImages() {
   index = index === 0 ? 1 : 0; // Toggle index between light (0) and dark (1)
-  cambiaImmagini(); // Update the images
+  updateImgs(); // Update the images
 }
 
 // Add event listener to the toggle button if it exists
@@ -71,4 +72,4 @@ if (toggleButton) {
 }
 
 // Set the initial images when the page loads
-document.addEventListener("DOMContentLoaded", cambiaImmagini);
+document.addEventListener("DOMContentLoaded", updateImgs);

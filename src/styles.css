@@ -21,6 +21,13 @@
   src: url("../fonts/CinzelBold.ttf");
 }
 
+/* Stili generali per il tema chiaro (predefinito) */
+body {
+  background-color: #f4f4f9;
+  color: #1c1c1c;
+  font-family: "FiraSansCondensedSemiBold", Arial;
+}
+
 .group-period {
   font-size: 2rem;
   text-align: center;
@@ -30,14 +37,13 @@
   color: #1c1c1c;
 }
 
-/* Stili generali per il tema chiaro (predefinito) */
-body {
-  background-color: #f4f4f9;
+h1 {
+  text-align: center;
+  margin-top: 20px;
   color: #1c1c1c;
-  font-family: "FiraSansCondensedSemiBold", Arial;
 }
 
-h1 {
+footer {
   text-align: center;
   margin-top: 20px;
   color: #1c1c1c;
@@ -215,7 +221,6 @@ button.theme-toggle {
   left: 20px;
   padding: 10px 20px;
   border: none;
-  cursor: pointer;
   font-size: 16px;
   font-family: "FiraSansCondensedSemiBold", Arial;
   color: #f4f4f9;
@@ -277,6 +282,10 @@ body.dark-theme {
 }
 
 .dark-theme h1 {
+  color: #f4f4f9;
+}
+
+.dark-theme footer {
   color: #f4f4f9;
 }
 
