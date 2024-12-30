@@ -1,4 +1,5 @@
-# InteractivePerTab
+# InteractivePerTab - Tavola Periodica Interattiva
+### Italiano
 
 ![logo_InteractivePerTab](src/assets/favicon.ico)
 
@@ -28,7 +29,41 @@ Per ogni elemento è disponibile un modello 3D di bohr dell'atomo in questione. 
 I ringraziamenti speciali vanno a:
 
 - [@RebyCDP](https://github.com/RebyCDP) che ringrazio per aver reso possibile il coinvolgimento della classe 2D.
-
 - [@Greninja12-debug](https://github.com/Greninja12-debug) che ringrazio per aver fatto approfondimenti su alcuni elementi.
-
 - [@laurabanducci93](https://github.com/laurabanducci93) che ringrazio per l'idea e la collaborazione generale.
+
+---
+
+# InteractivePerTab - Interactive Periodic Table
+### English
+
+![logo_InteractivePerTab](src/assets/favicon.ico)
+
+Developed with the support of the 2D CDP, this interactive periodic table will assist students of various age groups in their studies.
+Visit the [InteractivePerTab website](https://interactivepertab2.webnode.page).
+
+## Main Features:
+
+### 3D Model
+
+For each element, there is a 3D Bohr model of the corresponding atom. You can interact with it through dedicated buttons.
+
+### Theme Toggle
+
+You can switch between light and dark themes by simply clicking the button in the upper left corner on every page of the project.
+
+### Search Function
+
+You can search by symbol, number, or name of the element using the search field at the top right.
+
+### Type Filtering
+
+You can highlight elements of a specific type (metals, metalloids, noble gases, artificial elements, or non-metals) by clicking on the respective type in the legend.
+
+## Acknowledgments
+
+Special thanks to:
+
+- [@RebyCDP](https://github.com/RebyCDP) for making the involvement of the 2D class possible.
+- [@Greninja12-debug](https://github.com/Greninja12-debug) for conducting research on some of the elements.
+- [@laurabanducci93](https://github.com/laurabanducci93) for the idea and overall collaboration.
