@@ -414,6 +414,7 @@ function toggleStatus(removeSpecificClass) {
   advancedViewButton.innerText = isAdvancedView
     ? "Disattiva visualizzazione avanzata"
     : "Attiva visualizzazione avanzata";
+  const body = document.body;
   body.style.transition = "background-color 0.5s ease"; // Add a transition effect for the background color
 
   if (isAdvancedView) {
