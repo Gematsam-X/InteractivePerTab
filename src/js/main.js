@@ -139,6 +139,9 @@ const alkaliMetals = document.getElementById("alkaliMetalsLegendContainer");
 const alkalineEarthMetals = document.getElementById(
   "alkalineEarthMetalsLegendContainer"
 );
+const halogens = document.getElementById("halogensLegendContainer");
+const chalcogens = document.getElementById("chalcogensLegendContainer");
+const pnictogens = document.getElementById("pnictogensLegendContainer");
 const nonMetals = document.getElementById("nonMetalsLegendContainer");
 const metalloids = document.getElementById("metalloidsLegendContainer");
 const artificials = document.getElementById("artificialsLegendContainer");
@@ -149,9 +152,9 @@ const actinides = document.querySelectorAll(".actinides");
 let activeCategory = null; // Tracks the active category
 
 /**  Function to add or remove the "faded" class based on the condition
-  * @param {NodeList} elements - List of elements to apply the class to
-  * @param {Function} condition - Condition to apply the class
-  */
+ * @param {NodeList} elements - List of elements to apply the class to
+ * @param {Function} condition - Condition to apply the class
+ */
 function toggleFaded(elements, condition) {
   elements.forEach((element) => {
     if (condition(element)) {
@@ -300,22 +303,23 @@ metals.addEventListener("click", () => {
   removeFadedFromCategory(".lanthanides, .actinides");
 });
 internalTransitionMetals.addEventListener("click", () => {
-  areIntTransElemsHighlighted = !areIntTransElemsHighlighted;
-  adjustTransparency("internalTransitionMetal");
+  areIntTransElemsHighlighted =
+    !areIntTransElemsHighlighted &&
+    adjustTransparency("internalTransitionMetal");
 });
 transitionMetals.addEventListener("click", () =>
   adjustTransparency("transitionMetal")
 );
-postTransitionMetals.addEventListener("click", () => {
-  adjustTransparency("postTransitionMetal");
-});
-alkalineEarthMetals.addEventListener("click", () => {
-  adjustTransparency("alkalineEarthMetal");
-});
-
-alkaliMetals.addEventListener("click", () => {
-  adjustTransparency("alkaliMetal");
-});
+postTransitionMetals.addEventListener("click", () =>
+  adjustTransparency("postTransitionMetal")
+);
+alkalineEarthMetals.addEventListener("click", () =>
+  adjustTransparency("alkalineEarthMetal")
+);
+alkaliMetals.addEventListener("click", () => adjustTransparency("alkaliMetal"));
+chalcogens.addEventListener("click", () => adjustTransparency("chalcogen"));
+pnictogens.addEventListener("click", () => adjustTransparency("pnictogen"));
+halogens.addEventListener("click", () => adjustTransparency("halogen"));
 nonMetals.addEventListener("click", () => adjustTransparency("non-metal"));
 metalloids.addEventListener("click", () => adjustTransparency("metalloid"));
 artificials.addEventListener("click", () => adjustTransparency("artificial"));
@@ -368,18 +372,22 @@ if (currentElementSymbol) {
 //* ADVANCED VIEW
 
 // State of the advanced view (enabled/disabled)
-let isAdvancedView = JSON.parse(localStorage.getItem("isAdvancedView")) || false;
+let isAdvancedView =
+  JSON.parse(localStorage.getItem("isAdvancedView")) || false;
 // Main DOM elements
 const advancedViewButton = getCategoryCell("advancedView"); // Button for advanced view
 const metalsLegendContainerCell = getCategoryCell("metalsLegendContainer"); // Main container for legends
 
 // Selection of containers for specific metal categories
-const metalsCategoriesLegendContainer = [
+const specificCategoriesLegendsContainers = [
   getCategoryCell("transitionMetalsLegendContainer"),
   getCategoryCell("alkalineEarthMetalsLegendContainer"),
   getCategoryCell("alkaliMetalsLegendContainer"),
   getCategoryCell("postTransitionMetalsLegendContainer"),
   getCategoryCell("internalTransitionMetalsLegendContainer"),
+  getCategoryCell("halogensLegendContainer"),
+  getCategoryCell("chalcogensLegendContainer"),
+  getCategoryCell("pnictogensLegendContainer"),
 ];
 
 // Select all elements that need to be hidden when advanced view is activated
@@ -398,9 +406,9 @@ function getCategoryCell(category) {
 
 /**
  ** Main function to enable/disable advanced view
- * @param {boolean} removeMetalClass Indicates whether to remove metal classes
+ * @param {boolean} removeSpecificClass Indicates whether to remove specific classes
  */
-function toggleStatus(removeMetalClass) {
+function toggleStatus(removeSpecificClass) {
   localStorage.setItem("isAdvancedView", JSON.stringify(isAdvancedView));
   // Change the button text based on the current state
   advancedViewButton.innerText = isAdvancedView
@@ -410,7 +418,7 @@ function toggleStatus(removeMetalClass) {
   if (isAdvancedView) {
     // **Enable advanced view**
     metalsLegendContainerCell.classList.add("hidden"); // Hide the generic metals container
-    metalsCategoriesLegendContainer.forEach((category) =>
+    specificCategoriesLegendsContainers.forEach((category) =>
       category.classList.remove("hidden")
     ); // Show containers for specific categories
 
@@ -472,6 +480,43 @@ function toggleStatus(removeMetalClass) {
             ) {
               obj.classList.add("postTransitionMetal");
             }
+            if (
+              (parseInt(firstRow) == 9 &&
+                !obj.classList.contains("group-period")) ||
+              (parseInt(firstRow) == 17 &&
+                !obj.classList.contains("group-period")) ||
+              parseInt(firstRow) == 35 ||
+              parseInt(firstRow) == 53 ||
+              parseInt(firstRow) == 85 ||
+              parseInt(firstRow) == 117
+            ) {
+              obj.classList.add("halogen");
+            }
+            if (
+              (parseInt(firstRow) == 8 &&
+                !obj.classList.contains("group-period")) ||
+              (parseInt(firstRow) == 16 &&
+                !obj.classList.contains("group-period")) ||
+              parseInt(firstRow) == 34 ||
+              parseInt(firstRow) == 52 ||
+              parseInt(firstRow) == 84 ||
+              parseInt(firstRow) == 116
+            ) {
+              obj.classList.add("chalcogen");
+            }
+
+            if (
+              (parseInt(firstRow) == 7 &&
+                !obj.classList.contains("group-period")) ||
+              (parseInt(firstRow) == 15 &&
+                !obj.classList.contains("group-period")) ||
+              parseInt(firstRow) == 33 ||
+              parseInt(firstRow) == 51 ||
+              parseInt(firstRow) == 83 ||
+              parseInt(firstRow) == 115
+            ) {
+              obj.classList.add("pnictogen");
+            }
           });
         } else {
           console.warn(
@@ -488,12 +533,12 @@ function toggleStatus(removeMetalClass) {
     metalsLegendContainerCell.classList.remove("hidden"); // Show the main container
 
     // Hide containers for specific categories
-    metalsCategoriesLegendContainer.forEach((category) =>
+    specificCategoriesLegendsContainers.forEach((category) =>
       category.classList.add("hidden")
     );
 
     // Remove specific classes from lanthanides and actinides
-    if (removeMetalClass) {
+    if (removeSpecificClass) {
       document.querySelectorAll(".internalTransitionMetal").forEach((obj) => {
         if (!obj.classList.contains("artificial"))
           obj.classList.remove("internalTransitionMetal");
@@ -525,6 +570,21 @@ function toggleStatus(removeMetalClass) {
       document.querySelectorAll(".alkalineEarthMetal").forEach((obj) => {
         if (obj.id != "alkalineEarthMetalsLegendContainer")
           obj.classList.remove("alkalineEarthMetal");
+      });
+
+      document.querySelectorAll(".halogen").forEach((obj) => {
+        if (obj.id != "halogensLegendContainer")
+          obj.classList.remove("halogen");
+      });
+
+      document.querySelectorAll(".chalcogen").forEach((obj) => {
+        if (obj.id != "chalcogensLegendContainer")
+          obj.classList.remove("chalcogen");
+      });
+
+      document.querySelectorAll(".pnictogen").forEach((obj) => {
+        if (obj.id != "pnictogensLegendContainer")
+          obj.classList.remove("pnictogen");
       });
     }
 

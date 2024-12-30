@@ -21,7 +21,7 @@
   src: url("../fonts/CinzelBold.ttf");
 }
 
-/* Stili generali per il tema chiaro (predefinito) */
+/* General styles for the light theme (default) */
 body {
   background-color: #f4f4f9;
   color: #1c1c1c;
@@ -84,7 +84,45 @@ td:hover {
   background-color: #84c084;
 }
 
-/* Vari tipi di metalli */
+/* Specific categories of elements */
+
+.halogen {
+  background-color: #fc952f !important;
+}
+
+.halogen:hover {
+  background-color: #c97a1f !important;
+}
+
+#halogensLegendContainer {
+  background-color: transparent !important;
+}
+
+.chalcogen {
+  background-color: #50c440 !important;
+}
+
+.chalcogen:hover {
+  background-color: #3a8f2f !important;
+}
+
+#chalcogensLegendContainer {
+  background-color: transparent !important;
+}
+
+.pnictogen {
+  background-color: #d14cdd !important;
+}
+
+.pnictogen:hover {
+  background-color: #a63aae !important;
+}
+
+#pnictogensLegendContainer {
+  background-color: transparent !important;
+}
+
+/* Various types of metals */
 
 .internalTransitionMetal {
   background-color: #f3c705 !important;
@@ -187,14 +225,14 @@ td:hover {
 }
 
 .no-border {
-  border: none !important; /* Rimuove il bordo per i td della legenda */
+  border: none !important; /* Removes the border for legend td */
 }
 
-/* Classe per rendere gli elementi trasparenti */
+/* Class to make elements transparent */
 .faded {
   pointer-events: none;
   z-index: 0;
-  opacity: 0.2; /* Riduce l'opacità */
+  opacity: 0.2;
 }
 
 button {
@@ -233,13 +271,13 @@ button.theme-toggle {
   top: 20px;
   right: 20px;
   display: flex;
-  align-items: center; /* Allinea verticalmente il bottone con l'input */
+  align-items: center;
 }
 
 #search-input {
   transition: background-color 0.5s ease;
   height: 40px;
-  margin-right: 5px; /* Spazio tra l'input e il bottone */
+  margin-right: 5px;
   padding: 0 10px;
   font-size: 16px;
   width: 19.4rem;
@@ -275,7 +313,7 @@ button.theme-toggle {
   border: none !important;
 }
 
-/* Stile per il tema scuro */
+/* Style for the dark theme */
 body.dark-theme {
   background-color: #1c1c1c;
   color: #f4f4f9;
@@ -339,7 +377,27 @@ body.dark-theme {
   background-color: #d4c38b;
 }
 
-/* Vari tipi di metalli */
+/* Specific categories of elements */
+
+/* The color of halogens is a bright orange and is fine for both themes */
+
+.dark-theme .pnictogen {
+  background-color: #67b4f3 !important;
+}
+
+.dark-theme .pnictogen:hover {
+  background-color: #4f8dbf !important;
+}
+
+.dark-theme .chalcogen {
+  background-color: #00b894 !important;
+}
+
+.dark-theme .chalcogen:hover {
+  background-color: #039179 !important;
+}
+
+/* Various types of metals */
 
 .dark-theme .postTransitionMetal {
   background-color: #c16cfd !important;
@@ -414,7 +472,7 @@ body.dark-theme {
 }
 
 .dark-theme .no-border {
-  border: none !important; /* Rimuove il bordo per i td della legenda */
+  border: none !important;
 }
 
 .dark-theme .return {
@@ -431,7 +489,7 @@ body.dark-theme {
   background-color: #f4f4f9af;
 }
 
-/* Stili per gli approfondimenti */
+/* Styles for in-depth sections */
 
 h2,
 h3,
@@ -454,6 +512,10 @@ canvas {
 
 .controls {
   text-align: center;
+}
+
+button.controls {
+  margin-bottom: 20px;
 }
 
 #rendererContainer {

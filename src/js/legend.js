@@ -41,6 +41,14 @@ const categories = {
     "assets/legend/light/metals/alkaline-earth-metals.png",
     "assets/legend/dark/metals/alkaline-earth-metals.png",
   ],
+  chalcogens: [
+    "assets/legend/light/categories/chalcogens.png",
+    "assets/legend/dark/categories/chalcogens.png",
+  ],
+  pnictogens: [
+    "assets/legend/light/categories/pnictogens.png",
+    "assets/legend/dark/categories/pnictogens.png",
+  ],
 };
 
 let index = 0; // Set the index to light mode by default
