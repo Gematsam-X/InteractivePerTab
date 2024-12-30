@@ -514,8 +514,9 @@ canvas {
   text-align: center;
 }
 
-button.controls {
-  margin-bottom: 20px;
+.controls button {
+  margin: 10px;
+  cursor: pointer;
 }
 
 #rendererContainer {
