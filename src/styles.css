@@ -21,6 +21,15 @@
   src: url("../fonts/CinzelBold.ttf");
 }
 
+img {
+  pointer-events: none;
+}
+
+#github_img {
+  pointer-events: all;
+  cursor: pointer;
+}
+
 /* General styles for the light theme (default) */
 body {
   background-color: #f4f4f9;
