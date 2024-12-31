@@ -32,6 +32,10 @@ I ringraziamenti speciali vanno a:
 - [@laurabanducci93](https://github.com/laurabanducci93) che ringrazio per l'idea e la collaborazione generale.
 - [@Greninja12-debug](https://github.com/Greninja12-debug) che ringrazio per aver fatto approfondimenti su alcuni elementi.
 
+## Licenza
+
+Questo progetto è disponibile sotto la licenza MIT. Vedi il file [LICENSE](LICENSE) per ulteriori dettagli.
+
 ---
 
 # InteractivePerTab - Interactive Periodic Table
@@ -67,3 +71,7 @@ Special thanks to:
 - [@RebyCDP](https://github.com/RebyCDP) for making the involvement of the 2D class possible.
 - [@laurabanducci93](https://github.com/laurabanducci93) for the idea and overall collaboration.
 - [@Greninja12-debug](https://github.com/Greninja12-debug) for conducting research on some of the elements.
+
+## License
+
+This project is available under the MIT license. See the [LICENSE](LICENSE) for further details.
