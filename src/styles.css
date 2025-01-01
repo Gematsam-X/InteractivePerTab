@@ -443,6 +443,7 @@ body.dark-theme {
 .dark-theme .internalTransitionMetal {
   background-color: #b89706 !important;
 }
+
 .dark-theme .internalTransitionMetal:hover {
   background-color: #8f7503 !important;
 }
@@ -450,7 +451,6 @@ body.dark-theme {
 .dark-theme .artificial {
   background-color: #fab1a0 !important;
 }
-
 .dark-theme .artificial:hover {
   background-color: #c98e81 !important;
 }
@@ -458,6 +458,7 @@ body.dark-theme {
 .dark-theme .special {
   background-color: #636e72 !important;
 }
+
 .dark-theme .special:hover {
   background-color: #4f5a5e !important;
 }
