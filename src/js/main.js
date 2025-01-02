@@ -437,83 +437,95 @@ function toggleStatus(removeSpecificClass) {
       if (!isNaN(atomicNumber) && atomicNumber < 112) {
         if (element.number) {
           filteredElements.forEach((obj) => {
-            let firstRow = obj.innerHTML.trim().split("<br>");
-            // Verify that the DOM element exists
+            let firstRow = parseInt(obj.innerHTML.trim().split("<br>")[0]);
+
+            /** Function to check the value of the first row
+             * @param {string} comparison - Comparison operator
+             * @param {number} value - Value to compare
+             * @returns {boolean} Result of the comparison
+             */
+            function checkFirstRowValue(comparison, value) {
+              if (obj.classList.contains("group-period")) {
+                return false;
+              } else {
+                switch (comparison) {
+                  case "===":
+                    return firstRow === value;
+                  case ">=":
+                    return firstRow >= value;
+                  case "<=":
+                    return firstRow <= value;
+                  default:
+                    return false;
+                }
+              }
+            }
+
             if (
-              (parseInt(firstRow) >= 21 && parseInt(firstRow) <= 30) ||
-              (parseInt(firstRow) >= 39 && parseInt(firstRow) <= 48) ||
-              (parseInt(firstRow) >= 72 && parseInt(firstRow) <= 80) ||
-              (parseInt(firstRow) >= 104 && parseInt(firstRow) <= 112)
+              (checkFirstRowValue(">=", 21) && checkFirstRowValue("<=", 30)) ||
+              (checkFirstRowValue(">=", 39) && checkFirstRowValue("<=", 48)) ||
+              (checkFirstRowValue(">=", 72) && checkFirstRowValue("<=", 80)) ||
+              (checkFirstRowValue(">=", 104) && checkFirstRowValue("<=", 112))
             ) {
               obj.classList.add("transitionMetal");
             }
             if (
-              (parseInt(firstRow) == 3 ||
-                parseInt(firstRow) == 11 ||
-                parseInt(firstRow) == 19 ||
-                parseInt(firstRow) == 37 ||
-                parseInt(firstRow) == 55 ||
-                parseInt(firstRow) == 87) &&
-              !obj.classList.contains("group-period")
+              checkFirstRowValue("===", 3) ||
+              checkFirstRowValue("===", 11) ||
+              checkFirstRowValue("===", 19) ||
+              checkFirstRowValue("===", 37) ||
+              checkFirstRowValue("===", 55) ||
+              checkFirstRowValue("===", 87)
             ) {
               obj.classList.add("alkaliMetal");
             }
             if (
-              (parseInt(firstRow) == 4 ||
-                parseInt(firstRow) == 12 ||
-                parseInt(firstRow) == 20 ||
-                parseInt(firstRow) == 38 ||
-                parseInt(firstRow) == 56 ||
-                parseInt(firstRow) == 88) &&
-              !obj.classList.contains("group-period")
+              checkFirstRowValue("===", 4) ||
+              checkFirstRowValue("===", 12) ||
+              checkFirstRowValue("===", 20) ||
+              checkFirstRowValue("===", 38) ||
+              checkFirstRowValue("===", 56) ||
+              checkFirstRowValue("===", 88)
             ) {
               obj.classList.add("alkalineEarthMetal");
             }
             if (
-              (parseInt(firstRow) == 13 &&
-                !obj.classList.contains("group-period")) ||
-              parseInt(firstRow) == 31 ||
-              parseInt(firstRow) == 49 ||
-              parseInt(firstRow) == 50 ||
-              (parseInt(firstRow) >= 81 && parseInt(firstRow) <= 83) ||
-              (parseInt(firstRow) >= 113 && parseInt(firstRow) <= 116)
+              checkFirstRowValue("===", 13) ||
+              checkFirstRowValue("===", 31) ||
+              checkFirstRowValue("===", 49) ||
+              checkFirstRowValue("===", 50) ||
+              (checkFirstRowValue(">=", 81) && checkFirstRowValue("<=", 83)) ||
+              (checkFirstRowValue(">=", 113) && checkFirstRowValue("<=", 116))
             ) {
               obj.classList.add("postTransitionMetal");
             }
             if (
-              (parseInt(firstRow) == 9 &&
-                !obj.classList.contains("group-period")) ||
-              (parseInt(firstRow) == 17 &&
-                !obj.classList.contains("group-period")) ||
-              parseInt(firstRow) == 35 ||
-              parseInt(firstRow) == 53 ||
-              parseInt(firstRow) == 85 ||
-              parseInt(firstRow) == 117
+              checkFirstRowValue("===", 9) ||
+              checkFirstRowValue("===", 17) ||
+              checkFirstRowValue("===", 35) ||
+              checkFirstRowValue("===", 53) ||
+              checkFirstRowValue("===", 85) ||
+              checkFirstRowValue("===", 117)
             ) {
               obj.classList.add("halogen");
             }
             if (
-              (parseInt(firstRow) == 8 &&
-                !obj.classList.contains("group-period")) ||
-              (parseInt(firstRow) == 16 &&
-                !obj.classList.contains("group-period")) ||
-              parseInt(firstRow) == 34 ||
-              parseInt(firstRow) == 52 ||
-              parseInt(firstRow) == 84 ||
-              parseInt(firstRow) == 116
+              checkFirstRowValue("===", 8) ||
+              checkFirstRowValue("===", 16) ||
+              checkFirstRowValue("===", 34) ||
+              checkFirstRowValue("===", 52) ||
+              checkFirstRowValue("===", 84) ||
+              checkFirstRowValue("===", 116)
             ) {
               obj.classList.add("chalcogen");
             }
-
             if (
-              (parseInt(firstRow) == 7 &&
-                !obj.classList.contains("group-period")) ||
-              (parseInt(firstRow) == 15 &&
-                !obj.classList.contains("group-period")) ||
-              parseInt(firstRow) == 33 ||
-              parseInt(firstRow) == 51 ||
-              parseInt(firstRow) == 83 ||
-              parseInt(firstRow) == 115
+              checkFirstRowValue("===", 7) ||
+              checkFirstRowValue("===", 15) ||
+              checkFirstRowValue("===", 33) ||
+              checkFirstRowValue("===", 51) ||
+              checkFirstRowValue("===", 83) ||
+              checkFirstRowValue("===", 115)
             ) {
               obj.classList.add("pnictogen");
             }
