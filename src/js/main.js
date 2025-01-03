@@ -17,14 +17,14 @@ function checkElementsClass() {
     // Check if the class is not empty and not "special", "legend", "no-border" or "specialLegend"
     if (
       elements[i].classList.length > 0 &&
-      !elements[i].classList.contains("special") &&
       !elements[i].classList.contains("legend") &&
+      !elements[i].classList.contains("no-border") &&
+      !elements[i].classList.contains("group") &&
+      !elements[i].classList.contains("period") &&
       !elements[i].classList.contains("specialLegend") &&
-      !elements[i].classList.contains("no-border")
+      !elements[i].classList.contains("special")
     ) {
-      // Add the element to the filtered array
       filteredElements.push(elements[i]);
-
       // Add a click event for redirection
       elements[i].addEventListener("click", function () {
         elements[i].style.transform = "scale(1.2)"; // Enlarge the element on click
@@ -35,8 +35,9 @@ function checkElementsClass() {
         window.setTimeout(() => {
           resetDefaultStyle();
         }, 500);
-        window.location.href =
-          "elements/html/" + symbol.toLowerCase() + ".html";
+        if (symbol)
+          window.location.href =
+            "elements/html/" + symbol.toLowerCase() + ".html";
       });
       areIntTransElemsHighlighted = false; // Reset the highlighting state
     }
@@ -181,7 +182,7 @@ let clickListenerAdded = false; // Indicates if the listener has been added
 
 /**
  * Function to apply transparency to elements based on the category
- * @param {string} targetClass - Class to which not to apply transparency
+ * @param {string} targetClass - Class which will be highlighted
  */
 
 // Main function to apply transparency to elements based on the category
@@ -243,6 +244,7 @@ function highlightCategoryRange(category, series) {
   if (areIntTransElemsHighlighted) {
     return;
   } else {
+    shouldResetDefaultStyle = false; // Non eseguire resetDefaultStyle quando questa funzione è chiamata
     const allElements = document.querySelectorAll("td");
 
     if (activeCategoryRange === category) {
@@ -252,6 +254,7 @@ function highlightCategoryRange(category, series) {
       });
       activeCategoryRange = null; // Cancel the active category
       document.removeEventListener("click", handleOutsideClick); // Remove the event listener
+      shouldResetDefaultStyle = true; // Reset the state after checking
       return; // End the function, no more highlighting
     }
 
@@ -268,6 +271,7 @@ function highlightCategoryRange(category, series) {
 
     activeCategoryRange = category; // Set the category as active
     document.addEventListener("click", handleOutsideClick); // Add the event listener
+    shouldResetDefaultStyle = true; // Reset the state after checking
   }
 }
 
@@ -303,9 +307,8 @@ metals.addEventListener("click", () => {
   removeFadedFromCategory(".lanthanides, .actinides");
 });
 internalTransitionMetals.addEventListener("click", () => {
-  areIntTransElemsHighlighted =
-    !areIntTransElemsHighlighted &&
-    adjustTransparency("internalTransitionMetal");
+  areIntTransElemsHighlighted = !areIntTransElemsHighlighted;
+  adjustTransparency("internalTransitionMetal");
 });
 transitionMetals.addEventListener("click", () =>
   adjustTransparency("transitionMetal")
@@ -368,6 +371,65 @@ if (currentElementSymbol) {
     }
   });
 }
+
+// Group-period view
+let shouldResetDefaultStyle = true; // Variabile di stato globale
+
+function toggleGroupPeriodView(number, type) {
+  shouldResetDefaultStyle = false; // Non eseguire resetDefaultStyle quando questa funzione è chiamata
+  const elements = document.querySelectorAll("td");
+  const isActive = document.querySelector(`.${type}.active`);
+
+  elements.forEach((obj) => {
+    const hasDataAttributes = Array.from(obj.attributes).some((attr) =>
+      attr.name.startsWith("data-")
+    );
+    if (
+      !obj.classList.contains("legend") &&
+      !obj.classList.contains("group") &&
+      !obj.classList.contains("period") &&
+      !obj.classList.contains("specialLegend")
+    ) {
+      if (
+        hasDataAttributes &&
+        obj.getAttribute(`data-${type}`) === number.toString()
+      ) {
+        obj.classList.remove("faded");
+      } else {
+        obj.classList.add("faded");
+      }
+    } else {
+      obj.classList.add("faded");
+    }
+    if (
+      obj.classList.contains(`${type}`) &&
+      obj.innerHTML === number.toString()
+    ) {
+      obj.classList.remove("faded");
+    }
+  });
+
+  // Add a listener for clicking outside the periodic table
+  if (!clickListenerAdded) {
+    document.addEventListener("click", handleOutsideClick);
+    document.querySelectorAll(`.${type}`).forEach((cell) => {
+      cell.classList.remove("active");
+    });
+    clickListenerAdded = true; // Indicates that the listener has been added
+  }
+}
+
+function addEventListenerToGroupPeriod(type) {
+  document.querySelectorAll(`.${type}`).forEach((cell) => {
+    let number = parseInt(cell.innerHTML); // Ottieni il valore della prima riga
+    cell.addEventListener("click", () => {
+      toggleGroupPeriodView(number, type); // Passa il valore al momento del click
+    });
+  });
+}
+
+addEventListenerToGroupPeriod("group");
+addEventListenerToGroupPeriod("period");
 
 //* ADVANCED VIEW
 
@@ -445,7 +507,10 @@ function toggleStatus(removeSpecificClass) {
              * @returns {boolean} Result of the comparison
              */
             function checkFirstRowValue(comparison, value) {
-              if (obj.classList.contains("group-period")) {
+              if (
+                obj.classList.contains("group") ||
+                obj.classList.contains("period")
+              ) {
                 return false;
               } else {
                 switch (comparison) {

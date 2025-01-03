@@ -22,7 +22,8 @@
 - [X] Add extra properties to the in-depths (e.g., electronegativity, density)
 - [X] Translate code content (e.g., CSS classes, functions, comments) to English
 - [X] Add an ALT attribute for the imgs
-- [] Add a group-period-filtered view
+- [X] Add a group-period-filtered view
+- [] Refactor the main logic using the data attributes
 
 **ALL DONE**
 

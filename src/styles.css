@@ -27,7 +27,6 @@ img {
 
 #github_img {
   pointer-events: all;
-  cursor: pointer;
 }
 
 /* General styles for the light theme (default) */
@@ -37,12 +36,12 @@ body {
   font-family: "FiraSansCondensedSemiBold", Arial;
 }
 
-.group-period {
+.group,
+.period {
   font-size: 2rem;
   text-align: center;
   border: none !important;
   font-family: "CinzelBold", Arial;
-  pointer-events: none;
   color: #1c1c1c;
 }
 
@@ -239,9 +238,9 @@ td:hover {
 
 /* Class to make elements transparent */
 .faded {
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.2;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  opacity: 0.2 !important;
 }
 
 button {
@@ -336,7 +335,8 @@ body.dark-theme {
   color: #f4f4f9;
 }
 
-.dark-theme .group-period {
+.dark-theme .group,
+.dark-theme .period {
   color: #f4f4f9 !important;
 }
 
@@ -448,9 +448,14 @@ body.dark-theme {
   background-color: #8f7503 !important;
 }
 
+.dark-theme .NOBG-internalTransitionMetal {
+  background-color: inherit;
+}
+
 .dark-theme .artificial {
   background-color: #fab1a0 !important;
 }
+
 .dark-theme .artificial:hover {
   background-color: #c98e81 !important;
 }
@@ -496,7 +501,7 @@ body.dark-theme {
 }
 
 .dark-theme button:hover {
-  background-color: #f4f4f9af;
+  background-color: #d1d1d1;
 }
 
 /* Styles for in-depth sections */
