@@ -387,8 +387,7 @@ function toggleGroupPeriodView(number, type) {
     if (
       !obj.classList.contains("legend") &&
       !obj.classList.contains("group") &&
-      !obj.classList.contains("period") &&
-      !obj.classList.contains("specialLegend")
+      !obj.classList.contains("period")
     ) {
       if (
         hasDataAttributes &&
@@ -406,6 +405,12 @@ function toggleGroupPeriodView(number, type) {
       obj.innerHTML === number.toString()
     ) {
       obj.classList.remove("faded");
+    }
+    if (number === 6 && type==="period" && obj.classList.contains("lanthanides")) {
+      obj.classList.remove("faded");
+    } else if (number === 7 && type==="period" && obj.classList.contains("actinides")) {
+      obj.classList.remove("faded");
+
     }
   });
 
