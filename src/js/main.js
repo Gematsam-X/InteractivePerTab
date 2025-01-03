@@ -6,30 +6,30 @@ window.addEventListener("load", function () {
 });
 
 // Select all <td> elements
-let elements = document.getElementsByTagName("td");
+let elements = document.querySelectorAll("td[data-symbol]");
 
 // Create an empty array for elements with non-empty classes
 let filteredElements = [];
 
 // Iterate over each <td> element
 function checkElementsClass() {
-  for (let i = 0; i < elements.length; i++) {
+  elements.forEach((element) => {
     // Check if the class is not empty and not "special", "legend", "no-border" or "specialLegend"
     if (
-      elements[i].classList.length > 0 &&
-      !elements[i].classList.contains("legend") &&
-      !elements[i].classList.contains("no-border") &&
-      !elements[i].classList.contains("group") &&
-      !elements[i].classList.contains("period") &&
-      !elements[i].classList.contains("specialLegend") &&
-      !elements[i].classList.contains("special")
+      element.classList.length > 0 &&
+      !element.classList.contains("legend") &&
+      !element.classList.contains("no-border") &&
+      !element.classList.contains("group") &&
+      !element.classList.contains("period") &&
+      !element.classList.contains("specialLegend") &&
+      !element.classList.contains("special")
     ) {
-      filteredElements.push(elements[i]);
+      filteredElements.push(element);
       // Add a click event for redirection
-      elements[i].addEventListener("click", function () {
-        elements[i].style.transform = "scale(1.2)"; // Enlarge the element on click
-        // Extract the symbol from the element
-        const symbol = elements[i].innerHTML.split("<br>")[1]; // Get the symbol from the element
+      element.addEventListener("click", function () {
+        element.style.transform = "scale(1.2)"; // Enlarge the element on click
+        // Extract the symbol from the data attribute
+        const symbol = element.getAttribute("data-symbol");
         // Redirect to the element's page
         window.sessionStorage.removeItem("currentElement");
         window.setTimeout(() => {
@@ -41,7 +41,7 @@ function checkElementsClass() {
       });
       areIntTransElemsHighlighted = false; // Reset the highlighting state
     }
-  }
+  });
 }
 
 // Global variable for data
@@ -52,24 +52,23 @@ async function extractElementData() {
   const rows = document.querySelectorAll(".periodic-table tr");
   const temporaryData = [];
 
-  for (let row of rows) {
-    const cells = row.querySelectorAll("td");
-    for (let cell of cells) {
-      const content = cell.innerHTML.trim();
-      const contentRows = content.split("<br>");
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td[data-symbol]");
+    cells.forEach((cell) => {
+      const number = parseInt(cell.getAttribute("data-atomic-number"));
+      const symbol = cell.getAttribute("data-symbol");
+      const elementName = cell.getAttribute("data-name");
 
-      if (contentRows.length === 4) {
-        const number = parseInt(contentRows[0]);
-        const symbol = contentRows[1];
-        const elementName = contentRows[2];
+      if (number && symbol && elementName) {
         temporaryData.push({
           number,
           symbol,
           elementName,
         });
       }
-    }
-  }
+    });
+  });
+
   if (temporaryData.length > 0) {
     elementData = temporaryData;
   } else {
@@ -337,22 +336,17 @@ if (currentElementSymbol) {
   const allElements = document.querySelectorAll("td");
 
   allElements.forEach((element) => {
-    const content = element.innerHTML.trim();
-    const contentRows = content.split("<br>");
+    const symbol = element.getAttribute("data-symbol") || null;
 
-    // Check that contentRows[1] exists
-    if (contentRows.length > 1) {
-      const symbol = contentRows[1].toLowerCase();
-
-      // Highlight only the current element
-      if (symbol === currentElementSymbol.toLowerCase()) {
+    // Highlight only the current element
+    if (symbol) {
+      if (symbol.toLowerCase() === currentElementSymbol.toLowerCase()) {
         element.classList.remove("faded");
         element.style.transform = "scale(1.2)";
       } else {
         element.classList.add("faded");
       }
     } else {
-      // Handle elements that do not have a symbol
       element.classList.add("faded");
     }
   });
@@ -378,7 +372,6 @@ let shouldResetDefaultStyle = true; // Variabile di stato globale
 function toggleGroupPeriodView(number, type) {
   shouldResetDefaultStyle = false; // Non eseguire resetDefaultStyle quando questa funzione è chiamata
   const elements = document.querySelectorAll("td");
-  const isActive = document.querySelector(`.${type}.active`);
 
   elements.forEach((obj) => {
     const hasDataAttributes = Array.from(obj.attributes).some((attr) =>
@@ -406,11 +399,18 @@ function toggleGroupPeriodView(number, type) {
     ) {
       obj.classList.remove("faded");
     }
-    if (number === 6 && type==="period" && obj.classList.contains("lanthanides")) {
+    if (
+      number === 6 &&
+      type === "period" &&
+      obj.classList.contains("lanthanides")
+    ) {
       obj.classList.remove("faded");
-    } else if (number === 7 && type==="period" && obj.classList.contains("actinides")) {
+    } else if (
+      number === 7 &&
+      type === "period" &&
+      obj.classList.contains("actinides")
+    ) {
       obj.classList.remove("faded");
-
     }
   });
 
@@ -496,114 +496,39 @@ function toggleStatus(removeSpecificClass) {
         obj.classList.add("internalTransitionMetal");
       });
 
-    elementData.forEach((element) => {
-      // Verify that 'element.number' is defined and can be converted to a number
-      const atomicNumber = parseInt(element.number);
+    filteredElements.forEach((obj) => {
+      const atomicNumber = parseInt(obj.getAttribute("data-atomic-number"));
 
-      // Check that the atomic number is valid and less than 112
-      if (!isNaN(atomicNumber) && atomicNumber < 112) {
-        if (element.number) {
-          filteredElements.forEach((obj) => {
-            let firstRow = parseInt(obj.innerHTML.trim().split("<br>")[0]);
-
-            /** Function to check the value of the first row
-             * @param {string} comparison - Comparison operator
-             * @param {number} value - Value to compare
-             * @returns {boolean} Result of the comparison
-             */
-            function checkFirstRowValue(comparison, value) {
-              if (
-                obj.classList.contains("group") ||
-                obj.classList.contains("period")
-              ) {
-                return false;
-              } else {
-                switch (comparison) {
-                  case "===":
-                    return firstRow === value;
-                  case ">=":
-                    return firstRow >= value;
-                  case "<=":
-                    return firstRow <= value;
-                  default:
-                    return false;
-                }
-              }
-            }
-
-            if (
-              (checkFirstRowValue(">=", 21) && checkFirstRowValue("<=", 30)) ||
-              (checkFirstRowValue(">=", 39) && checkFirstRowValue("<=", 48)) ||
-              (checkFirstRowValue(">=", 72) && checkFirstRowValue("<=", 80)) ||
-              (checkFirstRowValue(">=", 104) && checkFirstRowValue("<=", 112))
-            ) {
-              obj.classList.add("transitionMetal");
-            }
-            if (
-              checkFirstRowValue("===", 3) ||
-              checkFirstRowValue("===", 11) ||
-              checkFirstRowValue("===", 19) ||
-              checkFirstRowValue("===", 37) ||
-              checkFirstRowValue("===", 55) ||
-              checkFirstRowValue("===", 87)
-            ) {
-              obj.classList.add("alkaliMetal");
-            }
-            if (
-              checkFirstRowValue("===", 4) ||
-              checkFirstRowValue("===", 12) ||
-              checkFirstRowValue("===", 20) ||
-              checkFirstRowValue("===", 38) ||
-              checkFirstRowValue("===", 56) ||
-              checkFirstRowValue("===", 88)
-            ) {
-              obj.classList.add("alkalineEarthMetal");
-            }
-            if (
-              checkFirstRowValue("===", 13) ||
-              checkFirstRowValue("===", 31) ||
-              checkFirstRowValue("===", 49) ||
-              checkFirstRowValue("===", 50) ||
-              (checkFirstRowValue(">=", 81) && checkFirstRowValue("<=", 83)) ||
-              (checkFirstRowValue(">=", 113) && checkFirstRowValue("<=", 116))
-            ) {
-              obj.classList.add("postTransitionMetal");
-            }
-            if (
-              checkFirstRowValue("===", 9) ||
-              checkFirstRowValue("===", 17) ||
-              checkFirstRowValue("===", 35) ||
-              checkFirstRowValue("===", 53) ||
-              checkFirstRowValue("===", 85) ||
-              checkFirstRowValue("===", 117)
-            ) {
-              obj.classList.add("halogen");
-            }
-            if (
-              checkFirstRowValue("===", 8) ||
-              checkFirstRowValue("===", 16) ||
-              checkFirstRowValue("===", 34) ||
-              checkFirstRowValue("===", 52) ||
-              checkFirstRowValue("===", 84) ||
-              checkFirstRowValue("===", 116)
-            ) {
-              obj.classList.add("chalcogen");
-            }
-            if (
-              checkFirstRowValue("===", 7) ||
-              checkFirstRowValue("===", 15) ||
-              checkFirstRowValue("===", 33) ||
-              checkFirstRowValue("===", 51) ||
-              checkFirstRowValue("===", 83) ||
-              checkFirstRowValue("===", 115)
-            ) {
-              obj.classList.add("pnictogen");
-            }
-          });
-        } else {
-          console.warn(
-            `DOM element not found for atomic number ${element.number}`
-          );
+      if (!isNaN(atomicNumber)) {
+        if (
+          (atomicNumber >= 21 && atomicNumber <= 30) ||
+          (atomicNumber >= 39 && atomicNumber <= 48) ||
+          (atomicNumber >= 72 && atomicNumber <= 80) ||
+          (atomicNumber >= 104 && atomicNumber <= 112)
+        ) {
+          obj.classList.add("transitionMetal");
+        }
+        if ([3, 11, 19, 37, 55, 87].includes(atomicNumber)) {
+          obj.classList.add("alkaliMetal");
+        }
+        if ([4, 12, 20, 38, 56, 88].includes(atomicNumber)) {
+          obj.classList.add("alkalineEarthMetal");
+        }
+        if (
+          [13, 31, 49, 50].includes(atomicNumber) ||
+          (atomicNumber >= 81 && atomicNumber <= 83) ||
+          (atomicNumber >= 113 && atomicNumber <= 116)
+        ) {
+          obj.classList.add("postTransitionMetal");
+        }
+        if ([9, 17, 35, 53, 85, 117].includes(atomicNumber)) {
+          obj.classList.add("halogen");
+        }
+        if ([8, 16, 34, 52, 84, 116].includes(atomicNumber)) {
+          obj.classList.add("chalcogen");
+        }
+        if ([7, 15, 33, 51, 83, 115].includes(atomicNumber)) {
+          obj.classList.add("pnictogen");
         }
       }
     });

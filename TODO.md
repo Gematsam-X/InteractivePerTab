@@ -23,7 +23,7 @@
 - [X] Translate code content (e.g., CSS classes, functions, comments) to English
 - [X] Add an ALT attribute for the imgs
 - [X] Add a group-period-filtered view
-- [] Refactor the main logic using the data attributes
+- [X] Refactor the main logic using the data attributes
 
 **ALL DONE**
 
