@@ -24,6 +24,7 @@
 - [X] Add an ALT attribute for the imgs
 - [X] Add a group-period-filtered view
 - [X] Refactor the main logic using the data attributes
+- [] Add a search bar for specific words in the in-depths
 
 **ALL DONE**
 
