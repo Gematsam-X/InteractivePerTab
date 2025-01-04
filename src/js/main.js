@@ -368,10 +368,12 @@ if (currentElementSymbol) {
 
 // Group-period view
 let shouldResetDefaultStyle = true; // Variabile di stato globale
+let isGroupPeriodViewActive = null;
 
 function toggleGroupPeriodView(number, type) {
   shouldResetDefaultStyle = false; // Non eseguire resetDefaultStyle quando questa funzione è chiamata
   const elements = document.querySelectorAll("td");
+  if (isGroupPeriodViewActive) {
 
   elements.forEach((obj) => {
     const hasDataAttributes = Array.from(obj.attributes).some((attr) =>
@@ -421,6 +423,13 @@ function toggleGroupPeriodView(number, type) {
       cell.classList.remove("active");
     });
     clickListenerAdded = true; // Indicates that the listener has been added
+  }
+  } else {
+    document.addEventListener("click", handleOutsideClick);
+    document.querySelectorAll(`.${type}`).forEach((cell) => {
+      cell.classList.remove("active");
+    });
+    clickListenerAdded = true; // Indicates
   }
 }
 
