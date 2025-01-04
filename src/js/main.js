@@ -327,7 +327,7 @@ metalloids.addEventListener("click", () => adjustTransparency("metalloid"));
 artificials.addEventListener("click", () => adjustTransparency("artificial"));
 nobleGases.addEventListener("click", () => adjustTransparency("noble-gas"));
 
-//* Functions for the "Mostra nella tavola periodica" button
+// Functions for the "Mostra nella tavola periodica" button
 
 // Manage the selection of the current element in the periodic table
 const currentElementSymbol = window.sessionStorage.getItem("currentElement");
@@ -536,7 +536,7 @@ function toggleStatus(removeSpecificClass) {
     // Hide "removable" elements
     removableElements.forEach((element) => element.classList.add("hidden"));
   } else {
-    //** Disable advanced view
+    //  Disable advanced view
     metalsLegendContainerCell.classList.remove("hidden"); // Show the main container
 
     // Hide containers for specific categories
