@@ -24,5 +24,5 @@
 - [X] Add an ALT attribute for the imgs
 - [X] Add a group-period-filtered view
 - [X] Refactor the main logic using the data attributes
+- [X] Correct the names with the IUPAC's official version
 - Add a search bar for specific words in the in-depths
-- Correct the names with the IUPAC's official version
