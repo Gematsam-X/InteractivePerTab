@@ -368,13 +368,11 @@ if (currentElementSymbol) {
 
 // Group-period view
 let shouldResetDefaultStyle = true; // Variabile di stato globale
-let isGroupPeriodViewActive = null;
 
 function toggleGroupPeriodView(number, type) {
   shouldResetDefaultStyle = false; // Non eseguire resetDefaultStyle quando questa funzione è chiamata
   const elements = document.querySelectorAll("td");
-  if (!isGroupPeriodViewActive) {
-isGroupPeriodViewActive = true;
+
   elements.forEach((obj) => {
     const hasDataAttributes = Array.from(obj.attributes).some((attr) =>
       attr.name.startsWith("data-")
@@ -418,20 +416,11 @@ isGroupPeriodViewActive = true;
 
   // Add a listener for clicking outside the periodic table
   if (!clickListenerAdded) {
-    isGroupPeriodViewActive = false;
     document.addEventListener("click", handleOutsideClick);
     document.querySelectorAll(`.${type}`).forEach((cell) => {
       cell.classList.remove("active");
     });
     clickListenerAdded = true; // Indicates that the listener has been added
-  }
-  } else {
-    isGroupPeriodViewActive = false;
-    document.addEventListener("click", handleOutsideClick);
-    document.querySelectorAll(`.${type}`).forEach((cell) => {
-      cell.classList.remove("active");
-    });
-    clickListenerAdded = true; // Indicates
   }
 }
 
