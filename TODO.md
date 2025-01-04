@@ -25,9 +25,4 @@
 - [X] Add a group-period-filtered view
 - [X] Refactor the main logic using the data attributes
 - [] Add a search bar for specific words in the in-depths
-
-**ALL DONE**
-
-**YOU DID IT**
-
-**GREAT JOB!**
+- [] Correct the names with the IUPAC's official version
