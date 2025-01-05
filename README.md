@@ -3,7 +3,7 @@
 
 ![logo_InteractivePerTab](src/assets/favicon.ico)
 
-Sviluppata con il supporto della 2D CDP, questa tavola periodica interattiva potrà aiutare studenti di varie fasce d'età nello studio.
+Sviluppata con il supporto della 2D CDP, questa Tavola Periodica degli Elementi interattiva potrà aiutare studenti di varie fasce d'età nello studio.
 Visita il [sito di InteractivePerTab](https://interactivepertab2.webnode.page).
 
 ## Funzioni principali:
@@ -38,12 +38,12 @@ Questo progetto è disponibile sotto la licenza MIT. Vedi il file [LICENSE](LICE
 
 ---
 
-# InteractivePerTab - Interactive Periodic Table
+# InteractivePerTab - Interactive Periodic Table of the Elements
 ### English
 
 ![logo_InteractivePerTab](src/assets/favicon.ico)
 
-Developed with the support of the 2D CDP, this interactive periodic table will assist students of various age groups in their studies.
+Developed with the support of the 2D CDP, this Interactive Periodic Table of the Elements will assist students of various age groups in their studies.
 Visit the [InteractivePerTab website](https://interactivepertab2.webnode.page).
 
 ## Main Features:
