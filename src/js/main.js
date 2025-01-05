@@ -412,6 +412,13 @@ function toggleGroupPeriodView(number, type) {
     ) {
       obj.classList.remove("faded");
     }
+    if (
+      type === "group" &&
+      number === 3 &&
+      (obj.classList.contains("lanthanid") || obj.classList.contains("actinid"))
+    ) {
+      obj.classList.add("faded");
+    }
   });
 
   // Add a listener for clicking outside the periodic table
