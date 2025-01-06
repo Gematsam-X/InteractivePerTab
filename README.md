@@ -1,4 +1,4 @@
-# InteractivePerTab - Tavola Periodica Interattiva
+# InteractivePerTab - Tavola Periodica degli Elementi Interattiva
 ### Italiano
 
 ![logo_InteractivePerTab](src/assets/favicon.ico)
