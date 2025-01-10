@@ -148,12 +148,16 @@ footer {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1000; /* Sit on top */
+  white-space: normal;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  overflow-x: hidden; /* Nascondi l'overflow orizzontale */
+  overflow-y: auto; /* Permetti scrolling verticale */
+  max-width: 90%; /* Larghezza massima del 90% dello schermo */
+  width: auto; /* Altezza automatica */
+  box-sizing: border-box; /* Includi padding nel calcolo della larghezza */
 }
 
 .modal-content {
