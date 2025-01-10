@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Una tavola periodica interattiva e dettagliata" />
+    <meta
+      name="description"
+      content="Una tavola periodica interattiva e dettagliata"
+    />
     <title>InteractivePerTab</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="assets/favicon.ico" />
@@ -14,14 +17,24 @@
     <button class="theme-toggle">Cambia tema</button>
 
     <div class="search-container">
-      <input
-        type="text"
-        id="search-input"
-        placeholder="Cerca per nome, simbolo o numero atomico"
-      />
+      <input type="text" id="search-input" />
       <button id="search-button">
         <img id="lens_img" src="assets/lens/light/lens.png" alt="Cerca" />
       </button>
+      <h4 class="switch-label">Elemento</h4>
+      <label class="switch">
+        <input type="checkbox" id="toggleSearchMode" />
+        <span class="slider"></span>
+      </label>
+      <h4 class="switch-label">Occorrenze</h4>
+    </div>
+
+    <div class="gifContainer">
+      <img
+        class="gif"
+        src="https://media.giphy.com/media/26tP4btdcWai9fuIY/giphy.gif"
+        alt="GIF divertente"
+      />
     </div>
 
     <table class="periodic-table">
@@ -1462,8 +1475,28 @@
           alt="GitHub logo"
       /></a>
     </footer>
+    <!-- Modal for search results -->
+    <div id="results-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span id="close-modal" class="close">&times;</span>
+          <h2>Risultati della ricerca</h2>
+        </div>
+        <hr />
+        <div class="modal-body">
+          <p id="results-content"></p>
+        </div>
+        <hr />
+        <div class="modal-footer">
+          <h3>
+            InteractivePerTab - Tavola Periodica Degli Elementi Interattiva
+          </h3>
+        </div>
+      </div>
+    </div>
     <script type="module" src="js/theme.js"></script>
     <script type="module" src="js/legend.js"></script>
+    <script src="js/search.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

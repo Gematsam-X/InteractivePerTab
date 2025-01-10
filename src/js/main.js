@@ -76,54 +76,6 @@ async function extractElementData() {
   }
 }
 
-// Function to search for an element by name, symbol, or atomic number
-function searchElement() {
-  const searchInput = document
-    .getElementById("search-input")
-    .value.toLowerCase()
-    .trim();
-
-  // If the search field is empty, show an error message
-  if (searchInput === "") {
-    alert(
-      "Digita nel campo di ricerca il nome completo, il simbolo o il numero atomico dell'elemento che desideri cercare."
-    );
-    return;
-  }
-
-  // Search for the corresponding element
-  const result = elementData.find((element) =>
-    [element.symbol, element.elementName, element.number.toString()].some(
-      (val) => val.toLowerCase() === searchInput
-    )
-  );
-
-  // If the element is found, redirect to its page
-  if (result) {
-    window.sessionStorage.removeItem("currentElement");
-    window.location.href = `elements/html/${result.symbol.toLowerCase()}.html`;
-  } else {
-    // If the element is not found, show an error message
-    alert(
-      "Elemento non trovato. Assicurati di digitare il nome esatto dell'elemento, il suo numero atomico o il suo simbolo correttamente."
-    );
-  }
-}
-
-// Event for the search button
-document
-  .getElementById("search-button")
-  .addEventListener("click", searchElement);
-
-// Add a listener for the 'keypress' event on the input field
-document
-  .getElementById("search-input")
-  .addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-      searchElement(); // Execute the search function
-    }
-  });
-
 // Define the categories
 const metals = document.getElementById("metalsLegendContainer");
 const transitionMetals = document.getElementById(

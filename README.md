@@ -72,6 +72,7 @@ Special thanks to:
 - [@laurabanducci93](https://github.com/laurabanducci93) for the idea and overall collaboration.
 - [@Greninja12-debug](https://github.com/Greninja12-debug) for conducting research on some of the elements.
 
+
 ## License
 
 This project is available under the MIT license. See the [LICENSE](LICENSE) for further details.

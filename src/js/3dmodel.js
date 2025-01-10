@@ -233,8 +233,6 @@ export default function create3dModel(
     .addEventListener("click", function () {
       if (!document.fullscreenElement) {
         container.requestFullscreen();
-      } else {
-        document.exitFullscreen();
       }
     });
 

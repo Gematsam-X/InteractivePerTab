@@ -36,6 +36,77 @@ body {
   font-family: "FiraSansCondensedSemiBold", Arial;
 }
 
+/* Stilizzazione dell'interruttore (switch) */
+.switch {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #4caf50;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider:before {
+  transform: translateX(
+    26px
+  ); /* Muovi la pallina a destra quando è selezionato */
+}
+
+.switch-label {
+  margin-left: 5px;
+}
+
+.gifContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.gif {
+  max-width: 80%;
+  max-height: 80%;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
 .group,
 .period {
   font-size: 2rem;
@@ -70,6 +141,61 @@ footer {
   text-align: center;
   user-select: none;
   transition: opacity 0.5s ease, background-color 0.5s ease, transform 0.5s ease;
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header,
+.modal-footer,
+.modal-body,
+.modal-content {
+  padding: 10px;
+  background-color: #f4f4f9;
+  color: #1c1c1c;
+  border-radius: 10px 10px 0 0;
+}
+
+.modal-header,
+.modal-footer {
+  font-family: "CinzelBold", Arial;
+}
+
+.modal-footer {
+  border-radius: 0 0 10px 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #868686;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 td:hover {
@@ -319,6 +445,28 @@ button.theme-toggle {
 
 .no-border {
   border: none !important;
+}
+
+/* Dark theme styles for the modal */
+.dark-theme .modal-content {
+  border: 1px solid #444;
+  background-color: #1c1c1c;
+}
+
+.dark-theme .modal-header,
+.dark-theme .modal-footer,
+.dark-theme .modal-body {
+  background-color: #1c1c1c;
+  color: #f4f4f9;
+}
+
+.dark-theme .close {
+  color: #ddd;
+}
+
+.dark-theme .close:hover,
+.dark-theme .close:focus {
+  color: #bbb;
 }
 
 /* Style for the dark theme */
