@@ -177,7 +177,7 @@ async function searchInHTMLFiles(searchTerm) {
   const matches = [];
   const searchTermEscaped = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const searchTermRegex = new RegExp(
-    `[\\s\\n'(),."]${searchTermEscaped}[\\s\\n'(),."]`,
+    `[\\s\\n'(),.]${searchTermEscaped}[\\s\\n'(),.]`,
     "i"
   );
 
@@ -192,7 +192,7 @@ async function searchInHTMLFiles(searchTerm) {
   }
 
   resultsContent.innerHTML =
-    '<img src="./assets/gif/loading.gif" alt="Caricamento risultati...">';
+    '<img id="loadingGif" src="./assets/gif/loading.gif" alt="Caricamento risultati...">';
   resultsModal.style.display = "block";
 
   for (const file of fileList) {
@@ -279,6 +279,16 @@ function addEventListenerToSwitch() {
       if (toggleSearchMode.checked)
         await searchInHTMLFiles(searchInput.value.trim());
       else searchElement();
+    }
+  });
+
+  // Aggiungi un listener per l'evento di chiusura della modale
+  const modal = document.getElementById("results-modal"); // Sostituisci 'modalId' con l'ID della tua modale
+  modal.addEventListener("hide.bs.modal", function () {
+    const gif = document.getElementById("loadingGif"); // Sostituisci 'gifId' con l'ID della tua GIF
+    if (gif && gif.style.display !== "none") {
+      // Annulla la funzione di ricerca
+      searchInput.value = "";
     }
   });
 }
