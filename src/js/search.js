@@ -173,6 +173,14 @@ searchButton.addEventListener("click", async () => {
   }
 });
 
+/**
+ * Searches for a given term in a list of HTML files and displays the results.
+ *
+ * @param {string} searchTerm - The term to search for in the HTML files.
+ * @returns {Promise<string[]>} A promise that resolves to an array of matched results.
+ *
+ * @throws Will throw an error if there is an issue fetching any of the HTML files.
+ */
 async function searchInHTMLFiles(searchTerm) {
   const matches = [];
   const searchTermEscaped = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -283,9 +291,9 @@ function addEventListenerToSwitch() {
   });
 
   // Aggiungi un listener per l'evento di chiusura della modale
-  const modal = document.getElementById("results-modal"); // Sostituisci 'modalId' con l'ID della tua modale
+  const modal = document.getElementById("results-modal");
   modal.addEventListener("hide.bs.modal", function () {
-    const gif = document.getElementById("loadingGif"); // Sostituisci 'gifId' con l'ID della tua GIF
+    const gif = document.getElementById("loadingGif");
     if (gif && gif.style.display !== "none") {
       // Annulla la funzione di ricerca
       searchInput.value = "";
