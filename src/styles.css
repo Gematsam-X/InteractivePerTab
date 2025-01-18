@@ -161,7 +161,7 @@ footer {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #ddd;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -197,6 +197,18 @@ footer {
   color: #868686;
   text-decoration: none;
   cursor: pointer;
+}
+
+hr.dashed {
+  border: 0;
+  border-top: 1px dashed; /* Linea tratteggiata */
+  margin: 20px 0;
+}
+
+hr.normal {
+  border: 0;
+  border-top: 1px solid;
+  margin: 30px 0;
 }
 
 td:hover {

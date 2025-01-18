@@ -6,6 +6,7 @@ function searchElement() {
       alert(
         "Digita nel campo di ricerca il nome completo, il simbolo o il numero atomico dell'elemento che desideri cercare."
       );
+      resultsModal.style.display = "none";
       return;
     }
 
@@ -22,246 +23,166 @@ function searchElement() {
       alert(
         "Elemento non trovato. Assicurati di digitare il nome esatto dell'elemento, il suo numero atomico o il suo simbolo correttamente."
       );
+      resultsModal.style.display = "none";
     }
   }
 }
-
-const folderPath = "elements/html/";
-const fileList = [
-  "ac.html",
-  "ag.html",
-  "al.html",
-  "am.html",
-  "ar.html",
-  "as.html",
-  "at.html",
-  "au.html",
-  "b.html",
-  "ba.html",
-  "be.html",
-  "bh.html",
-  "bi.html",
-  "bk.html",
-  "br.html",
-  "c.html",
-  "ca.html",
-  "cd.html",
-  "ce.html",
-  "cf.html",
-  "cl.html",
-  "cm.html",
-  "cn.html",
-  "co.html",
-  "cr.html",
-  "cs.html",
-  "cu.html",
-  "db.html",
-  "ds.html",
-  "dy.html",
-  "er.html",
-  "es.html",
-  "eu.html",
-  "f.html",
-  "fe.html",
-  "fl.html",
-  "fm.html",
-  "fr.html",
-  "ga.html",
-  "gd.html",
-  "ge.html",
-  "h.html",
-  "he.html",
-  "hf.html",
-  "hg.html",
-  "ho.html",
-  "hs.html",
-  "i.html",
-  "in.html",
-  "ir.html",
-  "k.html",
-  "kr.html",
-  "la.html",
-  "li.html",
-  "lr.html",
-  "lu.html",
-  "lv.html",
-  "mc.html",
-  "md.html",
-  "mg.html",
-  "mn.html",
-  "mo.html",
-  "mt.html",
-  "n.html",
-  "na.html",
-  "nb.html",
-  "nd.html",
-  "ne.html",
-  "nh.html",
-  "ni.html",
-  "no.html",
-  "np.html",
-  "o.html",
-  "og.html",
-  "os.html",
-  "p.html",
-  "pa.html",
-  "pb.html",
-  "pd.html",
-  "pm.html",
-  "po.html",
-  "pr.html",
-  "pt.html",
-  "pu.html",
-  "ra.html",
-  "rb.html",
-  "re.html",
-  "rf.html",
-  "rg.html",
-  "rh.html",
-  "rn.html",
-  "ru.html",
-  "s.html",
-  "sb.html",
-  "sc.html",
-  "se.html",
-  "sg.html",
-  "si.html",
-  "sm.html",
-  "sn.html",
-  "sr.html",
-  "ta.html",
-  "tb.html",
-  "tc.html",
-  "te.html",
-  "th.html",
-  "ti.html",
-  "tl.html",
-  "tm.html",
-  "ts.html",
-  "u.html",
-  "v.html",
-  "w.html",
-  "xe.html",
-  "y.html",
-  "yb.html",
-  "zr.html",
-  "zn.html",
-];
-
 const toggleSearchMode = document.getElementById("toggleSearchMode");
+const loadingGif = document.getElementById("loadingGif");
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
 const resultsModal = document.getElementById("results-modal");
 const resultsContent = document.getElementById("results-content");
 const closeModalButton = document.getElementById("close-modal");
 
-searchButton.addEventListener("click", async () => {
-  if (toggleSearchMode.checked) {
-    const searchTerm = searchInput.value.trim();
-    if (!searchTerm) {
-      alert("Inserisci una parola o una frase da cercare.");
-      return;
-    }
+let jsonData = []; // Dati JSON caricati
 
-    const matches = await searchInHTMLFiles(searchTerm);
-    resultsContent.innerHTML = matches.length
-      ? `<h2>Occorrenze trovate:</h2>${matches.join("<br>")}`
-      : `<h2>Nessuna occorrenza trovata per "${searchTerm}".</h2>`;
-    resultsModal.style.display = "block";
-  } else {
-    searchElement();
+// Percorso del file JSON
+const jsonFilePath = "./elements/assets/dataForSearch.json";
+
+// Funzione per caricare i dati JSON
+async function loadJson() {
+  try {
+    const response = await fetch(jsonFilePath);
+    if (!response.ok) throw new Error("Impossibile caricare il file JSON.");
+    jsonData = await response.json();
+  } catch (error) {
+    console.error("Errore durante il caricamento del JSON:", error.message);
+    alert(
+      "Errore durante il caricamento del file JSON. Controlla il percorso."
+    );
   }
-});
+}
 
-/**
- * Searches for a given term in a list of HTML files and displays the results.
- *
- * @param {string} searchTerm - The term to search for in the HTML files.
- * @returns {Promise<string[]>} A promise that resolves to an array of matched results.
- *
- * @throws Will throw an error if there is an issue fetching any of the HTML files.
- */
-async function searchInHTMLFiles(searchTerm) {
+// Funzione per cercare nel file JSON
+async function searchInJson(searchTerm) {
+  if (!jsonData.length) {
+    alert(
+      "Il dati non sono stati caricati correttamente. Si prega di riprovare più tardi."
+    );
+    return [];
+  }
+
   const matches = [];
   const searchTermEscaped = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const searchTermRegex = new RegExp(
-    `[\\s\\n'(),.]${searchTermEscaped}[\\s\\n'(),.]`,
-    "i"
-  );
-
-  if (/[<>]/.test(searchTerm)) {
-    alert("Inserisci un termine di ricerca valido.");
-    return;
-  }
-
-  if (!searchTerm) {
-    alert("Inserisci una parola o una frase da cercare.");
-    return;
-  }
-
+  const searchTermRegex = new RegExp(`\\b${searchTermEscaped}`, "i");
   resultsContent.innerHTML =
     '<img id="loadingGif" src="./assets/gif/loading.gif" alt="Caricamento risultati...">';
   resultsModal.style.display = "block";
 
-  for (const file of fileList) {
-    let response;
-    try {
-      response = await fetch(`${folderPath}${file}`);
-      if (!response.ok) throw new Error(`Impossibile leggere ${file}`);
-    } catch (error) {
-      console.error(
-        `Errore durante il fetch del file ${file}: ${error.message}`
-      );
-      continue;
-    }
+  // Cerca nel JSON
+  for (const entry of jsonData) {
+    if (searchTermRegex.test(entry.content)) {
+      const lines = entry.content.split("\n"); // Dividi il contenuto in righe
+      const matchedContexts = [];
 
-    const htmlContent = await response.text();
-    const sanitizedContent = htmlContent
-      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
-      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
-      .replace(/<button[^>]*>[\s\S]*?<\/button>/gi, "");
+      // Cerca tutte le righe con il termine e aggiungi il contesto
+      for (let i = 0; i < lines.length; i++) {
+        if (searchTermRegex.test(lines[i])) {
+          const context = [
+            lines[i - 2] || "", // Due righe prima (se esistono)
+            lines[i - 1] || "", // Una riga prima (se esiste)
+            lines[i].replace(
+              searchTermRegex,
+              (match) => `<mark>${match}</mark>`
+            ), // Riga dell'occorrenza, evidenziata
+            lines[i + 1] || "", // Una riga dopo (se esiste)
+            lines[i + 2] || "", // Due righe dopo (se esistono)
+          ]
+            .map((line) => line.trim()) // Rimuovi spazi inutili
+            .filter((line) => line.length > 0) // Rimuovi righe vuote
+            .join("<br>"); // Combina con HTML break per leggibilità
 
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(sanitizedContent, "text/html");
-    const textContent = doc.body.textContent || "";
-
-    const lines = textContent
-      .split("\n")
-      .map((line) => line.trim())
-      .filter((line) => line);
-
-    for (let i = 0; i < lines.length; i++) {
-      if (searchTermRegex.test(lines[i])) {
-        const context = [
-          lines[i - 2] || "",
-          lines[i - 1] || "",
-          `>> <mark>${lines[i]}</mark> <<`,
-          lines[i + 1] || "",
-          lines[i + 2] || "",
-        ].join("\n");
-        let sanitizedFile =
-          file.replace(".html", "").charAt(0).toUpperCase() +
-          file.replace(".html", "").slice(1);
+          matchedContexts.push(context); // Aggiungi il contesto alla lista
+        }
+      }
+      // Combina i contesti trovati
+      if (matchedContexts.length > 0) {
+        let sanitizedFile = entry.name.replace(/_/g, "").replace(".html", ""); // Rimuove gli underscore e il suffisso ".html"
+        sanitizedFile =
+          sanitizedFile.charAt(0).toUpperCase() + sanitizedFile.slice(1); // Metti la lettera iniziale in maiuscolo
         document.querySelectorAll("td").forEach((td) => {
           if (td.getAttribute("data-symbol") === sanitizedFile) {
             sanitizedFile = td.getAttribute("data-name");
           }
         });
-        matches.push(
-          `<pre><strong><a href="../src/elements/html/${file}">${sanitizedFile}</a>:</strong>\n${context}</pre>`
-        );
+        matches.push(`
+          <pre>
+            <strong><a href="./elements/html/${
+              entry.name
+            }">${sanitizedFile}</a></strong><br>
+            ${matchedContexts.join("<br><hr class='dashed'><br>")}
+          </pre>
+          <br><hr class='normal'><br>
+        `);
       }
     }
   }
-
-  resultsContent.innerHTML = matches.length
-    ? `<h2>Occorrenze trovate:</h2>${matches.join("<br>")}`
-    : `<h2>Nessuna occorrenza trovata per "${searchTerm}".</h2>`;
   return matches;
 }
 
+// Funzione principale di ricerca
+async function handleSearch() {
+  resultsContent.innerHTML =
+    '<img id="loadingGif" src="./assets/gif/loading.gif" alt="Caricamento risultati...">';
+  resultsModal.style.display = "block";
+  if (toggleSearchMode.checked) {
+    const searchTerm = searchInput.value.trim();
+    if (!searchTerm) {
+      alert("Inserisci una parola o una frase da cercare.");
+      resultsModal.style.display = "none";
+      return;
+    }
+    if (/[<>&"']/.test(searchTerm)) {
+      alert("Inserisci un termine di ricerca valido.");
+      resultsModal.style.display = "none";
+      return;
+    }
+    if (loadingGif) {
+      loadingGif.style.display = "block"; // Ensure the loading GIF is displayed
+    }
+    const matches = await searchInJson(searchTerm); // Attende il risultato della ricerca
+    if (matches.length) {
+      // Se ci sono occorrenze
+      resultsContent.innerHTML = `<h2>Occorrenze trovate:</h2>${matches.join(
+        "<br>"
+      )}`;
+      searchInput.blur();
+    } else {
+      // Se non ci sono occorrenze
+      alert(`Nessuna occorrenza trovata per "${searchTerm}".`);
+      resultsModal.style.display = "none";
+      return;
+    }
+  } else {
+    searchElement();
+  }
+}
+
+// Listener per il tasto di ricerca
+searchButton.addEventListener("click", handleSearch);
+
+// Listener per ENTER nella casella di input
+searchInput.addEventListener("keypress", async function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    resultsContent.innerHTML = 
+    '<img src="assets/gif/loading.gif" alt="Caricamento risultati..." id="loadingGif"></img>'
+    await handleSearch(); // Avvia la ricerca
+  }
+});
+
+// Chiusura della modale
 closeModalButton.addEventListener("click", () => {
   resultsModal.style.display = "none";
+});
+
+resultsModal.addEventListener("hide.bs.modal", function () {
+  const loadingGif = document.getElementById("loadingGif");
+  if (loadingGif && loadingGif.style.display !== "none") {
+    // Annulla la funzione di ricerca
+    searchInput.value = "";
+  }
 });
 
 window.addEventListener("click", (event) => {
@@ -270,49 +191,34 @@ window.addEventListener("click", (event) => {
   }
 });
 
+// Cambia il placeholder in base alla modalità di ricerca
 function addEventListenerToSwitch() {
   searchInput.placeholder = toggleSearchMode.checked
-    ? "Cerca una parola o una frase negli approfondimenti..."
+    ? "Cerca un'occorrenza negli approfondimenti..."
     : "Cerca per nome, simbolo o numero atomico...";
 
   toggleSearchMode.addEventListener("change", () => {
     searchInput.placeholder = toggleSearchMode.checked
-      ? "Cerca una parola o una frase negli approfondimenti..."
+      ? "Cerca un'occorrenza negli approfondimenti..."
       : "Cerca per nome, simbolo o numero atomico...";
-  });
-
-  searchInput.addEventListener("keypress", async function (event) {
-    if (event.key === "Enter") {
-      searchInput.blur();
-      if (toggleSearchMode.checked)
-        await searchInHTMLFiles(searchInput.value.trim());
-      else searchElement();
-    }
-  });
-
-  // Aggiungi un listener per l'evento di chiusura della modale
-  const modal = document.getElementById("results-modal");
-  modal.addEventListener("hide.bs.modal", function () {
-    const gif = document.getElementById("loadingGif");
-    if (gif && gif.style.display !== "none") {
-      // Annulla la funzione di ricerca
-      searchInput.value = "";
-    }
   });
 }
 
-document.addEventListener("DOMContentLoaded", addEventListenerToSwitch);
+// Salva e ripristina la modalità di ricerca
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadJson(); // Carica i dati JSON all'avvio della pagina
+  addEventListenerToSwitch();
 
-if (toggleSearchMode) {
-  toggleSearchMode.addEventListener("change", () => {
-    localStorage.setItem("searchMode", toggleSearchMode.checked);
-  });
-
+  // Salva la modalità di ricerca
   const savedSearchMode = localStorage.getItem("searchMode");
   if (savedSearchMode !== null) {
     toggleSearchMode.checked = savedSearchMode === "true";
     searchInput.placeholder = toggleSearchMode.checked
-      ? "Cerca una parola o una frase negli approfondimenti..."
+      ? "Cerca un'occorrenza negli approfondimenti..."
       : "Cerca per nome, simbolo o numero atomico...";
   }
-}
+
+  toggleSearchMode.addEventListener("change", () => {
+    localStorage.setItem("searchMode", toggleSearchMode.checked);
+  });
+});
