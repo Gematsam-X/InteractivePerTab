@@ -30,7 +30,7 @@ I ringraziamenti speciali vanno a:
 
 - [@RebyCDP](https://github.com/RebyCDP) che ringrazio per aver reso possibile il coinvolgimento della classe 2D.
 - [@laurabanducci93](https://github.com/laurabanducci93) che ringrazio per l'idea e la collaborazione generale.
-- [@Greninja12-debug](https://github.com/Greninja12-debug) che ringrazio per aver fatto approfondimenti su alcuni elementi.
+- [@🔥Bad_Luffy🔥](https://github.com/C-Star) che ringrazio per aver fatto approfondimenti su alcuni elementi.
 
 ## Licenza
 
@@ -72,7 +72,7 @@ Special thanks to:
 
 - [@RebyCDP](https://github.com/RebyCDP) for making the involvement of the 2D class possible.
 - [@laurabanducci93](https://github.com/laurabanducci93) for the idea and overall collaboration.
-- [@Greninja12-debug](https://github.com/Greninja12-debug) for conducting research on some of the elements.
+- [@🔥Bad_Luffy🔥](https://github.com/C-Star) for conducting research on some of the elements.
 
 
 ## License
