@@ -402,7 +402,6 @@ let isAdvancedView =
   JSON.parse(localStorage.getItem("isAdvancedView")) || false;
 // Main DOM elements
 const advancedViewButton = getCategoryCell("advancedView"); // Button for advanced view
-const metalsLegendContainerCell = getCategoryCell("metalsLegendContainer"); // Main container for legends
 
 // Selection of containers for specific metal categories
 const specificCategoriesLegendsContainers = [
@@ -443,7 +442,6 @@ function toggleStatus(removeSpecificClass) {
 
   if (isAdvancedView) {
     // **Enable advanced view**
-    metalsLegendContainerCell.classList.add("hidden"); // Hide the generic metals container
     specificCategoriesLegendsContainers.forEach((category) =>
       category.classList.remove("hidden")
     ); // Show containers for specific categories
@@ -467,10 +465,10 @@ function toggleStatus(removeSpecificClass) {
         ) {
           obj.classList.add("transitionMetal");
         }
-        if ([3, 11, 19, 37, 55, 87].includes(atomicNumber)) {
+        if (obj.getAttribute("data-group") === "1" && atomicNumber !== 1) {
           obj.classList.add("alkaliMetal");
         }
-        if ([4, 12, 20, 38, 56, 88].includes(atomicNumber)) {
+        if (obj.getAttribute("data-group") === "2") {
           obj.classList.add("alkalineEarthMetal");
         }
         if (
@@ -480,13 +478,13 @@ function toggleStatus(removeSpecificClass) {
         ) {
           obj.classList.add("postTransitionMetal");
         }
-        if ([9, 17, 35, 53, 85, 117].includes(atomicNumber)) {
+        if (obj.getAttribute("data-group") === "17") {
           obj.classList.add("halogen");
         }
-        if ([8, 16, 34, 52, 84, 116].includes(atomicNumber)) {
+        if (obj.getAttribute("data-group") === "16") {
           obj.classList.add("chalcogen");
         }
-        if ([7, 15, 33, 51, 83, 115].includes(atomicNumber)) {
+        if (obj.getAttribute("data-group") === "15") {
           obj.classList.add("pnictogen");
         }
       }
@@ -495,9 +493,6 @@ function toggleStatus(removeSpecificClass) {
     // Hide "removable" elements
     removableElements.forEach((element) => element.classList.add("hidden"));
   } else {
-    //  Disable advanced view
-    metalsLegendContainerCell.classList.remove("hidden"); // Show the main container
-
     // Hide containers for specific categories
     specificCategoriesLegendsContainers.forEach((category) =>
       category.classList.add("hidden")

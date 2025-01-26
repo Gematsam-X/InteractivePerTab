@@ -26,4 +26,3 @@
 - [X] Refactor the main logic using the data attributes
 - [X] Correct the names with the IUPAC's official version
 - [X] Add a search bar for specific words in the in-depths
-- Fix the loading gif 

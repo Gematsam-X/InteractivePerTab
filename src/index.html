@@ -33,8 +33,8 @@
       <tr>
         <td class="no-border"></td>
         <td class="group">1</td>
-        <td colspan="5" class="no-border"></td>
-        <td colspan="6" class="no-border removable"></td>
+        <td class="no-border"></td>
+        <td colspan="8" class="no-border removable"></td>
         <td
           colspan="2"
           class="no-border legend pnictogen"
@@ -70,7 +70,21 @@
           /><br />Alogeni
         </td>
 
-        <td colspan="5" class="no-border"></td>
+        <td
+          colspan="2"
+          class="no-border legend internalTransitionMetal metal"
+          id="internalTransitionMetalsLegendContainer"
+        >
+          <img
+            id="internalTransitionMetals_img"
+            src="assets/legend/light/metals/internal-transition-metals.png"
+            alt="Metalli di transizione interna"
+          />
+          <br />
+          Metalli di transizione interna
+        </td>
+
+        <td colspan="7" class="no-border"></td>
         <td class="group">18</td>
       </tr>
       <tr>
@@ -98,7 +112,6 @@
             alt="Elementi artificiali"
           /><br />Elementi artificiali
         </td>
-
         <td
           colspan="2"
           class="legend noble-gas no-border"
@@ -112,20 +125,20 @@
         </td>
         <td
           colspan="2"
-          class="legend metal no-border"
-          id="metalsLegendContainer"
+          class="legend metalloid no-border"
+          id="metalloidsLegendContainer"
         >
           <img
-            id="metals_img"
-            src="assets/legend/light/metals.png"
-            alt="Metalli"
-          /><br />Metalli
+            id="metalloids_img"
+            src="assets/legend/light/metalloids.png"
+            alt="Semimetalli"
+          /><br />Semimetalli
         </td>
         <td colspan="2" class="no-border removable"></td>
 
         <td
           colspan="2"
-          class="no-border legend transitionMetal"
+          class="no-border legend transitionMetal metal"
           id="transitionMetalsLegendContainer"
         >
           <img
@@ -139,7 +152,7 @@
 
         <td
           colspan="2"
-          class="no-border legend postTransitionMetal"
+          class="no-border legend postTransitionMetal metal"
           id="postTransitionMetalsLegendContainer"
         >
           <img
@@ -149,19 +162,6 @@
           />
           <br />
           Metalli di post-transizione
-        </td>
-        <td
-          colspan="2"
-          class="no-border legend internalTransitionMetal"
-          id="internalTransitionMetalsLegendContainer"
-        >
-          <img
-            id="internalTransitionMetals_img"
-            src="assets/legend/light/metals/internal-transition-metals.png"
-            alt="Metalli di transizione interna"
-          />
-          <br />
-          Metalli di transizione interna
         </td>
 
         <td class="group">13</td>
@@ -204,17 +204,6 @@
           4<br />Be<br />Berillio<br />9.0122
         </td>
         <td colspan="2" class="no-border removable"></td>
-        <td
-          colspan="2"
-          class="legend metalloid no-border"
-          id="metalloidsLegendContainer"
-        >
-          <img
-            id="metalloids_img"
-            src="assets/legend/light/metalloids.png"
-            alt="Semimetalli"
-          /><br />Semimetalli
-        </td>
 
         <td
           colspan="2"
@@ -230,7 +219,19 @@
 
         <td
           colspan="2"
-          class="no-border legend alkaliMetal"
+          class="legend metal no-border"
+          id="metalsLegendContainer"
+        >
+          <img
+            id="metals_img"
+            src="assets/legend/light/metals.png"
+            alt="Metalli"
+          /><br />Metalli
+        </td>
+
+        <td
+          colspan="2"
+          class="no-border legend alkaliMetal metal"
           id="alkaliMetalsLegendContainer"
         >
           <img
@@ -243,7 +244,7 @@
         </td>
         <td
           colspan="2"
-          class="no-border legend alkalineEarthMetal"
+          class="no-border legend alkalineEarthMetal metal"
           id="alkalineEarthMetalsLegendContainer"
         >
           <img
@@ -258,7 +259,9 @@
         <td colspan="2" class="no-border">
           <button id="advancedView"></button>
         </td>
+
         <td colspan="2" class="no-border removable"></td>
+
         <td
           class="metalloid"
           data-period="2"
@@ -1477,9 +1480,7 @@
         </div>
         <hr />
         <div class="modal-body">
-          <p id="results-content">
-            
-          </p>
+          <p id="results-content"></p>
         </div>
         <hr />
         <div class="modal-footer">
