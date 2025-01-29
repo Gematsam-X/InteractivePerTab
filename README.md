@@ -29,6 +29,7 @@ Per ogni elemento è disponibile un modello 3D di bohr dell'atomo in questione. 
 I ringraziamenti speciali vanno a:
 
 - [@RebyCDP](https://github.com/RebyCDP) che ringrazio per aver reso possibile il coinvolgimento della classe 2D.
+- Gabriel Venturi per aver segnalato errori e disguidi e per aver effettuato il controllo qualità.
 - [@laurabanducci93](https://github.com/laurabanducci93) che ringrazio per l'idea e la collaborazione generale.
 - [@🔥Bad_Luffy🔥](https://github.com/C-Star) che ringrazio per aver fatto approfondimenti su alcuni elementi.
 
@@ -71,6 +72,7 @@ You can highlight elements of a specific type (metals, metalloids, noble gases, 
 Special thanks to:
 
 - [@RebyCDP](https://github.com/RebyCDP) for making the involvement of the 2D class possible.
+- Gabriel Venturi for reporting errors and issues and for overseeing quality control
 - [@laurabanducci93](https://github.com/laurabanducci93) for the idea and overall collaboration.
 - [@🔥Bad_Luffy🔥](https://github.com/C-Star) for conducting research on some of the elements.
 
