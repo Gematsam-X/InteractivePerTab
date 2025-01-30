@@ -13,12 +13,12 @@
 
 @font-face {
   font-family: "FiraSansCondensedSemiBold";
-  src: url("../fonts/FiraSansCondensedSemiBold.ttf") format("truetype");
+  src: url("../../fonts/FiraSansCondensedSemiBold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "CinzelBold";
-  src: url("../fonts/CinzelBold.ttf");
+  src: url("../../fonts/CinzelBold.ttf");
 }
 
 img {
