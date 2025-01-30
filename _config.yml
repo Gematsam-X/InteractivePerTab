@@ -1,0 +1,22 @@
+title: "InteractivePerTab - Tavola Periodica degli Elementi Interattiva"
+description: "Tavola Periodica degli Elementi Interattiva con dettagli e informazioni su ogni elemento chimico."
+url: "https://gematsam-x.github.io/InteractivePerTab"  # Cambialo con il tuo URL
+
+# 📌 SEO Ottimizzato
+timezone: "Europe/Rome"
+lang: "it"
+
+permalink: /:title/
+
+# 📌 Abilita il supporto ai Markdown file
+markdown: kramdown
+
+# 📌 Abilita la generazione della sitemap
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
