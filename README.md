@@ -36,7 +36,7 @@ I ringraziamenti speciali vanno a:
 ## Licenza
 
 Questo progetto è disponibile sotto la licenza MIT con obbligo di attribuzione all'autore oroginale.
-L'autore é Gionatan Venturi - Gematsam X.
+L'autore é *Gionatan Venturi - Gematsam X*.
 Vedi il file [LICENSE](LICENSE) per ulteriori dettagli.
 
 ---
@@ -80,5 +80,5 @@ Special thanks to:
 ## License
 
 This project is available under the MIT license with an original-author-attribution required.
-The original author is Gionatan Venturi - Gematsam X.
+The original author is *Gionatan Venturi - Gematsam X*.
 See the [LICENSE](LICENSE) for further details.
