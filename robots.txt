@@ -1,2 +1,3 @@
 User-agent: *
+Allow: /
 Sitemap: https://interactivepertab.netlify.app/sitemap.xml
