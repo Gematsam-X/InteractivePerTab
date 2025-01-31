@@ -11,16 +11,6 @@
   pointer-events: none !important;
 }
 
-@font-face {
-  font-family: "FiraSansCondensedSemiBold";
-  src: url("../../fonts/FiraSansCondensedSemiBold.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "CinzelBold";
-  src: url("../../fonts/CinzelBold.ttf");
-}
-
 img {
   pointer-events: none;
 }
@@ -33,7 +23,7 @@ img {
 body {
   background-color: #f4f4f9;
   color: #1c1c1c;
-  font-family: "FiraSansCondensedSemiBold", Arial;
+  font-family: "Fira Sans Condensed", Arial;
 }
 
 /* Stilizzazione dell'interruttore (switch) */
@@ -112,7 +102,7 @@ input:checked + .slider:before {
   font-size: 2rem;
   text-align: center;
   border: none !important;
-  font-family: "CinzelBold", Arial;
+  font-family: "Cinzel", Arial;
   color: #1c1c1c;
 }
 
@@ -178,7 +168,7 @@ footer {
 
 .modal-header,
 .modal-footer {
-  font-family: "CinzelBold", Arial;
+  font-family: "Cinzel", Arial;
 }
 
 .modal-footer {
@@ -383,7 +373,7 @@ td:hover {
 
 button {
   text-align: center;
-  font-family: "FiraSansCondensedSemiBold", Arial;
+  font-family: "Fira Sans Condensed", Arial;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -406,7 +396,7 @@ button.theme-toggle {
   padding: 10px 20px;
   border: none;
   font-size: 16px;
-  font-family: "FiraSansCondensedSemiBold", Arial;
+  font-family: "Fira Sans Condensed", Arial;
   color: #f4f4f9;
   background-color: #1c1c1c;
   border-radius: 5px;
@@ -431,7 +421,7 @@ button.theme-toggle {
   color: #f4f4f9;
   border: none;
   border-radius: 5px;
-  font-family: "FiraSansCondensedSemiBold", Arial;
+  font-family: "Fira Sans Condensed", Arial;
 }
 
 #search-button {
@@ -712,7 +702,7 @@ canvas {
 }
 
 .return {
-  font-family: "FiraSansCondensedSemiBold", Arial;
+  font-family: "Fira Sans Condensed", Arial;
   position: fixed;
   top: 20px;
   right: 20px;
