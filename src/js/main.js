@@ -39,7 +39,7 @@ function checkElementsClass() {
           window.location.href =
             "elements/html/" + symbol.toLowerCase() + ".html";
       });
-      areIntTransElemsHighlighted = false; // Reset the highlighting state
+      shouldLanthanidesActinidesBeNormal = false; // Reset the highlighting state
     }
   });
 }
@@ -150,7 +150,7 @@ function adjustTransparency(targetClass) {
 
     // Reset the "faded" class on elements
     resetDefaultStyle();
-    areIntTransElemsHighlighted = false;
+    shouldLanthanidesActinidesBeNormal = false;
     activeCategory = null; // Reset the active category
   } else {
     // Apply the "faded" effect to the selected category
@@ -178,21 +178,21 @@ function handleOutsideClick(event) {
 
   // If you click outside, restore the default style
   if (!isInsideHighlighted) {
-    areIntTransElemsHighlighted = false; // Reset the highlighting state
+    shouldLanthanidesActinidesBeNormal = false; // Reset the highlighting state
     resetDefaultStyle();
     activeCategory = null; // Reset the active category
   }
 }
 let activeCategoryRange = null; // Variable to track the active category
 
-let areIntTransElemsHighlighted = false; // Indicates if internal transition elements are highlighted
+let shouldLanthanidesActinidesBeNormal = false; // Indicates if internal transition elements are highlighted
 
 /** Function to highlight a specific category and manage the toggle
  * @param {string} category - The category to highlight
  * @param {string} series - The class that the highlighted elements should contain
  */
 function highlightCategoryRange(category, series) {
-  if (areIntTransElemsHighlighted) {
+  if (shouldLanthanidesActinidesBeNormal) {
     return;
   } else {
     shouldResetDefaultStyle = false; // Non eseguire resetDefaultStyle quando questa funzione è chiamata
@@ -256,9 +256,10 @@ actinides.forEach((actinide) => {
 metals.addEventListener("click", () => {
   adjustTransparency("metal");
   removeFadedFromCategory(".lanthanides, .actinides");
+  shouldLanthanidesActinidesBeNormal = true;
 });
 internalTransitionMetals.addEventListener("click", () => {
-  areIntTransElemsHighlighted = !areIntTransElemsHighlighted;
+  shouldLanthanidesActinidesBeNormal = !shouldLanthanidesActinidesBeNormal;
   adjustTransparency("internalTransitionMetal");
 });
 transitionMetals.addEventListener("click", () =>
