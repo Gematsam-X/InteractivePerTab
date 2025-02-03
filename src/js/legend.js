@@ -2,52 +2,52 @@ import { toggleButton } from "./theme.js";
 
 // Array of images for each category
 const categories = {
-  metals: ["assets/legend/light/metals.png", "assets/legend/dark/metals.png"],
+  metals: ["assets/legend/light/metals.webp", "assets/legend/dark/metals.webp"],
   nonMetals: [
-    "assets/legend/light/non-metals.png",
-    "assets/legend/dark/non-metals.png",
+    "assets/legend/light/non-metals.webp",
+    "assets/legend/dark/non-metals.webp",
   ],
   nobleGases: [
-    "assets/legend/light/noble-gases.png",
-    "assets/legend/dark/noble-gases.png",
+    "assets/legend/light/noble-gases.webp",
+    "assets/legend/dark/noble-gases.webp",
   ],
   metalloids: [
-    "assets/legend/light/metalloids.png",
-    "assets/legend/dark/metalloids.png",
+    "assets/legend/light/metalloids.webp",
+    "assets/legend/dark/metalloids.webp",
   ],
   artificials: [
-    "assets/legend/light/artificials.png",
-    "assets/legend/dark/artificials.png",
+    "assets/legend/light/artificials.webp",
+    "assets/legend/dark/artificials.webp",
   ],
-  lens: ["assets/lens/light/lens.png", "assets/lens/dark/lens.png"],
-  github: ["assets/github/light/github.png", "assets/github/dark/github.png"],
+  lens: ["assets/lens/light/lens.webp", "assets/lens/dark/lens.webp"],
+  github: ["assets/github/light/github.webp", "assets/github/dark/github.webp"],
   internalTransitionMetals: [
-    "assets/legend/light/metals/internal-transition-metals.png",
-    "assets/legend/dark/metals/internal-transition-metals.png",
+    "assets/legend/light/metals/internal-transition-metals.webp",
+    "assets/legend/dark/metals/internal-transition-metals.webp",
   ],
   postTransitionMetals: [
-    "assets/legend/light/metals/post-transition-metals.png",
-    "assets/legend/dark/metals/post-transition-metals.png",
+    "assets/legend/light/metals/post-transition-metals.webp",
+    "assets/legend/dark/metals/post-transition-metals.webp",
   ],
   transitionMetals: [
-    "assets/legend/light/metals/transition-metals.png",
-    "assets/legend/dark/metals/transition-metals.png",
+    "assets/legend/light/metals/transition-metals.webp",
+    "assets/legend/dark/metals/transition-metals.webp",
   ],
   alkaliMetals: [
-    "assets/legend/light/metals/alkali-metals.png",
-    "assets/legend/dark/metals/alkali-metals.png",
+    "assets/legend/light/metals/alkali-metals.webp",
+    "assets/legend/dark/metals/alkali-metals.webp",
   ],
   alkalineEarthMetals: [
-    "assets/legend/light/metals/alkaline-earth-metals.png",
-    "assets/legend/dark/metals/alkaline-earth-metals.png",
+    "assets/legend/light/metals/alkaline-earth-metals.webp",
+    "assets/legend/dark/metals/alkaline-earth-metals.webp",
   ],
   chalcogens: [
-    "assets/legend/light/categories/chalcogens.png",
-    "assets/legend/dark/categories/chalcogens.png",
+    "assets/legend/light/categories/chalcogens.webp",
+    "assets/legend/dark/categories/chalcogens.webp",
   ],
   pnictogens: [
-    "assets/legend/light/categories/pnictogens.png",
-    "assets/legend/dark/categories/pnictogens.png",
+    "assets/legend/light/categories/pnictogens.webp",
+    "assets/legend/dark/categories/pnictogens.webp",
   ],
 };
 

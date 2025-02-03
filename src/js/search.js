@@ -28,7 +28,6 @@ function searchElement() {
   }
 }
 const toggleSearchMode = document.getElementById("toggleSearchMode");
-const loadingGif = document.getElementById("loadingGif");
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
 const resultsModal = document.getElementById("results-modal");
@@ -66,9 +65,6 @@ async function searchInJson(searchTerm) {
   const matches = [];
   const searchTermEscaped = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const searchTermRegex = new RegExp(`\\b${searchTermEscaped}`, "i");
-  resultsContent.innerHTML =
-    '<img id="loadingGif" src="./assets/gif/loading.gif" alt="Caricamento risultati...">';
-  resultsModal.style.display = "block";
 
   // Cerca nel JSON
   for (const entry of jsonData) {
@@ -123,8 +119,6 @@ async function searchInJson(searchTerm) {
 
 // Funzione principale di ricerca
 async function handleSearch() {
-  resultsContent.innerHTML =
-    '<img id="loadingGif" src="./assets/gif/loading.gif" alt="Caricamento risultati...">';
   resultsModal.style.display = "block";
   if (toggleSearchMode.checked) {
     const searchTerm = searchInput.value.trim();
@@ -137,9 +131,6 @@ async function handleSearch() {
       alert("Inserisci un termine di ricerca valido.");
       resultsModal.style.display = "none";
       return;
-    }
-    if (loadingGif) {
-      loadingGif.style.display = "block"; // Ensure the loading GIF is displayed
     }
     const matches = await searchInJson(searchTerm); // Attende il risultato della ricerca
     if (matches.length) {
@@ -166,8 +157,6 @@ searchButton.addEventListener("click", handleSearch);
 searchInput.addEventListener("keypress", async function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
-    resultsContent.innerHTML = 
-    '<img src="assets/gif/loading.gif" alt="Caricamento risultati..." id="loadingGif"></img>'
     await handleSearch(); // Avvia la ricerca
   }
 });
@@ -175,14 +164,6 @@ searchInput.addEventListener("keypress", async function (event) {
 // Chiusura della modale
 closeModalButton.addEventListener("click", () => {
   resultsModal.style.display = "none";
-});
-
-resultsModal.addEventListener("hide.bs.modal", function () {
-  const loadingGif = document.getElementById("loadingGif");
-  if (loadingGif && loadingGif.style.display !== "none") {
-    // Annulla la funzione di ricerca
-    searchInput.value = "";
-  }
 });
 
 window.addEventListener("click", (event) => {
