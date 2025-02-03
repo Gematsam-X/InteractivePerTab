@@ -85,8 +85,18 @@ input:checked + .slider:before {
   ); /* Muovi la pallina a destra quando è selezionato */
 }
 
-.switch-label {
+.left-switch-label {
   margin-left: 5px;
+  font-size: 1.1em;
+  margin-top: 1em;
+  width: 4em;
+}
+
+.right-switch-label {
+  margin-left: 5px;
+  font-size: 1.1em;
+  margin-top: 1em;
+  width: 4.7em;
 }
 
 .gifContainer {

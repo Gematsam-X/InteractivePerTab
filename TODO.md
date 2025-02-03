@@ -27,3 +27,4 @@
 - [X] Correct the names with the IUPAC's official version
 - [X] Add a search bar for specific words in the in-depths
 - [X] Add the SEO with a sitemap on Google Search Console
+- [ ] Improve the Lighthouse score (focus on accessibility: 90)
