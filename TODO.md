@@ -26,5 +26,4 @@
 - [X] Refactor the main logic using the data attributes
 - [X] Correct the names with the IUPAC's official version
 - [X] Add a search bar for specific words in the in-depths
-- [X] Use the online fonts instead of the local files
-- [ ] Add the SEO with a sitemap on Google Search Console
+- [X] Add the SEO with a sitemap on Google Search Console
