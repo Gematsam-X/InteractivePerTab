@@ -1,11 +1,4 @@
 const body = document.body;
-body.classList.add("no-transition"); // Add a class to disable transitions initially
-
-function showContentAfterDelay() {
-  window.setTimeout(() => {
-    document.body.classList.remove("no-transition"); // Remove the class to enable transitions after a delay
-  }, 500);
-}
 
 export const toggleButton = document.querySelector(".theme-toggle");
 
@@ -26,6 +19,4 @@ if (toggleButton) {
   toggleButton.addEventListener("click", toggleTheme); // Add an event listener to the toggle button
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  showContentAfterDelay(); // Show content after a delay when the DOM is fully loaded
-});
+document.querySelector("html").classList.add("theme-loaded"); // Add a class to the body to indicate that the theme has been loaded

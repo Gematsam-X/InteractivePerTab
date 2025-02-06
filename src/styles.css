@@ -1,3 +1,10 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1c1c1c;
+    color: #f4f4f9;
+  }
+}
+
 @font-face {
   font-family: 'Cinzel';
   src: url('./assets/fonts/Cinzel-Bold.woff2') format('woff2');
@@ -12,9 +19,17 @@
   font-display: swap;
 }
 
-.no-transition * {
-  transition: none !important;
-  display: none !important;
+html {
+  visibility: hidden;
+  display: none;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s linear;
+}
+
+html.theme-loaded {
+  visibility: visible;
+  display: block;
+  opacity: 1;
 }
 
 .hidden {
