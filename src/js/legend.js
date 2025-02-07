@@ -1,4 +1,7 @@
-import { toggleButton } from "./theme.js";
+import { themeToggleButton } from "./theme.js";
+import { isDarkTheme } from "./theme.js";
+import { isAdvancedView } from "./main.js";
+import { advancedViewButton } from "./main.js";
 
 // Array of images for each category
 const categories = {
@@ -49,12 +52,16 @@ const categories = {
     "assets/legend/light/categories/pnictogens.webp",
     "assets/legend/dark/categories/pnictogens.webp",
   ],
+  metalsAdvanced: [
+    "assets/legend/light/metals_advanced.webp",
+    "assets/legend/dark/metals_advanced.webp",
+  ],
 };
 
 let index = 0; // Set the index to light mode by default
 
 // Check if the theme is dark from localStorage
-if (localStorage.getItem("theme") === "dark") {
+if (isDarkTheme) {
   index = 1; // Set the images to dark mode
 }
 
@@ -74,10 +81,29 @@ function toggleImages() {
   updateImgs(); // Update the images
 }
 
+function updateMetalsImg() {
+  const genericMetalsImgElement = document.getElementById(`metals_img`);
+  const advancedMetalsImgElement =
+    document.getElementById(`metalsAdvanced_img`);
+  if (!isAdvancedView) {
+    genericMetalsImgElement.style.display = "none";
+    advancedMetalsImgElement.style.display = "block";
+  } else {
+    genericMetalsImgElement.style.display = "block";
+    advancedMetalsImgElement.style.display = "none";
+  }
+}
+
 // Add event listener to the toggle button if it exists
-if (toggleButton) {
-  toggleButton.addEventListener("click", toggleImages);
+if (themeToggleButton) {
+  themeToggleButton.addEventListener("click", toggleImages);
+}
+
+if (advancedViewButton) {
+  advancedViewButton.addEventListener("click", updateMetalsImg);
 }
 
 // Set the initial images when the page loads
 document.addEventListener("DOMContentLoaded", updateImgs);
+
+window.addEventListener("load", updateMetalsImg);

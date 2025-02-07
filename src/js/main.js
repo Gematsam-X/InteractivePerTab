@@ -1,3 +1,4 @@
+import { isDarkTheme } from "./theme.js";
 // Add an event to execute data extraction when the page is ready
 window.addEventListener("load", function () {
   extractElementData().catch((error) => {
@@ -399,10 +400,10 @@ addEventListenerToGroupPeriod("period");
 //* ADVANCED VIEW
 
 // State of the advanced view (enabled/disabled)
-let isAdvancedView =
+export let isAdvancedView =
   JSON.parse(localStorage.getItem("isAdvancedView")) || false;
 // Main DOM elements
-const advancedViewButton = getCategoryCell("advancedView"); // Button for advanced view
+export const advancedViewButton = getCategoryCell("advancedView"); // Button for advanced view
 
 // Selection of containers for specific metal categories
 const specificCategoriesLegendsContainers = [
@@ -434,7 +435,9 @@ function getCategoryCell(category) {
  ** Main function to enable/disable advanced view
  * @param {boolean} removeSpecificClass Indicates whether to remove specific classes
  */
-function toggleStatus(removeSpecificClass) {
+function toggleAdvancedView(removeSpecificClass) {
+  const metalsImg = document.getElementById("metals_img");
+  // Save the current state in localStorage
   localStorage.setItem("isAdvancedView", JSON.stringify(isAdvancedView));
   // Change the button text based on the current state
   advancedViewButton.innerText = isAdvancedView
@@ -568,8 +571,8 @@ function toggleStatus(removeSpecificClass) {
 document.addEventListener("DOMContentLoaded", () => {
   extractElementData(); // Extracts data
   checkElementsClass(); // Checks classes on elements
-  toggleStatus(false); // Initial view setup
+  toggleAdvancedView(false); // Initial view setup
 });
 
 // Handle the button to enable/disable advanced view
-advancedViewButton.addEventListener("click", () => toggleStatus(true));
+advancedViewButton.addEventListener("click", () => toggleAdvancedView(true));

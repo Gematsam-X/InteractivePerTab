@@ -1,11 +1,13 @@
 const body = document.body;
 
-export const toggleButton = document.querySelector(".theme-toggle");
+export const themeToggleButton = document.querySelector(".theme-toggle");
 
 // Check if the user has already set a theme (light or dark)
 if (localStorage.getItem("theme") === "dark") {
   body.classList.add("dark-theme"); // Apply the dark theme if it was previously set
 }
+
+export const isDarkTheme = body.classList.contains("dark-theme") ? true : false; // Determine the current theme
 
 // Function to toggle the theme between light and dark
 function toggleTheme() {
@@ -15,8 +17,8 @@ function toggleTheme() {
   localStorage.setItem("theme", theme); // Save the current theme to localStorage
 }
 
-if (toggleButton) {
-  toggleButton.addEventListener("click", toggleTheme); // Add an event listener to the toggle button
+if (themeToggleButton) {
+  themeToggleButton.addEventListener("click", toggleTheme); // Add an event listener to the toggle button
 }
 
 document.querySelector("html").classList.add("theme-loaded"); // Add a class to the body to indicate that the theme has been loaded

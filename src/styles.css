@@ -6,15 +6,15 @@
 }
 
 @font-face {
-  font-family: 'Cinzel';
-  src: url('./assets/fonts/Cinzel-Bold.woff2') format('woff2');
+  font-family: "Cinzel";
+  src: url("./assets/fonts/Cinzel-Bold.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Fira Sans Condensed';
-  src: url('./assets/fonts/FiraSansCondensed-SemiBold.woff2') format('woff2');
+  font-family: "Fira Sans Condensed";
+  src: url("./assets/fonts/FiraSansCondensed-SemiBold.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
@@ -102,28 +102,6 @@ input:checked + .slider:before {
 
 .switch-label {
   margin-left: 5px;
-}
-
-.gifContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.7);
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.gif {
-  max-width: 80%;
-  max-height: 80%;
-  border: 2px solid white;
-  border-radius: 10px;
 }
 
 .group,
@@ -250,6 +228,10 @@ td:hover {
   background-color: #7dbf7d;
 }
 /* Specific categories of elements */
+
+#metalsLegendContainer {
+  justify-items: center;
+}
 
 .halogen {
   background-color: #fc952f !important;
@@ -596,7 +578,7 @@ body.dark-theme {
 }
 
 .dark-theme .alkalineEarthMetal {
-  background-color: deeppink !important;
+  background-color: #ff1493 !important;
 }
 
 .dark-theme .alkalineEarthMetal:hover {
@@ -604,19 +586,19 @@ body.dark-theme {
 }
 
 .dark-theme .alkaliMetal {
-  background-color: #008b8b !important;
+  background-color: #2ea3a3 !important;
 }
 
 .dark-theme .alkaliMetal:hover {
-  background-color: #017575 !important;
+  background-color: #207070 !important;
 }
 
 .dark-theme .transitionMetal {
-  background-color: #327de0 !important;
+  background-color: #4d89d8 !important;
 }
 
 .dark-theme .transitionMetal:hover {
-  background-color: #2f5b9f !important;
+  background-color: #3564b1 !important;
 }
 
 .dark-theme .internalTransitionMetal {
@@ -640,7 +622,7 @@ body.dark-theme {
 }
 
 .dark-theme .special {
-  background-color: #636e72 !important;
+  background-color: #91949b !important;
 }
 
 .dark-theme .special:hover {
