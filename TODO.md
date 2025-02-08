@@ -29,4 +29,5 @@
 - [X] Improve the SEO with a sitemap on Google Search Console
 - [X] Use a different image for the generic metals when the advanced view is on.
 - [X] Improve the Lighthouse score. Focus on accessibility (92) and best practices (96). Remember to check the score in all the pages of the project.
-- [ ] Add hyperlinks when mentioning other elements in an in-depth
+- [X] Add hyperlinks when mentioning other elements in an in-depth
+- [ ] Add a picture for each element that shows a product that can be created using the element itself.
