@@ -46,7 +46,7 @@ function checkElementsClass() {
 }
 
 // Global variable for data
-let elementData = [];
+export let elementData = [];
 
 // Function to extract chemical element data from the table, using Promise
 async function extractElementData() {

@@ -1,3 +1,4 @@
+import { elementData } from "./main.js";
 // Function to search for an element by name, symbol, or atomic number
 function searchElement() {
   const searchValue = searchInput.value.toLowerCase().trim();
@@ -114,12 +115,12 @@ async function searchInJson(searchTerm) {
       }
     }
   }
+  resultsModal.style.display = "block";
   return matches;
 }
 
 // Funzione principale di ricerca
 async function handleSearch() {
-  resultsModal.style.display = "block";
   if (toggleSearchMode.checked) {
     const searchTerm = searchInput.value.trim();
     if (!searchTerm) {
