@@ -70,7 +70,11 @@ function updateImgs() {
   for (const [category, images] of Object.entries(categories)) {
     const imgElement = document.getElementById(`${category}_img`);
     if (imgElement) {
-      imgElement.src = images[index]; // Update the image source based on the current index
+      if (imgElement.id === "metals_img") {
+        updateMetalsImg();
+      } else {
+        imgElement.src = images[index]; // Update the image source based on the current index
+      }
     }
   }
 }
@@ -82,15 +86,11 @@ function toggleImages() {
 }
 
 function updateMetalsImg() {
-  const genericMetalsImgElement = document.getElementById(`metals_img`);
-  const advancedMetalsImgElement =
-    document.getElementById(`metalsAdvanced_img`);
-  if (!isAdvancedView) {
-    genericMetalsImgElement.style.display = "none";
-    advancedMetalsImgElement.style.display = "block";
+  const imgElement = document.getElementById(`metals_img`);
+  if (isAdvancedView) {
+    imgElement.src = categories.metals[index];
   } else {
-    genericMetalsImgElement.style.display = "block";
-    advancedMetalsImgElement.style.display = "none";
+    imgElement.src = categories.metalsAdvanced[index];
   }
 }
 
